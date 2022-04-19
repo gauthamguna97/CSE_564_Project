@@ -46,6 +46,9 @@ Defense = {"CB", "LB", "LCB", "LWB", "RB", "RCB", "RWB", "SUB"}
 Mid_Fielder = {"CAM", "CDM", "CM", "LAM", "LCM", "LDM", "LM", "RAM", "RCM", "RDM", "RM"}
 Attacker = {"CF", "LF", "LS", "LW", "RES", "RF", "RS", "RW", "ST"}
 
+@app.route('/')
+def hello():
+        return render_template('index.html')
 
 @app.route('/sunburst', methods = ['GET'])
 def biplot():
@@ -76,13 +79,13 @@ def biplot():
         for a in Attacker:
                 AttList.append(Count(a, int(pos[a])))
 
-        GKList = Count("GK", int(pos["GK"]))
+        # GKList = Count("GK", int(pos["GK"]))
 
         PlayerList = list()
         PlayerList.append(Type("Defence", DefList))
         PlayerList.append(Type("Mid Fielder", MidList))
         PlayerList.append(Type("Attacker", AttList))
-        PlayerList.append(Type("Goal Keeper", GKList))
+        PlayerList.append(Count("Goal Keeper", pos["GK"]))
 
         data = Type("Players", PlayerList)
 
@@ -100,8 +103,6 @@ def biplot():
         response = jsonify(json.loads(json.dumps(data, default=vars)))
         response.headers.add("Access-Control-Allow-Origin", "*")
         return response
-
-
 
 if __name__ == '__main__':
     app.run(host='localhost', port=5005, debug=True)
