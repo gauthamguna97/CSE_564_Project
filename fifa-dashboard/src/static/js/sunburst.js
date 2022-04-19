@@ -1,6 +1,6 @@
 SunBurst();
 
-let currentDepth = 0
+let currentDepth = 0;
 
 function SunBurst() {
   const url = "http://127.0.0.1:5005";
@@ -16,12 +16,12 @@ function plotSunBurst(root) {
 
   let numClicks = 0;
   const handleClick = (d) => {
-    console.log(d)
+    console.log(d);
     numClicks++;
 
     if (numClicks === 1) {
       if (d.depth < currentDepth) {
-        focusOn(d)
+        focusOn(d);
       }
       singleClickTimer = setTimeout(() => {
         numClicks = 0;
@@ -89,8 +89,8 @@ function plotSunBurst(root) {
   const svg = d3
     .select("#sunburst")
     .append("svg")
-    .style("width", "100vw")
-    .style("height", "100vh")
+    .style("width", "50vw")
+    .style("height", "50vh")
     .attr("viewBox", `${-width / 2} ${-height / 2} ${width} ${height}`)
     // .on("click", () => focusOn()); // Reset zoom on canvas click
     .on("click", () => focusOn()); // Reset zoom on canvas click
@@ -106,7 +106,9 @@ function plotSunBurst(root) {
     .enter()
     .append("g")
     .attr("class", "slice")
-    .on("click", (d) => handleClick(d));
+    .on("click", (d) => handleClick(d))
+    .on("mouseover", (d) => mouseover(d))
+    .on("mouseleave", (d) => mouseleave(d))
 
   newSlice
     .append("title")
@@ -145,6 +147,43 @@ function plotSunBurst(root) {
     .attr("xlink:href", (_, i) => `#hiddenArc${i}`)
     .text((d) => d.data.name);
 
+  function mouseover(d) {
+    var sequenceArray = getAncestors(d);
+
+    // Fade all the segments.
+    d3.selectAll("path").style("opacity", 0.3);
+
+    // Then highlight only those that are an ancestor of the current segment.
+    svg
+      .selectAll("path")
+      .filter(function (node) {
+        return sequenceArray.indexOf(node) >= 0;
+      })
+      .style("opacity", 1);
+  }
+
+  function getAncestors(node) {
+    var path = [];
+    var current = node;
+    while (current) {
+      path.unshift(current);
+      current = current.parent;
+    }
+    return path;
+  }
+
+  function mouseleave(d) {
+    // Deactivate all segments during transition.
+    d3.selectAll("path").on("mouseover", null);
+
+    // Transition each segment to full opacity and then reactivate it.
+    d3.selectAll("path")
+        .style("opacity", 1)
+        .each("end", function() {
+                d3.select(this).on("mouseover", mouseover);
+              });
+  }
+
   function focusOn(d = { x0: 0, x1: 1, y0: 0, y1: 1 }) {
     // Reset to top-level if no data point specified
     const transition = svg
@@ -171,7 +210,7 @@ function plotSunBurst(root) {
 
     moveStackToFront(d);
 
-    currentDepth = d.depth
+    currentDepth = d.depth;
 
     function moveStackToFront(elD) {
       svg
