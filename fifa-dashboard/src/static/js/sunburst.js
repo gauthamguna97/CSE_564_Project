@@ -1,9 +1,9 @@
 SunBurst();
 
+let currentDepth = 0
+
 function SunBurst() {
   const url = "http://127.0.0.1:5005";
-  console.log("hello world");
-  console.log(url + "/sunburst");
   fetch(url + "/sunburst")
     .then((res) => res.json())
     .then((response) => {
@@ -12,8 +12,29 @@ function SunBurst() {
 }
 
 function plotSunBurst(root) {
-  console.log(root);
   d3.selectAll("#sunburst").html("");
+
+  let numClicks = 0;
+  const handleClick = (d) => {
+    console.log(d)
+    numClicks++;
+
+    if (numClicks === 1) {
+      if (d.depth < currentDepth) {
+        focusOn(d)
+      }
+      singleClickTimer = setTimeout(() => {
+        numClicks = 0;
+        console.log("single click!");
+      }, 400);
+    } else if (numClicks === 2) {
+      clearTimeout(singleClickTimer);
+      numClicks = 0;
+      console.log("double click!");
+      focusOn(d);
+    }
+    d3.event.stopPropagation();
+  };
 
   const width = 400,
     height = 300,
@@ -71,6 +92,7 @@ function plotSunBurst(root) {
     .style("width", "100vw")
     .style("height", "100vh")
     .attr("viewBox", `${-width / 2} ${-height / 2} ${width} ${height}`)
+    // .on("click", () => focusOn()); // Reset zoom on canvas click
     .on("click", () => focusOn()); // Reset zoom on canvas click
 
   root = d3.hierarchy(root);
@@ -84,10 +106,7 @@ function plotSunBurst(root) {
     .enter()
     .append("g")
     .attr("class", "slice")
-    .on("click", (d) => {
-      d3.event.stopPropagation();
-      focusOn(d);
-    });
+    .on("click", (d) => handleClick(d));
 
   newSlice
     .append("title")
@@ -128,8 +147,6 @@ function plotSunBurst(root) {
 
   function focusOn(d = { x0: 0, x1: 1, y0: 0, y1: 1 }) {
     // Reset to top-level if no data point specified
-
-    console.log(d);
     const transition = svg
       .transition()
       .duration(750)
@@ -154,7 +171,8 @@ function plotSunBurst(root) {
 
     moveStackToFront(d);
 
-    //
+    currentDepth = d.depth
+
     function moveStackToFront(elD) {
       svg
         .selectAll(".slice")
