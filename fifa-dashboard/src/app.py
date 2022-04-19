@@ -5,10 +5,14 @@ import numpy as np
 import pandas as pd
 import math
 import json
-import re
+# import re
+from flask_cors import CORS
+
 
 app = Flask(__name__)
 app.config['JSON_SORT_KEYS']=False
+
+CORS(app)
 
 # @app.route('/')
 # def hello():
@@ -52,7 +56,7 @@ def hello():
 
 @app.route('/sunburst', methods = ['GET'])
 def biplot():
-        df = pd.read_csv("data/fifa.csv")
+        df = pd.read_csv("static/data/fifa.csv")
         pos = dict()
         col = "club_position_"
         res = dict()
@@ -103,6 +107,12 @@ def biplot():
         response = jsonify(json.loads(json.dumps(data, default=vars)))
         response.headers.add("Access-Control-Allow-Origin", "*")
         return response
+
+@app.route('/geo_json', methods = ['GET'])
+def geomap():
+        df = pd.read_csv("static/data/fifa.csv")
+        return jsonify(df[["nationality", "sofifa_id"]].groupby("nationality").count().to_dict()["sofifa_id"])
+        
 
 if __name__ == '__main__':
     app.run(host='localhost', port=5005, debug=True)
