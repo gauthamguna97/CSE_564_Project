@@ -6,6 +6,8 @@ var svg = d3.select("#geoMap")
   width = +svg.attr("width"),
   height = +svg.attr("height");
 
+var freq = {}
+
 // Map and projection
 var path = d3.geoPath();
 var projection = d3.geoMercator()
@@ -15,15 +17,13 @@ var projection = d3.geoMercator()
 
 // Data and color scale
 var data = d3.map();
-var colorScale = d3.scaleThreshold()
-  .domain([200, 400, 600, 800])
-  .range(d3.schemeBlues[5]);
 
-// Load external data and boot
-// d3.queue()
-//   .defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
-//   .defer(d3.csv, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world_population.csv", function(d) { data.set(d.code, +d.pop); })
-//   .await(GeoMap);
+var newColorScale =  d3.scaleLinear().domain([0, 600])
+                        .range(["white", "red"])
+
+var colorScale = d3.scaleThreshold()
+  .domain([10, 50, 100, 300, 400])
+  .range(d3.schemeBlues[6]);
 
 function Geo() {
     const url = "http://127.0.0.1:5005";
@@ -37,6 +37,8 @@ function Geo() {
 
 function GeoMap(frequency) {
 
+    freq = frequency
+
     console.log(frequency)
 
     var geoData = JSON.parse(document.getElementById('worldData').innerHTML);
@@ -44,7 +46,9 @@ function GeoMap(frequency) {
     console.log(geoData)
 
 
-    let mouseOver = function(d) {
+    let mouseOver = function(d, frequency) {
+        console.log(d.properties.name)
+        console.log(frequency[d.properties.name])
     d3.selectAll(".Country")
         .transition()
         .duration(200)
@@ -80,13 +84,13 @@ function GeoMap(frequency) {
         // set the color of each country
         .attr("fill", function (d) {
         d.total = frequency[d.properties.name] || 0;
-        console.log(d.properties)
-        return colorScale(d.total);
+        console.log(d.properties.name)
+        return newColorScale(d.total);
         })
         .style("stroke", "transparent")
         .attr("class", function(d){ return "Country" } )
         .style("opacity", .8)
-        .on("mouseover", mouseOver )
+        .on("mouseover", mouseOver)
         .on("mouseleave", mouseLeave )
 }
 
