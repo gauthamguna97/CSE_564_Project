@@ -23,27 +23,10 @@ class Type:
                 self.name = name
                 self.children = children
 
-        # def toJSON(self):
-        #         j = json.dumps(self, default=lambda o: o.__dict__)
-        #         re.sub(r'(?<!: )"(\S*?)"', '\\1', j)
-        #         print(j)
-        #         return j
-
 class Count:
         def __init__(self, name, count):
                 self.name = name
                 self.count = count
-
-        # def toJSON(self):
-        #         j = json.dumps(self, default=lambda o: o.__dict__)
-        #         re.sub(r'(?<!: )"(\S*?)"', '\\1', j)
-        #         print(j)
-        #         return j
-
-# def set_default(obj):
-#     if isinstance(obj, set):
-#         return list(obj)
-#     raise TypeError
 
 
 Defense = {"CB", "LB", "LCB", "LWB", "RB", "RCB", "RWB", "SUB"}
@@ -53,6 +36,7 @@ Attacker = {"CF", "LF", "LS", "LW", "RES", "RF", "RS", "RW", "ST"}
 @app.route('/')
 def hello():
         return render_template('index.html')
+
 
 @app.route('/sunburst', methods = ['GET'])
 def biplot():
@@ -112,7 +96,17 @@ def biplot():
 def geomap():
         df = pd.read_csv("static/data/fifa.csv")
         return jsonify(df[["nationality", "sofifa_id"]].groupby("nationality").count().to_dict()["sofifa_id"])
-        
+
+@app.route('/pcpdata', methods = ['GET'])
+def pcpdata():
+#     body = request.get_json().get('value')
+    df = pd.read_csv("static/data/fifa.csv")
+    df = df[["overall_15", "overall_16", "overall_17", "overall_18", "overall_19", "overall_20", "overall_21", "overall_22"]]
+    df = df.dropna()
+    response = jsonify({'data' : df.to_dict('records')})
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    print(response)
+    return response
 
 if __name__ == '__main__':
     app.run(host='localhost', port=5005, debug=True)
