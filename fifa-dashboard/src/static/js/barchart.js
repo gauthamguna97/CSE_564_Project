@@ -1,8 +1,8 @@
 const BarChart = () => {
     // set the dimensions and margins of the graph
     var margin = {top: 20, right: 30, bottom: 40, left: 200},
-    width = 600 - margin.left - margin.right,
-    height = 1000 - margin.top - margin.bottom;
+    width = 400 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
 
 
     // append the svg object to the body of the page
@@ -19,7 +19,7 @@ const BarChart = () => {
 
         var map = new Map();
 
-        var value = 'league_name_'
+        var value = 'league_name'
 
         totaldata.map((node) => {
             map.set(node[value], (map.get(node[value]) || 0) + 1);
@@ -28,6 +28,10 @@ const BarChart = () => {
         console.log(map);
 
         var data = Array.from(map, ([name, value]) => ({ name, value }));
+
+        data.sort((a, b) => b.value - a.value)
+
+        data.length = 10;
 
         console.log(data);
 

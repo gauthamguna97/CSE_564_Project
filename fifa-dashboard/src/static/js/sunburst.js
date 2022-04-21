@@ -12,7 +12,7 @@ function SunBurst() {
 }
 
 function plotSunBurst(root) {
-  d3.selectAll("#sunburst").html("");
+  // d3.selectAll("#sunburst").html("");
 
   let numClicks = 0;
   const handleClick = (d) => {
@@ -86,8 +86,8 @@ function plotSunBurst(root) {
   const svg = d3
     .select("#sunburst")
     .append("svg")
-    .style("width", "100%")
-    .style("height", "100%")
+    .style("width", 500)
+    .style("height", 500)
     .attr("viewBox", `${-width / 2} ${-height / 2} ${width} ${height}`)
     // .on("click", () => focusOn()); // Reset zoom on canvas click
     .on("click", () => focusOn()); // Reset zoom on canvas click

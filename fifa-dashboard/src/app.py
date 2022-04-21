@@ -101,7 +101,7 @@ def geomap():
 def pcpdata():
 #     body = request.get_json().get('value')
     df = pd.read_csv("static/data/fifa.csv")
-    df = df[["overall_15", "overall_16", "overall_17", "overall_18", "overall_19", "overall_20", "overall_21", "overall_22"]]
+    df = df[["age", "wage_eur", "overall"]]
     df = df.dropna()
     response = jsonify({'data' : df.to_dict('records')})
     response.headers.add("Access-Control-Allow-Origin", "*")
