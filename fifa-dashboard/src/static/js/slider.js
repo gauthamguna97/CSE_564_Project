@@ -12,8 +12,8 @@ function time_slider(min, max, starting_min = min, starting_max = max) {
   console.log(range);
   console.log(starting_max);
   // set width and height of svg
-  var w = 400;
-  var h = 200;
+  var w = 250;
+  var h = 50;
   var margin = 8;
 
   // dimensions of slider bar
@@ -28,7 +28,7 @@ function time_slider(min, max, starting_min = min, starting_max = max) {
 
   console.log("slider");
   // create svg and translated g
-  var svg_slider = d3.select("#slider");
+  var svg_slider = d3.select("#slider").append("svg");
   const g = svg_slider
     .append("g")
     // .attr("transform", `translate(${margin.left}, ${margin.top})`);
@@ -80,8 +80,8 @@ function time_slider(min, max, starting_min = min, starting_max = max) {
       // update view
       // if the view should only be updated after brushing is over,
       // move these two lines into the on('end') part below
-      // svg_slider.node().value = s.map((d) => Math.round(x.invert(d)));
-      // svg_slider.node().dispatchEvent(new CustomEvent("input"));
+      svg_slider.node().value = s.map((d) => Math.round(x.invert(d)));
+      svg_slider.node().dispatchEvent(new CustomEvent("input"));
     })
     .on("end", function () {
       if (!d3.event.sourceEvent) return;
