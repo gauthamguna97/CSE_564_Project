@@ -39,16 +39,16 @@ function GeoMap(frequency) {
 
     freq = frequency
 
-    console.log(frequency)
+    // console.log(frequency)
 
     var geoData = JSON.parse(document.getElementById('worldData').innerHTML);
 
-    console.log(geoData)
+    // console.log(geoData)
 
 
     let mouseOver = function(d, frequency) {
-        console.log(d.properties.name)
-        console.log(frequency[d.properties.name])
+        // console.log(d.properties.name)
+        // console.log(frequency[d.properties.name])
     d3.selectAll(".Country")
         .transition()
         .duration(200)
@@ -84,7 +84,7 @@ function GeoMap(frequency) {
         // set the color of each country
         .attr("fill", function (d) {
         d.total = frequency[d.properties.name] || 0;
-        console.log(d.properties.name)
+        // console.log(d.properties.name)
         return newColorScale(d.total);
         })
         .style("stroke", "transparent")
