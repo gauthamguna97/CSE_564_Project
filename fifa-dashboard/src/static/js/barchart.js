@@ -65,7 +65,7 @@ const BarChart = () => {
         .attr("y", function(d) { return y(d.name); })
         .attr("width", function(d) { console.log(d.value); return x(d.value); })
         .attr("height", y.bandwidth() )
-        .attr("fill", "#69b3a2")
+        .attr("fill", "tomato")
 
 
         // .attr("x", function(d) { return x(d.Country); })

@@ -5,6 +5,12 @@ body {
   color: white */
 }
 
+h1 {
+  font-size: 16px;
+  text-align: center;
+  margin: none;
+}
+
 
 
 .slice {
