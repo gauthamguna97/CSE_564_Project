@@ -22,8 +22,8 @@ var newColorScale =  d3.scaleLinear().domain([0, 600])
                         .range(["white", "red"])
 
 var colorScale = d3.scaleThreshold()
-  .domain([10, 50, 100, 300, 400])
-  .range(d3.schemeBlues[6]);
+  .domain([10, 20, 50, 100, 200, 300, 400, 500])
+  .range(d3.schemeYlOrRd[9]);
 
 function Geo() {
     const url = "http://127.0.0.1:5005";
@@ -85,7 +85,7 @@ function GeoMap(frequency) {
         .attr("fill", function (d) {
         d.total = frequency[d.properties.name] || 0;
         // console.log(d.properties.name)
-        return newColorScale(d.total);
+        return colorScale(d.total);
         })
         .style("stroke", "transparent")
         .attr("class", function(d){ return "Country" } )
