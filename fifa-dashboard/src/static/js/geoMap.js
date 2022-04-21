@@ -1,8 +1,6 @@
 // The svg
 var svg = d3.select("#geoMap")
             .append("svg")
-            .attr("width", 700)
-            .attr("height", 700),
   width = +svg.attr("width"),
   height = +svg.attr("height");
 

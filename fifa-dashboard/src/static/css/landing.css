@@ -21,3 +21,20 @@ body {
   dominant-baseline: middle;
   text-anchor: middle;
 }
+
+#dashboard {
+  display: flex;
+  justify-content: space-between;
+  height: 800;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+div {
+  width: 100%;
+  height: 100%;
+}
+
