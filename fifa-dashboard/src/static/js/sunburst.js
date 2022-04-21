@@ -3,7 +3,7 @@ SunBurst();
 let currentDepth = 0;
 
 function SunBurst() {
-  const url = "http://127.0.0.1:5005";
+  var url = "http://127.0.0.1:5005";
   fetch(url + "/sunburst")
     .then((res) => res.json())
     .then((response) => {
