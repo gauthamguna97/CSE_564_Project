@@ -84,7 +84,7 @@ function PcpChart(dataPcp) {
 //           .range([height, 0]));
 //       } else {
         return (
-          d != "clusters" &&
+          d != "pos_type" &&
           (y[d] = d3
             .scaleLinear()
             .domain(
@@ -123,7 +123,7 @@ function PcpChart(dataPcp) {
     .append("path")
     .attr("d", path)
     .attr("style", function (d) {
-      return "stroke:" + color(d.clusters) + ";";
+      return "stroke:" + color(d.pos_type) + ";";
     });
   //   .attr("class", function (d) {
   //     return "line " + "l" + d.clusters;
