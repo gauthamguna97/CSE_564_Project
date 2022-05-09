@@ -10,6 +10,7 @@
      <link rel="stylesheet" href="../static/css/slider.css" />
      <link rel="stylesheet" href="../static/css/pcp.css" />
      <link rel="stylesheet" href="../static/css/sunburst.css" />
+     <link rel="stylesheet" href="../static/css/sequences.css" />
     <title>FIFA Dashboard</title>
     <script src="https://d3js.org/d3.v4.js"></script>
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
@@ -12886,19 +12887,22 @@
         <h1>Geo Map</h1>
       </div>
       <div id="sunburst">
-        <h1>Sun Burst</h1>
+        <div id="sbplot">
+          <span id="sbpercentage"></span><br/>
+          of visits begin with this sequence of pages
+        </div>
       </div>
       <div id="barchart">
         <h1>Bar Chart</h1>
       </div>
-      <div id="pcp">
+      <!-- <div id="pcp">
         <h1>Parallel Coordinate Plot</h1>
-      </div>
+      </div> -->
     </div>
     <script src="../static/js/geoMap.js"></script>
     <script src="../static/js/barchart.js"></script>
     <script src="../static/js/sunburst.js"></script>
     <script src="../static/js/slider.js"></script>
-    <script src="../static/js/pcp.js"></script>
+    <!-- <script src="../static/js/pcp.js"></script> -->
   </body>
 </html>

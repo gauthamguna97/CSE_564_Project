@@ -15,11 +15,6 @@ app.config["JSON_SORT_KEYS"] = False
 
 CORS(app)
 
-# @app.route('/')
-# def hello():
-#     return render_template('index.html')
-
-
 class Type:
     def __init__(self, name, children):
         self.name = name

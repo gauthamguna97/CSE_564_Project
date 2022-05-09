@@ -44,7 +44,7 @@ function plotSunBurst(root) {
     .range([0, 2 * Math.PI])
     .clamp(true);
 
-  const y = d3.scaleSqrt().range([maxRadius * 0.1, maxRadius]);
+  const y = d3.scaleLinear().range([maxRadius * 0.4, maxRadius]);
 
   const color = d3.scaleOrdinal(d3.schemeCategory10);
 
@@ -84,7 +84,7 @@ function plotSunBurst(root) {
   };
 
   const svg = d3
-    .select("#sunburst")
+    .select("#sbplot")
     .append("svg")
     .style("width", 500)
     .style("height", 500)
@@ -96,6 +96,10 @@ function plotSunBurst(root) {
   root.sum((d) => d.count);
 
   const slice = svg.selectAll("g.slice").data(partition(root).descendants());
+
+  // svg.append("svg:circle")
+  //     .attr("r", radius)
+  //     .style("opacity", 0);
 
   slice.exit().remove();
 
@@ -182,43 +186,46 @@ function plotSunBurst(root) {
   }
 
   function focusOn(d = { x0: 0, x1: 1, y0: 0, y1: 1 }) {
+
+    console.log(d)
+
     // Reset to top-level if no data point specified
-    const transition = svg
-      .transition()
-      .duration(750)
-      .tween("scale", () => {
-        const xd = d3.interpolate(x.domain(), [d.x0, d.x1]),
-          yd = d3.interpolate(y.domain(), [d.y0, 1]);
-        return (t) => {
-          x.domain(xd(t));
-          y.domain(yd(t));
-        };
-      });
+    // const transition = svg
+    //   .transition()
+    //   .duration(750)
+    //   .tween("scale", () => {
+    //     // const xd = d3.interpolate(x.domain(), [d.x0, d.x1]),
+    //     //   yd = d3.interpolate(y.domain(), [d.y0, 1]);
+    //     return (t) => {
+    //       x.domain(xd(t));
+    //       y.domain(yd(t));
+    //     };
+    //   });
 
-    transition.selectAll("path.main-arc").attrTween("d", (d) => () => arc(d));
+    // transition.selectAll("path.main-arc").attrTween("d", (d) => () => arc(d));
 
-    transition
-      .selectAll("path.hidden-arc")
-      .attrTween("d", (d) => () => middleArcLine(d));
+    // transition
+    //   .selectAll("path.hidden-arc")
+    //   .attrTween("d", (d) => () => middleArcLine(d));
 
-    transition
-      .selectAll("text")
-      .attrTween("display", (d) => () => textFits(d) ? null : "none");
+    // transition
+    //   .selectAll("text")
+    //   .attrTween("display", (d) => () => textFits(d) ? null : "none");
 
-    moveStackToFront(d);
+    // moveStackToFront(d);
 
-    currentDepth = d.depth;
+    // currentDepth = d.depth;
 
-    function moveStackToFront(elD) {
-      svg
-        .selectAll(".slice")
-        .filter((d) => d === elD)
-        .each(function (d) {
-          this.parentNode.appendChild(this);
-          if (d.parent) {
-            moveStackToFront(d.parent);
-          }
-        });
-    }
+    // function moveStackToFront(elD) {
+    //   svg
+    //     .selectAll(".slice")
+    //     .filter((d) => d === elD)
+    //     .each(function (d) {
+    //       this.parentNode.appendChild(this);
+    //       if (d.parent) {
+    //         moveStackToFront(d.parent);
+    //       }
+    //     });
+    // }
   }
 }

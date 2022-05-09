@@ -101,3 +101,7 @@ rect.selection {
   stroke: #fff;
   shape-rendering: crispEdges;
 }
+
+#sbpercentage {
+  font-size: 2.5em;
+}
