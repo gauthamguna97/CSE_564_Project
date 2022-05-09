@@ -32,9 +32,10 @@ class Count:
         self.count = count
 
 
-Defense = {"CB", "LB", "LCB", "LWB", "RB", "RCB", "RWB", "SUB"}
-Mid_Fielder = {"CAM", "CDM", "CM", "LAM", "LCM", "LDM", "LM", "RAM", "RCM", "RDM", "RM"}
-Attacker = {"CF", "LF", "LS", "LW", "RES", "RF", "RS", "RW", "ST"}
+Defense = {"CB", "LB", "LWB", "RB", "RWB"}
+Mid_Fielder = {"CAM", "CDM", "CM", "LM", "RM"}
+Attacker = {"CF", "LW", "RW", "ST"}
+Others = {"SUB", "nan"}
 
 @app.route("/")
 def hello():
@@ -43,21 +44,20 @@ def hello():
 
 @app.route("/sunburst", methods=["GET"])
 def biplot():
-    df = pd.read_csv("static/data/fifa.csv")
+    df = pd.read_csv("static/data/singleyear.csv")
     pos = dict()
-    col = "club_position_"
+    col = "player_position"
     res = dict()
-    for i in range(15, 23):
-        new_col = col + str(i)
-        for st in df[new_col]:
-            if st is None or type(st) is not str or st in "nan":
-                continue
-
-            if st in pos:
-                pos[st] += 1
-            else:
-                pos.update({st: 1})
-
+    # for i in range(15, 23):
+    new_col = col.split(",")[0]
+    for st in df[new_col]:
+        if st is None or type(st) is not str:
+            continue
+        if st in pos:
+            pos[st] += 1
+        else:
+            pos.update({st: 1})
+    print(pos)
     DefList = list()
     for d in Defense:
         DefList.append(Count(d, int(pos[d])))
@@ -69,6 +69,10 @@ def biplot():
     AttList = list()
     for a in Attacker:
         AttList.append(Count(a, int(pos[a])))
+        
+    Others = list()
+    for a in Others:
+        Others.append(Count(a, int(pos[a])))
 
     # GKList = Count("GK", int(pos["GK"]))
 
@@ -77,6 +81,7 @@ def biplot():
     PlayerList.append(Type("Mid Fielder", MidList))
     PlayerList.append(Type("Attacker", AttList))
     PlayerList.append(Count("Goal Keeper", pos["GK"]))
+    PlayerList.append(Count("Others", Others))
 
     data = Type("Players", PlayerList)
 
@@ -87,10 +92,10 @@ def biplot():
 
 @app.route("/geo_json", methods=["GET"])
 def geomap():
-    df = pd.read_csv("static/data/fifa.csv")
+    df = pd.read_csv("static/data/singleyear.csv")
     return jsonify(
-        df[["nationality", "sofifa_id"]]
-        .groupby("nationality")
+        df[["nationality_name", "sofifa_id"]]
+        .groupby("nationality_name")
         .count()
         .to_dict()["sofifa_id"]
     )
@@ -99,7 +104,7 @@ def geomap():
 @app.route("/pcpdata", methods=["GET"])
 def pcpdata():
     #     body = request.get_json().get('value')
-    df = pd.read_csv("static/data/fifa.csv")
+    df = pd.read_csv("static/data/singleyear.csv")
     df = df[["age", "wage_eur", "overall", "pos_type"]]
 #     conditions = [
 #     (df["club_position_15"] in Attacker),
