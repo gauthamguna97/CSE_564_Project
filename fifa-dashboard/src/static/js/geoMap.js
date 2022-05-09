@@ -8,6 +8,10 @@ var svg = d3.select("#geoMap")
 
 var freq = {}
 
+var list = [];
+
+var selectList = [];
+
 // Map and projection
 var path = d3.geoPath();
 var projection = d3.geoMercator()
@@ -35,7 +39,7 @@ var colorScale = d3.scaleThreshold()
 // }
 
 
-function GeoMap(frequency) {
+function GeoMap(frequency, tdata) {
 
     freq = frequency
 
@@ -50,6 +54,7 @@ function GeoMap(frequency) {
         // console.log(d.properties.name)
         // console.log(frequency[d.properties.name])
     d3.selectAll(".Country")
+        .filter(d => !selectList.includes(d.name))
         .transition()
         .duration(200)
         .style("opacity", .5)
@@ -57,7 +62,7 @@ function GeoMap(frequency) {
         .transition()
         .duration(200)
         .style("opacity", 1)
-        .style("stroke", "black")
+        .style("stroke", "white")
     }
 
     let mouseLeave = function(d) {
@@ -71,27 +76,47 @@ function GeoMap(frequency) {
         .style("stroke", "transparent")
     }
 
+    let handleclick = (d) => {
+      console.log(d.properties.name);
+      list.push(d.properties.name);
+      var ndata = tdata.filter(s => list.includes(s.nationality_name))
+      BarChart(tdata, ndata);
+      console.log(tdata, ndata)
+    }
+
     // Draw the map
-    svg.append("g")
-    .selectAll("path")
-    .data(geoData.features)
-    .enter()
-    .append("path")
+    var zoomG = svg.append("g");
+    // Draw the map
+    zoomG.selectAll("path")
+      .data(geoData.features)
+      .enter()
+      .append("path")
         // draw each country
         .attr("d", d3.geoPath()
-        .projection(projection)
+          .projection(projection)
         )
         // set the color of each country
         .attr("fill", function (d) {
-        d.total = frequency[d.properties.name] || 0;
-        // console.log(d.properties.name)
-        return colorScale(d.total);
+          console.log(d)
+          var value = frequency[d.properties.name]
+          return colorScale(value || 0);
         })
-        .style("stroke", "transparent")
+        .style("stroke", "white")
         .attr("class", function(d){ return "Country" } )
         .style("opacity", .8)
-        .on("mouseover", mouseOver)
-        .on("mouseleave", mouseLeave )
+        .on("mouseover", mouseOver )
+        .on("click", handleclick )
+        // .on("mouseleave", mouseLeave )
+  const zoom = d3.zoom()
+      .scaleExtent([1, 8])
+      .on('zoom', zoomed);
+
+    svg.call(zoom);
+
+    function zoomed() {
+      zoomG.selectAll('path') // To prevent stroke width from scaling
+        .attr('transform', d3.event.transform);
+    }
 }
 
 // Geo()

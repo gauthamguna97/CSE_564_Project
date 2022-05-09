@@ -13,9 +13,11 @@ window.onload = () => {
             // plot_table(response.data)
             // var attributes = response.data.map(d => d["Attributes"]);
             // plot_scatter(attributes);
-            GeoMap(response.geoData)
-            plotSunBurst(response.sunburst)
-            BarChart(JSON.parse(response.data))
+            var data = JSON.parse(response.data)
+            GeoMap(response.geoData, data)
+            plotSunBurst(response.sunburst, data)
+            // var ndata = data.filter(s => s.nationality_name == "Brazil")
+            BarChart(data, [])
             // GeoMap(response.geoData)
         });
     // barchart()
