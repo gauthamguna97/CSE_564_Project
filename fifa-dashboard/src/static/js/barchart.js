@@ -1,4 +1,4 @@
-const BarChart = () => {
+const BarChart = (totaldata) => {
     // set the dimensions and margins of the graph
     var margin = {top: 20, right: 30, bottom: 40, left: 200},
     width = 400 - margin.left - margin.right,
@@ -15,7 +15,7 @@ const BarChart = () => {
         "translate(" + margin.left + "," + margin.top + ")");
 
     // Parse the Data
-    d3.csv("/static/data/fifa.csv", function(totaldata) {
+    // d3.csv("/static/data/fifa.csv", function(totaldata) {
 
         var map = new Map();
 
@@ -73,6 +73,6 @@ const BarChart = () => {
         // .attr("width", x.bandwidth())
         // .attr("height", function(d) { return height - y(d.Value); })
         // .attr("fill", "#69b3a2")
-    })
+    // })
 }
-BarChart()
+// BarChart()

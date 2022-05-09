@@ -1,15 +1,15 @@
-SunBurst();
+// SunBurst();
 
 let currentDepth = 0;
 
-function SunBurst() {
-  var url = "http://127.0.0.1:5005";
-  fetch(url + "/sunburst")
-    .then((res) => res.json())
-    .then((response) => {
-      plotSunBurst(response);
-    });
-}
+// function SunBurst() {
+//   var url = "http://127.0.0.1:5005";
+//   fetch(url + "/sunburst")
+//     .then((res) => res.json())
+//     .then((response) => {
+//       plotSunBurst(response);
+//     });
+// }
 
 function plotSunBurst(root) {
   // d3.selectAll("#sunburst").html("");

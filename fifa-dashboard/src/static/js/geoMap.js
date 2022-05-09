@@ -25,14 +25,14 @@ var colorScale = d3.scaleThreshold()
   .domain([10, 20, 50, 100, 200, 300, 400, 500])
   .range(d3.schemeYlOrRd[9]);
 
-function Geo() {
-    const url = "http://127.0.0.1:5005";
-    fetch(url + "/geo_json")
-      .then((res) => res.json())
-      .then((response) => {
-        GeoMap(response);
-      });
-}
+// function Geo() {
+//     const url = "http://127.0.0.1:5005";
+//     fetch(url + "/geo_json")
+//       .then((res) => res.json())
+//       .then((response) => {
+//         GeoMap(response);
+//       });
+// }
 
 
 function GeoMap(frequency) {
@@ -94,4 +94,4 @@ function GeoMap(frequency) {
         .on("mouseleave", mouseLeave )
 }
 
-Geo()
+// Geo()

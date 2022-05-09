@@ -36,6 +36,72 @@ Others = {"SUB", "nan"}
 def hello():
     return render_template("index.html")
 
+@app.route("/fetchdata", methods=["GET", "POST"])
+def alldata():
+    df = pd.read_csv("static/data/singleyear.csv")
+    #------------ geomap
+    # geoData = jsonify(
+    subdf = df[["nationality_name", "sofifa_id"]]
+    geodata = subdf.groupby("nationality_name").count().to_dict()["sofifa_id"]
+    
+    # print(geodata)
+    # )
+    
+    #---------- sunburst
+    pos = dict()
+    col = "player_position"
+    res = dict()
+    # for i in range(15, 23):
+    new_col = col.split(",")[0]
+    for st in df[new_col]:
+        if st is None or type(st) is not str:
+            continue
+        if st in pos:
+            pos[st] += 1
+        else:
+            pos.update({st: 1})
+    print(pos)
+    DefList = list()
+    for d in Defense:
+        DefList.append(Count(d, int(pos[d])))
+
+    MidList = list()
+    for m in Mid_Fielder:
+        MidList.append(Count(m, int(pos[m])))
+
+    AttList = list()
+    for a in Attacker:
+        AttList.append(Count(a, int(pos[a])))
+        
+    Others = list()
+    for a in Others:
+        Others.append(Count(a, int(pos[a])))
+
+    # GKList = Count("GK", int(pos["GK"]))
+
+    PlayerList = list()
+    PlayerList.append(Type("Defence", DefList))
+    PlayerList.append(Type("Mid Fielder", MidList))
+    PlayerList.append(Type("Attacker", AttList))
+    PlayerList.append(Count("Goal Keeper", pos["GK"]))
+    PlayerList.append(Count("Others", Others))
+
+    data = Type("Players", PlayerList)
+    
+    print(data)
+    print(geodata)
+    print(df)
+    
+    data = json.loads(json.dumps(data, default=vars))
+    return jsonify({
+        "sunburst": data,
+        "geoData": geodata,
+        "data": df.to_json(orient='records'),
+    })
+    
+    
+    
+
 
 @app.route("/sunburst", methods=["GET"])
 def biplot():
