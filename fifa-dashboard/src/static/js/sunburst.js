@@ -16,26 +16,54 @@ function plotSunBurst(root) {
 
   let numClicks = 0;
   const handleClick = (d) => {
-    numClicks++;
+    // numClicks++;
 
-    if (numClicks === 1) {
-      if (d.depth < currentDepth) {
-        focusOn(d);
-      }
-      singleClickTimer = setTimeout(() => {
-        numClicks = 0;
-      }, 400);
-    } else if (numClicks === 2) {
-      clearTimeout(singleClickTimer);
-      numClicks = 0;
-      focusOn(d);
+    // if (numClicks === 1) {
+    //   if (d.depth < currentDepth) {
+    //     focusOn(d);
+    //   }
+    //   singleClickTimer = setTimeout(() => {
+    //     numClicks = 0;
+    //   }, 400);
+    // } else if (numClicks === 2) {
+    //   clearTimeout(singleClickTimer);
+    //   numClicks = 0;
+    //   focusOn(d);
+    // }
+    // d3.event.stopPropagation();
+
+    var sequenceArray = getAncestors(d);
+
+    var percentage = d.value
+    var percentageString = percentage;
+    if (percentage < 0.1) {
+      percentageString = "< 0.1%";
     }
-    d3.event.stopPropagation();
+
+    d3.select("#percentage")
+      .text(percentageString);
+
+    d3.select("#explanation")
+      .style("visibility", "");
+
+    // Fade all the segments.
+    d3.selectAll("path.main-arc").style("opacity", 0.3);
+
+    // Then highlight only those that are an ancestor of the current segment.
+    svg
+      .selectAll("path.main-arc")
+      .filter(function (node) {
+        return sequenceArray.indexOf(node) >= 0;
+      })
+      .style("opacity", 1);
+
   };
 
   const width = 400,
     height = 300,
     maxRadius = Math.min(width, height) / 2 - 5;
+
+  const totalSize = 0;
 
   const formatNumber = d3.format(",d");
 
@@ -84,7 +112,7 @@ function plotSunBurst(root) {
   };
 
   const svg = d3
-    .select("#sbplot")
+    .select("#sunburst")
     .append("svg")
     .style("width", 500)
     .style("height", 500)
@@ -109,7 +137,7 @@ function plotSunBurst(root) {
     .attr("class", "slice")
     .on("click", (d) => handleClick(d))
     .on("mouseover", (d) => mouseover(d))
-    .on("mouseleave", (d) => mouseleave(d))
+    // .on("mouseleave", (d) => mouseleave(d))
 
   newSlice
     .append("title")
@@ -151,6 +179,19 @@ function plotSunBurst(root) {
   function mouseover(d) {
     var sequenceArray = getAncestors(d);
 
+    var percentage = d.value
+    var percentageString = percentage;
+    if (percentage < 0.1) {
+      percentageString = "< 0.1%";
+    }
+
+    d3.select("#percentage")
+      .text(percentageString);
+
+    d3.select("#explanation")
+      .style("visibility", "");
+
+
     // Fade all the segments.
     d3.selectAll("path.main-arc").style("opacity", 0.3);
 
@@ -183,6 +224,9 @@ function plotSunBurst(root) {
         // .each("end", function() {
         //         d3.select(this).on("mouseover", mouseover);
         //       });
+
+    d3.select("#explanation")
+        .style("visibility", "hidden");
   }
 
   function focusOn(d = { x0: 0, x1: 1, y0: 0, y1: 1 }) {
