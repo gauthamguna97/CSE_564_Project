@@ -32,6 +32,8 @@ function plotSunBurst(root) {
     // }
     // d3.event.stopPropagation();
 
+    d3.selectAll("path.main-arc").on("mouseleave", null);
+
     var sequenceArray = getAncestors(d);
 
     var percentage = d.value
@@ -137,7 +139,7 @@ function plotSunBurst(root) {
     .attr("class", "slice")
     .on("click", (d) => handleClick(d))
     .on("mouseover", (d) => mouseover(d))
-    // .on("mouseleave", (d) => mouseleave(d))
+    .on("mouseleave", (d) => mouseleave(d))
 
   newSlice
     .append("title")

@@ -1,10 +1,10 @@
 // The svg
-var svg = d3.select("#geoMap")
+var geo_svg = d3.select("#geoMap")
             .append("svg")
             .attr("width", 500)
             .attr("height", 500)
-  width = +svg.attr("width"),
-  height = +svg.attr("height");
+  width = +geo_svg.attr("width"),
+  height = +geo_svg.attr("height");
 
 var freq = {}
 
@@ -85,7 +85,7 @@ function GeoMap(frequency, tdata) {
     }
 
     // Draw the map
-    var zoomG = svg.append("g");
+    var zoomG = geo_svg.append("g");
     // Draw the map
     zoomG.selectAll("path")
       .data(geoData.features)
@@ -111,7 +111,7 @@ function GeoMap(frequency, tdata) {
       .scaleExtent([1, 8])
       .on('zoom', zoomed);
 
-    svg.call(zoom);
+    geo_svg.call(zoom);
 
     function zoomed() {
       zoomG.selectAll('path') // To prevent stroke width from scaling
