@@ -42,7 +42,7 @@ def hello1():
 
 @app.route("/fetchdata", methods=["POST"])
 def alldata():
-    df = pd.read_csv("static/data/singleyear.csv")
+    df = pd.read_csv("static/data/fifa22.csv")
     
     val = request.get_json()
     
@@ -120,7 +120,7 @@ def alldata():
 
 @app.route("/sunburst", methods=["GET"])
 def biplot():
-    df = pd.read_csv("static/data/singleyear.csv")
+    df = pd.read_csv("static/data/fifa22.csv")
     pos = dict()
     col = "player_position"
     res = dict()
@@ -168,7 +168,7 @@ def biplot():
 
 @app.route("/geo_json", methods=["GET"])
 def geomap():
-    df = pd.read_csv("static/data/singleyear.csv")
+    df = pd.read_csv("static/data/fifa22.csv")
     return jsonify(
         df[["nationality_name", "sofifa_id"]]
         .groupby("nationality_name")
@@ -180,7 +180,7 @@ def geomap():
 @app.route("/pcpdata", methods=["GET"])
 def pcpdata():
     #     body = request.get_json().get('value')
-    df = pd.read_csv("static/data/singleyear.csv")
+    df = pd.read_csv("static/data/fifa22.csv")
     df = df[["age_cluster", "rating_cluster", "wage_cluster", "continent"]]
 #     conditions = [
 #     (df["club_position_15"] in Attacker),
