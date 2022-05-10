@@ -40,9 +40,21 @@ def hello():
 def hello1():
     return render_template("pcp.html")
 
-@app.route("/fetchdata", methods=["GET", "POST"])
+@app.route("/fetchdata", methods=["POST"])
 def alldata():
     df = pd.read_csv("static/data/singleyear.csv")
+    
+    val = request.get_json()
+    
+    print(val)
+    
+    if 'value' in val:
+        df = df[df['final_league'] == val['value']]
+
+    if 'nationality' in val:
+        y = json.loads(val['nationality'])
+        df = df[df['nationality_name'].isin(y)]
+    
     #------------ geomap
     # geoData = jsonify(
     subdf = df[["nationality_name", "sofifa_id"]]
@@ -66,19 +78,23 @@ def alldata():
     print(pos)
     DefList = list()
     for d in Defense:
-        DefList.append(Count(d, int(pos[d])))
+        if d in pos:
+            DefList.append(Count(d, int(pos[d])))
 
     MidList = list()
     for m in Mid_Fielder:
-        MidList.append(Count(m, int(pos[m])))
+        if m in pos:
+            MidList.append(Count(m, int(pos[m])))
 
     AttList = list()
     for a in Attacker:
-        AttList.append(Count(a, int(pos[a])))
+        if a in pos:
+            AttList.append(Count(a, int(pos[a])))
 
     Others = list()
     for a in Others:
-        Others.append(Count(a, int(pos[a])))
+        if a in pos:
+            Others.append(Count(a, int(pos[a])))
 
     # GKList = Count("GK", int(pos["GK"]))
 
@@ -165,7 +181,7 @@ def geomap():
 def pcpdata():
     #     body = request.get_json().get('value')
     df = pd.read_csv("static/data/singleyear.csv")
-    df = df[["age_cluster", "rating_cluster", "wage_eur", "continent", "pos_type"]]
+    df = df[["age_cluster", "rating_cluster", "wage_cluster", "continent"]]
 #     conditions = [
 #     (df["club_position_15"] in Attacker),
 #     (df["club_position_15"] in Defense),

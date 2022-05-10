@@ -1,12 +1,18 @@
 window.onload = () => {
     console.log("window loaded")
+    loadData();
+    PcpData([]);
+
+}
+
+const loadData = () => {
     var url = 'http://127.0.0.1:5005'
     fetch(url + '/fetchdata', {
         method: 'POST', // or 'PUT'
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ value: 'all' }),
+        body: JSON.stringify({ val: 'all' }),
     })
         .then(data => data.json())
         .then(response => {
@@ -20,12 +26,5 @@ window.onload = () => {
             BarChart(data, [])
             // PcpChart(data)
             // GeoMap(response.geoData)
-        });
-    // barchart()
-    // GeoMap()
-    // PcpChart()
-    // slider()
-    // sunburst()
-    PcpData([]);
-
+    });
 }

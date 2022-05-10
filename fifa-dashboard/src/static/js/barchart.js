@@ -1,6 +1,28 @@
+const sFeature = (d) => {
+
+    fetch('/fetchdata', {
+        method: 'POST', // or 'PUT'
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ value: d.name }),
+    })
+        .then(data => data.json())
+        .then(response => {
+            // plot_table(response.data)
+           console.log(response)
+            // plot_scatter(attributes);
+            var data = JSON.parse(response.data)
+            GeoMap(response.geoData, data)
+            plotSunBurst(response.sunburst, data)
+            // var ndata = data.filter(s => s.nationality_name == "Brazil")
+            // BarChart(data, [])
+        });
+}
+
 var x, y;
 const BarChart = (totaldata, filterdata=[]) => {
-    
+    d3.selectAll("#svgbar").html("")
     // check data
     console.log(totaldata, filterdata);
 
@@ -16,9 +38,9 @@ const BarChart = (totaldata, filterdata=[]) => {
 
     var svg = d3.select("#svgbar");
 
-    var skipsetting = true;
+    // var skipsetting = true;
     console.log('svg', svg)
-    if (svg.empty()) {
+    // if (svg.empty()) {
         svg = d3.select("#barchart")
         .append("svg")
         .attr("id", "svgbar")
@@ -28,8 +50,8 @@ const BarChart = (totaldata, filterdata=[]) => {
         .attr("transform",
             "translate(" + margin.left + "," + margin.top + ")");
         
-        skipsetting = false;
-    }
+        // skipsetting = false;
+    // }
 
     // Parse the Data not required
     // d3.csv("/static/data/fifa.csv", function(totaldata) {
@@ -64,7 +86,7 @@ const BarChart = (totaldata, filterdata=[]) => {
         console.log(map2)
 
 
-        if (!skipsetting) {
+        // if (!skipsetting) {
             // Add X axis
             x = d3.scaleLinear()
             .domain([0, d3.max(data, function(d) { return d.value; })])
@@ -87,10 +109,10 @@ const BarChart = (totaldata, filterdata=[]) => {
             .call(d3.axisLeft(y))
             .selectAll("text")
             .attr("fill", "white");
-        }
+        // }
 
         
-        if (!skipsetting)
+        // if (!skipsetting)
         //Bars
         svg.selectAll("myRect")
         .data(data)
@@ -101,6 +123,10 @@ const BarChart = (totaldata, filterdata=[]) => {
         .attr("width", function(d) { console.log(d.value); return x(d.value); })
         .attr("height", y.bandwidth() )
         .attr("fill", "bisque")
+        .on("click", (d) => {
+            console.log(d)
+            sFeature(d)
+        })
 
         // filteredbars
 

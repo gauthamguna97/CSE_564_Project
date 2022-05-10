@@ -12,7 +12,7 @@ let currentDepth = 0;
 // }
 
 function plotSunBurst(root) {
-  // d3.selectAll("#sunburst").html("");
+  d3.selectAll("#sunburst").html("");
 
   let numClicks = 0;
   const handleClick = (d) => {
