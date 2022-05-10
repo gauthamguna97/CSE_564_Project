@@ -32,21 +32,20 @@ function plotSunBurst(root) {
     // }
     // d3.event.stopPropagation();
 
-    d3.selectAll("path.main-arc").on("mouseleave", null);
+    // d3.selectAll("path.main-arc").on("mouseleave", null);
+    // d3.selectAll("path.main-arc").on("mouseover", null);
 
     var sequenceArray = getAncestors(d);
 
-    var percentage = d.value
+    var percentage = d.value;
     var percentageString = percentage;
     if (percentage < 0.1) {
       percentageString = "< 0.1%";
     }
 
-    d3.select("#percentage")
-      .text(percentageString);
+    d3.select("#percentage").text(percentageString);
 
-    d3.select("#explanation")
-      .style("visibility", "");
+    d3.select("#explanation").style("visibility", "");
 
     // Fade all the segments.
     d3.selectAll("path.main-arc").style("opacity", 0.3);
@@ -59,6 +58,25 @@ function plotSunBurst(root) {
       })
       .style("opacity", 1);
 
+    fetch(url + '/fetchdata', {
+        method: 'POST', // or 'PUT'
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ value: 'all' }),
+    })
+        .then(data => data.json())
+        .then(response => {
+            // plot_table(response.data)
+            // var attributes = response.data.map(d => d["Attributes"]);
+            // plot_scatter(attributes);
+            var data = JSON.parse(response.data)
+            GeoMap(response.geoData, data)
+            plotSunBurst(response.sunburst, data)
+            // var ndata = data.filter(s => s.nationality_name == "Brazil")
+            BarChart(data, [])
+            // GeoMap(response.geoData)
+        });
   };
 
   const width = 400,
@@ -137,9 +155,9 @@ function plotSunBurst(root) {
     .enter()
     .append("g")
     .attr("class", "slice")
-    .on("click", (d) => handleClick(d))
-    .on("mouseover", (d) => mouseover(d))
-    .on("mouseleave", (d) => mouseleave(d))
+    .on("click", (d) => handleClick(d));
+  // .on("mouseover", (d) => mouseover(d))
+  // .on("mouseleave", (d) => mouseleave(d))
 
   newSlice
     .append("title")
@@ -181,18 +199,15 @@ function plotSunBurst(root) {
   function mouseover(d) {
     var sequenceArray = getAncestors(d);
 
-    var percentage = d.value
+    var percentage = d.value;
     var percentageString = percentage;
     if (percentage < 0.1) {
       percentageString = "< 0.1%";
     }
 
-    d3.select("#percentage")
-      .text(percentageString);
+    d3.select("#percentage").text(percentageString);
 
-    d3.select("#explanation")
-      .style("visibility", "");
-
+    d3.select("#explanation").style("visibility", "");
 
     // Fade all the segments.
     d3.selectAll("path.main-arc").style("opacity", 0.3);
@@ -221,20 +236,18 @@ function plotSunBurst(root) {
     d3.selectAll("path.main-arc").on("mouseover", null);
 
     // Transition each segment to full opacity and then reactivate it.
-    d3.selectAll("path.main-arc")
-        .style("opacity", 1)
-        // .each("end", function() {
-        //         d3.select(this).on("mouseover", mouseover);
-        //       });
+    d3.selectAll("path.main-arc").style("opacity", 1);
+    // .each("end", function() {
+    //         d3.select(this).on("mouseover", mouseover);
+    //       });
 
-    d3.select("#explanation")
-        .style("visibility", "hidden");
+    d3.select("#explanation").style("visibility", "hidden");
   }
 
   function focusOn(d = { x0: 0, x1: 1, y0: 0, y1: 1 }) {
-
-    console.log(d)
-
+    console.log(d);
+    // Fade all the segments.
+    // d3.selectAll("path.main-arc").style("opacity", 1);
     // Reset to top-level if no data point specified
     // const transition = svg
     //   .transition()

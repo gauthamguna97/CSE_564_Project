@@ -45,7 +45,7 @@ def alldata():
     geodata = subdf.groupby("nationality_name").count().to_dict()["sofifa_id"]
     # print(geodata)
     # )
-    
+
     #---------- sunburst
     pos = dict()
     col = "player_position"
@@ -71,7 +71,7 @@ def alldata():
     AttList = list()
     for a in Attacker:
         AttList.append(Count(a, int(pos[a])))
-        
+
     Others = list()
     for a in Others:
         Others.append(Count(a, int(pos[a])))
@@ -86,21 +86,17 @@ def alldata():
     PlayerList.append(Count("Others", Others))
 
     data = Type("Players", PlayerList)
-    
+
     print(data)
     print(geodata)
     print(df)
-    
+
     data = json.loads(json.dumps(data, default=vars))
     return jsonify({
         "sunburst": data,
         "geoData": geodata,
         "data": df.to_json(orient='records'),
     })
-    
-    
-    
-
 
 @app.route("/sunburst", methods=["GET"])
 def biplot():
@@ -129,7 +125,7 @@ def biplot():
     AttList = list()
     for a in Attacker:
         AttList.append(Count(a, int(pos[a])))
-        
+
     Others = list()
     for a in Others:
         Others.append(Count(a, int(pos[a])))
