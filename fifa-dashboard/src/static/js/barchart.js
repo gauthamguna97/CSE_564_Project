@@ -8,8 +8,8 @@ const BarChart = (totaldata, filterdata=[]) => {
 
     // set the dimensions and margins of the graph
     var margin = {top: 20, right: 30, bottom: 40, left: 200},
-    width = 500 - margin.left - margin.right,
-    height = 800 - margin.top - margin.bottom;
+    width = 450 - margin.left - margin.right,
+    height = 600 - margin.top - margin.bottom;
 
 
     // append the svg object to the body of the page
@@ -35,15 +35,24 @@ const BarChart = (totaldata, filterdata=[]) => {
     // d3.csv("/static/data/fifa.csv", function(totaldata) {
 
         var map = new Map();
-        var value = 'league_name'
+        var value = 'final_league'
         totaldata.map((node) => {
             map.set(node[value], (map.get(node[value]) || 0) + 1);
         });
         console.log(map);
         var data = Array.from(map, ([name, value]) => ({ name, value }));
         data.sort((a, b) => b.value - a.value)
-        data.length = 20;
-        console.log(data);
+        var othercount = 0;
+        for (let i=15; i<data.length; i++) {
+            othercount += data[i].value;
+        }
+        data.length = 15;
+        // data.push({
+        //     'name': 'Other_leagues',
+        //     'value': othercount
+        // });
+        // data.sort((a, b) => b.value - a.value)
+        console.log(data.length);
 
 
         var map2 = new Map();
@@ -91,7 +100,7 @@ const BarChart = (totaldata, filterdata=[]) => {
         .attr("y", function(d) { console.log(y(d.name)); return y(d.name); })
         .attr("width", function(d) { console.log(d.value); return x(d.value); })
         .attr("height", y.bandwidth() )
-        .attr("fill", "grey")
+        .attr("fill", "bisque")
 
         // filteredbars
 

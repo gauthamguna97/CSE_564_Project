@@ -43,7 +43,6 @@ def alldata():
     # geoData = jsonify(
     subdf = df[["nationality_name", "sofifa_id"]]
     geodata = subdf.groupby("nationality_name").count().to_dict()["sofifa_id"]
-    
     # print(geodata)
     # )
     
