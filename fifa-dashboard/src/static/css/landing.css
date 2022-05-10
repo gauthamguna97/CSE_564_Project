@@ -2,38 +2,21 @@
   font-size: 24px;
   text-align: center;
 }
-body {
+.mybody {
   font-family: Sans-serif;
   font-size: 8px;
   background-color: black;
   color: white
 }
 
-h1 {
+text {
+  color: white;
+  fill: white;
+}
+.mybody h1 {
   font-size: 16px;
   text-align: center;
   margin: none;
-}
-
-
-
-.slice {
-  cursor: pointer;
-}
-
-.slice .main-arc {
-  stroke: #fff;
-  stroke-width: 1px;
-}
-
-.slice .hidden-arc {
-  fill: none;
-}
-
-.slice text {
-  pointer-events: none;
-  dominant-baseline: middle;
-  text-anchor: middle;
 }
 
 #dashboard {
@@ -44,11 +27,35 @@ h1 {
 
 #visdashboard {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: minmax(100px, auto);
-  height: 90vh;
+  grid-gap: 10px;
+  grid-template-columns: 33vw 33vw 5vw 29vw;
+  grid-template-rows: 45vh 10vh 5vh 35vh;
+  height: 95vh;
   width: 100vw;
+  position: fixed;
 }
+
+#pcp {
+  grid-column: 1 / span 3;
+  grid-row: 2 / span 3;
+}
+
+#sunburst {
+  grid-column: 2 / span 2;
+  grid-row: 1 / span 1;
+}
+
+#barchart {
+  grid-column: 4 / span 1;
+  grid-row: 1 / span 3;
+}
+
+#wordcloud {
+  grid-column: 4 / span 1;
+  grid-row: 4 / span 1;
+}
+
+
 
 /* #visdashboard * {
   border: 1px solid black

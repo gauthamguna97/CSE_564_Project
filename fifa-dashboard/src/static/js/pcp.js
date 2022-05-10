@@ -1,16 +1,15 @@
 
 var pcaData=[];
 
-function PcpData(dimen)
-{
- fetch('/pcpdata' , {
-  method: "GET",
-  headers : { 
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-       },
-}).then(function (response) {
-  return response.json();
+function PcpData(dimen) {
+  fetch('/pcpdata' , {
+    method: "GET",
+    headers : { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+  }).then(function (response) {
+    return response.json();
   }).then(function (d) {
       pcaData=d.data
       PcpChart(d.data,d3.keys(d.data[0]))     
@@ -21,11 +20,9 @@ function PcpChart(dataPcp,dim){
 //  d3.select("#svg_pcp1").html("");
   colors_opt = ["#EE964B","#F95738","#4B4E6D"];
  var color = d3.scaleOrdinal(colors_opt);
- var margin={top:80,right:200,bottom:50,left:80};
-var width = 1100;
-var height = 800;
-var maximumH = 700;
-
+ var margin={top:50,right:200,bottom:50,left:80};
+var width = 900;
+var height = 350;
  var x = d3.scalePoint().range([0, width], 1),
      y = {},
      dragging = {};

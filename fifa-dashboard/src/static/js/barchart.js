@@ -9,7 +9,7 @@ const BarChart = (totaldata, filterdata=[]) => {
     // set the dimensions and margins of the graph
     var margin = {top: 20, right: 30, bottom: 40, left: 200},
     width = 450 - margin.left - margin.right,
-    height = 600 - margin.top - margin.bottom;
+    height = 500 - margin.top - margin.bottom;
 
 
     // append the svg object to the body of the page
@@ -46,7 +46,7 @@ const BarChart = (totaldata, filterdata=[]) => {
         for (let i=15; i<data.length; i++) {
             othercount += data[i].value;
         }
-        data.length = 15;
+        data.length = 10;
         // data.push({
         //     'name': 'Other_leagues',
         //     'value': othercount
@@ -82,7 +82,7 @@ const BarChart = (totaldata, filterdata=[]) => {
             y = d3.scaleBand()
             .range([ 0, height ])
             .domain(data.map(function(d) { return d.name; }))
-            .padding(.1);
+            .padding(.3);
             svg.append("g")
             .call(d3.axisLeft(y))
             .selectAll("text")

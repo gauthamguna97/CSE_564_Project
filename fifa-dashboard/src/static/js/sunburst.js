@@ -80,7 +80,7 @@ function plotSunBurst(root) {
   };
 
   const width = 400,
-    height = 300,
+    height = 400,
     maxRadius = Math.min(width, height) / 2 - 5;
 
   const totalSize = 0;
@@ -134,8 +134,8 @@ function plotSunBurst(root) {
   const svg = d3
     .select("#sunburst")
     .append("svg")
-    .style("width", 500)
-    .style("height", 500)
+    .style("width", width)
+    .style("height", height)
     .attr("viewBox", `${-width / 2} ${-height / 2} ${width} ${height}`)
     // .on("click", () => focusOn()); // Reset zoom on canvas click
     .on("click", () => focusOn()); // Reset zoom on canvas click
@@ -180,20 +180,21 @@ function plotSunBurst(root) {
     .attr("display", (d) => (textFits(d) ? null : "none"));
 
   // Add white contour
-  text
-    .append("textPath")
-    .attr("startOffset", "50%")
-    .attr("xlink:href", (_, i) => `#hiddenArc${i}`)
-    .text((d) => d.data.name)
-    .style("fill", "none")
-    .style("stroke", "#fff")
-    .style("stroke-width", 5)
-    .style("stroke-linejoin", "round");
+  // text
+  //   .append("textPath")
+  //   .attr("startOffset", "50%")
+  //   .attr("xlink:href", (_, i) => `#hiddenArc${i}`)
+  //   .text((d) => d.data.name)
+  //   // .style("fill", "none")
+  //   // .style("stroke", "grey")
+  //   // .style("stroke-width", 1)
+  //   .style("stroke-linejoin", "round");
 
   text
     .append("textPath")
     .attr("startOffset", "50%")
     .attr("xlink:href", (_, i) => `#hiddenArc${i}`)
+    .attr("font-size", '12px')
     .text((d) => d.data.name);
 
   function mouseover(d) {
