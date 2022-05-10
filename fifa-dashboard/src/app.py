@@ -36,6 +36,10 @@ Others = {"SUB", "nan"}
 def hello():
     return render_template("index.html")
 
+@app.route("/pcp")
+def hello1():
+    return render_template("pcp.html")
+
 @app.route("/fetchdata", methods=["GET", "POST"])
 def alldata():
     df = pd.read_csv("static/data/singleyear.csv")
@@ -165,7 +169,7 @@ def geomap():
 def pcpdata():
     #     body = request.get_json().get('value')
     df = pd.read_csv("static/data/singleyear.csv")
-    df = df[["age", "wage_eur", "overall", "pos_type"]]
+    df = df[["age_cluster", "rating_cluster", "wage_eur", "continent", "pos_type"]]
 #     conditions = [
 #     (df["club_position_15"] in Attacker),
 #     (df["club_position_15"] in Defense),

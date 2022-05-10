@@ -18,6 +18,7 @@ window.onload = () => {
             plotSunBurst(response.sunburst, data)
             // var ndata = data.filter(s => s.nationality_name == "Brazil")
             BarChart(data, [])
+            // PcpChart(data)
             // GeoMap(response.geoData)
         });
     // barchart()
@@ -25,4 +26,6 @@ window.onload = () => {
     // PcpChart()
     // slider()
     // sunburst()
+    PcpData([]);
+
 }

@@ -18,6 +18,9 @@
     <script src="https://d3js.org/d3.v4.js"></script>
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
     <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script id="worldData" type="application/json">
       {
         "type": "FeatureCollection",
@@ -12883,8 +12886,10 @@
     </script>
   </head>
 
-  <body>
+  <body class="mybody">
     <!-- <div id="sliderx"></div> -->
+    <a href="/pcp.html"></a>
+    <h1 class="globalplayers">Global Football Dashboard</h1>
     <div id="visdashboard">
       <div id="geoMap">
         <h1>Geo Map</h1>
@@ -12896,22 +12901,22 @@
           players
         </div>
       </div>
+      <!--<div id="scatterplot">
+        <h1>Scatter Plot</h1>
+      </div> -->
       <div id="barchart">
         <h1>Bar Chart</h1>
       </div>
-      <div id="scatterplot">
-        <h1>Scatter Plot</h1>
-      </div>
-      <!-- <div id="pcp">
+      <div id="pcp">
         <h1>Parallel Coordinate Plot</h1>
-      </div> -->
+      </div>
     </div>
     <script src="../static/js/geoMap.js"></script>
     <script src="../static/js/barchart.js"></script>
     <script src="../static/js/sunburst.js"></script>
     <script src="../static/js/scatterplot.js"></script>
-    <script src="../static/js/slider.js"></script>
+    <!-- <script src="../static/js/slider.js"></script> -->
     <script src="../static/js/main.js"></script>
-    <!-- <script src="../static/js/pcp.js"></script> -->
+    <script src="../static/js/pcp.js"></script>
   </body>
 </html>
