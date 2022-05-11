@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../static/css/sunburst.css" />
     <link rel="stylesheet" href="../static/css/sequences.css" />
     <link rel="stylesheet" href="../static/css/geomap.css" />
+    <link rel="stylesheet" href="../static/css/timeline.css" />
     <title>FIFA Dashboard</title>
     <script src="https://d3js.org/d3.v4.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
@@ -12887,7 +12888,53 @@
   <body class="mybody">
     <!-- <div id="sliderx"></div> -->
     <a href="/pcp.html"></a>
-    <h1 class="globalplayers">Global Football Dashboard</h1>
+    <div id="header">
+      <h1 class="globalplayers">Global Football Dashboard</h1>
+      <!-- <div id="form-wrapper">
+        <form action="/p/quote.php" method="GET">
+          <h1 id="form-title">Select Year</h1>
+          <div id="debt-amount-slider">
+            <input type="radio" name="debt-amount" id="1" value="1" required>
+            <label for="1" data-debt-amount="2015"></label>
+            <input type="radio" name="debt-amount" id="2" value="2" required>
+            <label for="2" data-debt-amount="2016"></label>
+            <input type="radio" name="debt-amount" id="3" value="3" required>
+            <label for="3" data-debt-amount="2017"></label>
+            <input type="radio" name="debt-amount" id="4" value="4" required>
+            <label for="4" data-debt-amount="2018"></label>
+            <input type="radio" name="debt-amount" id="5" value="5" required>
+            <label for="5" data-debt-amount="2019"></label>
+            <input type="radio" name="debt-amount" id="6" value="6" required>
+            <label for="6" data-debt-amount="2020"></label>
+            <input type="radio" name="debt-amount" id="7" value="7" required>
+            <label for="7" data-debt-amount="2021"></label>
+            <input type="radio" name="debt-amount" id="8" value="8" required>
+            <label for="8" data-debt-amount="2022"></label>
+            <div id="debt-amount-pos"></div>
+          </div>
+        </form>
+      </div> -->
+      <div class="container">
+        <div class="radio_container">
+            <input type="radio" name="radio" id="one" checked>
+            <label for="one">one</label>
+            <input type="radio" name="radio" id="two">
+            <label for="two">two</label>
+            <input type="radio" name="radio" id="three">
+            <label for="three">three</label>
+            <input type="radio" name="radio" id="four">
+            <label for="three">three</label>
+            <input type="radio" name="radio" id="five">
+            <label for="three">three</label>
+            <input type="radio" name="radio" id="six">
+            <label for="three">three</label>
+            <input type="radio" name="radio" id="seven">
+            <label for="three">three</label>
+            <input type="radio" name="radio" id="eight">
+            <label for="three">three</label>
+        </div>
+      </div>
+    </div>
     <div id="visdashboard">
       <div id="geoMap">
         <h1>Geo Map</h1>
