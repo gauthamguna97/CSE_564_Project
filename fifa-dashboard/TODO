@@ -1,0 +1,20 @@
+Geomap -
+	Legend
+	Country Tooltip
+	Unselect if in select list
+
+
+Bar -
+	Tooltip
+
+Sunburst -
+	Bulge Donut
+
+Word Cloud -
+
+PCP -
+	Interaction
+
+
+Year Slider
+	Parse only year-wise data for the entire plot (no inter year realtionship)
