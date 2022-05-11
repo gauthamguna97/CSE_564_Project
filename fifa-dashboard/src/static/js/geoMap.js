@@ -1,68 +1,66 @@
-// The svg
-var geo_svg = d3
-  .select("#geoMap")
-  .append("svg")
-  .attr("id", "tempgeo")
-  .attr("width", 500)
-  .attr("height", 500);
-(width = +geo_svg.attr("width")), (height = +geo_svg.attr("height"));
+// create geoMap svg
+  var geo_svg = d3
+    .select("#geoMap")
+    .append("svg")
+    .attr("id", "tempgeo");
 
-var freq = {};
-
-var list = [];
-
-var selectList = [];
+  // initial variables
+  let width = geo_svg.node().getBoundingClientRect().width;
+  let height = geo_svg.node().getBoundingClientRect().height;
+  var freq = {};
+  var list = [];
+  var selectList = [];
 
 // Map and projection
-var path = d3.geoPath();
-var projection = d3
-  .geoMercator()
-  .scale(70)
-  .center([0, 20])
-  .translate([width / 2, height / 2]);
+  var path = d3.geoPath();
+  var projection = d3
+    .geoMercator()
+    .scale(65)
+    .center([0, 10])
+    .translate([width / 2, height / 2 + 30]);
 
 // Data and color scale
-var data = d3.map();
+  var data = d3.map();
 
-var newColorScale = d3.scaleLinear().domain([0, 600]).range(["white", "red"]);
 
-var colorScale = d3
-  .scaleThreshold()
-  .domain([10, 20, 50, 100, 200, 300, 400, 500])
-  .range(d3.schemeYlOrRd[9]);
 
-// function Geo() {
-//     const url = "http://127.0.0.1:5005";
-//     fetch(url + "/geo_json")
-//       .then((res) => res.json())
-//       .then((response) => {
-//         GeoMap(response);
-//       });
-// }
 var geoData = JSON.parse(document.getElementById("worldData").innerHTML);
 
-let mouseOver = function (d, frequency) {
-  // console.log(d.properties.name)
-  // console.log(frequency[d.properties.name])
-  d3.selectAll(".Country")
-    .filter((d) => !selectList.includes(d.name))
-    .transition()
-    .duration(200)
-    .style("opacity", 0.5);
-  d3.select(this)
-    .transition()
-    .duration(200)
-    .style("opacity", 1)
-    .style("stroke", "white");
-};
-
-let mouseLeave = function (d) {
-  d3.selectAll(".Country").transition().duration(200).style("opacity", 0.8);
-  d3.select(this).transition().duration(200).style("stroke", "transparent");
-};
 
 function GeoMap(frequency, tdata) {
+  d3.selectAll("#scalegeo").remove();
+
   freq = frequency;
+  var max = d3.max(Object.values(frequency))
+  // var newColorScale = d3.scaleLinear().domain([0, 600]).range(["white", "red"]);
+  var list = [0, max/100, max/40, max/20, max/10, max/5, max/4, max/2]
+  
+  var colorScale = d3
+  .scaleThreshold()
+  .domain([0, max/100, max/40, max/20, max/10, max/5, max/4, max/2])
+  .range(d3.schemeOrRd[9]);
+
+  list.push(max)
+
+  var linear = d3.scaleQuantile()
+  .domain(list)
+  .range(d3.schemeOrRd[9]);
+
+  var svg1 = d3.select("#geoMap").append("svg").attr("id", 'scalegeo');
+
+  svg1.append("g")
+  .attr("class", "legendLinear")
+  .attr("transform", "translate(20,20)");
+
+  var legendLinear = d3.legendColor()
+  .shapeWidth(50)
+  .cells(list)
+  .orient('horizontal')
+  .scale(linear)
+  .labelFormat(d3.format(".0f"));
+
+  svg1.select(".legendLinear")
+    .call(legendLinear);
 
   let handleclick = (d) => {
     console.log(d.properties.name);
@@ -140,3 +138,25 @@ function GeoMap(frequency, tdata) {
 }
 
 // Geo()
+
+let mouseOver = function (d, frequency) {
+  // console.log(d.properties.name)
+  // console.log(frequency[d.properties.name])
+
+
+d3.selectAll(".Country")
+    .filter((d) => !selectList.includes(d.name))
+    .transition()
+    .duration(200)
+    .style("opacity", 0.5);
+  d3.select(this)
+    .transition()
+    .duration(200)
+    .style("opacity", 1)
+    .style("stroke", "white");
+};
+
+let mouseLeave = function (d) {
+  d3.selectAll(".Country").transition().duration(200).style("opacity", 0.8);
+  d3.select(this).transition().duration(200).style("stroke", "transparent");
+};

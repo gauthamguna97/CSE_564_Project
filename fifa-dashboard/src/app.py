@@ -50,7 +50,8 @@ def alldata():
     print(val)
 
     if 'value' in val:
-        df = df[df['final_league'] == val['value']]
+        y = json.loads(val['value'])
+        df = df[df['final_league'].isin(y)]
 
     if 'nationality' in val:
         y = json.loads(val['nationality'])

@@ -12,8 +12,11 @@ var url = "http://127.0.0.1:5005";
 // }
 
 function plotSunBurst(root) {
-  d3.selectAll("#sunburst").html("");
+  d3.selectAll("#sunburstplot").remove();
 
+  var wrapper = d3.select("#sunburst")
+  let width = wrapper.node().getBoundingClientRect().width - 50;
+  let height = wrapper.node().getBoundingClientRect().height - 50;
   let numClicks = 0;
   const handleClick = (d) => {
     // numClicks++;
@@ -82,8 +85,8 @@ function plotSunBurst(root) {
       });
   };
 
-  const width = 400,
-    height = 400,
+  // const width = 400,
+  //   height = 400,
     maxRadius = Math.min(width, height) / 2 - 5;
 
   const totalSize = 0;
@@ -137,6 +140,7 @@ function plotSunBurst(root) {
   const svg = d3
     .select("#sunburst")
     .append("svg")
+    .attr("id", "sunburstplot")
     .style("width", width)
     .style("height", height)
     .attr("viewBox", `${-width / 2} ${-height / 2} ${width} ${height}`)

@@ -1,0 +1,19 @@
+#tempgeo {
+    height: 85%;
+    width: 100%;
+    position: relative;
+}
+
+#scalegeo {
+    position: fixed;
+    top: 42vh;
+    left: 1vw;
+}
+
+.swatch {
+    height: 10px;
+}
+
+#scalegeo text {
+    font-size: 8px;
+}

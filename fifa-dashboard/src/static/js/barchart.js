@@ -1,37 +1,51 @@
+
+var x, y;
+var selectList = [];
+
 const sFeature = (d) => {
 
+    const index = selectList.indexOf(d.name)
+    if (index > -1) {
+        selectList.splice(index, 1);
+    } else {
+        selectList.push(d.name);
+    }
+    
     fetch('/fetchdata', {
         method: 'POST', // or 'PUT'
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ value: d.name }),
+        body: JSON.stringify({ value: JSON.stringify(selectList)}),
     })
-        .then(data => data.json())
-        .then(response => {
-            // plot_table(response.data)
-           console.log(response)
-            // plot_scatter(attributes);
-            var data = JSON.parse(response.data)
-            GeoMap(response.geoData, data)
-            plotSunBurst(response.sunburst, data)
-            // var ndata = data.filter(s => s.nationality_name == "Brazil")
-            // BarChart(data, [])
-        });
+    .then(data => data.json())
+    .then(response => {
+        // plot_table(response.data)
+        console.log(response)
+        // plot_scatter(attributes);
+        var data = JSON.parse(response.data)
+        GeoMap(response.geoData, data)
+        plotSunBurst(response.sunburst, data)
+        // var ndata = data.filter(s => s.nationality_name == "Brazil")
+        // BarChart(data, [])
+    });
 }
 
-var x, y;
+
 const BarChart = (totaldata, filterdata=[]) => {
     d3.selectAll("#svgbar").html("")
     // check data
     console.log(totaldata, filterdata);
 
+    var wrapper = d3.select("#sunburst")
+    let Twidth = wrapper.node().getBoundingClientRect().width - 50;
+    let Theight = wrapper.node().getBoundingClientRect().height - 50;
     
 
     // set the dimensions and margins of the graph
-    var margin = {top: 20, right: 30, bottom: 40, left: 200},
-    width = 450 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+    var margin = {top: 20, right: 30, bottom: 0, left: 150},
+    width = Twidth - margin.left - margin.right,
+    height = Theight - margin.top - margin.bottom;
 
 
     // append the svg object to the body of the page
