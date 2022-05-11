@@ -81,6 +81,7 @@ function plotSunBurst(root) {
         // plotSunBurst(response.sunburst, data)
         // var ndata = data.filter(s => s.nationality_name == "Brazil")
         BarChart(data, []);
+        PcpChart(response.pcpdata,d3.keys(response.pcpdata[0]))
         // GeoMap(response.geoData)
       });
   };

@@ -1,8 +1,6 @@
 window.onload = () => {
     console.log("window loaded")
     loadData();
-    PcpData([]);
-
 }
 
 const loadData = () => {
@@ -26,6 +24,7 @@ const loadData = () => {
             BarChart(data, [])
             wordCloud(response.wordcloud)
             // PcpChart(data)
+            PcpChart(response.pcpdata,d3.keys(response.pcpdata[0]))
             // GeoMap(response.geoData)
     });
 }
