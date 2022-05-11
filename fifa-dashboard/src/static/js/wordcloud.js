@@ -1,7 +1,16 @@
 function wordCloud(data) {
   // List of words
-  var myWords = data.slice(0, 10);
-  console.log(myWords)
+  var myWords = data.slice(0, 100);
+  // console.log(myWords)
+
+  for (var i = 0; i < myWords.length; i++) {
+    console.log(myWords[i]);
+    myWords[i].count = (myWords.length - i) * 0.5;
+    //Do something
+  }
+
+  console.log(myWords[0])
+  console.log(myWords[99])
 
   // myWords = [{word: "Running", size: "10"}, {word: "Surfing", size: "20"}, {word: "Climbing", size: "50"}, {word: "Kiting", size: "30"}, {word: "Sailing", size: "20"}, {word: "Snowboarding", size: "60"} ];
 
@@ -19,7 +28,7 @@ function wordCloud(data) {
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    .attr("transform", "translate(" + -margin.left + "," + margin.top + ")");
 
   // Constructs a new cloud layout instance. It run an algorithm to find the position of words that suits your requirements
   // Wordcloud features that are different from one word to the other must be here
@@ -28,7 +37,7 @@ function wordCloud(data) {
     .size([width, height])
     .words(
       myWords.map(function (d) {
-        console.log(d)
+        // console.log(d)
         return { text: d.name, size: d.count };
       })
     )
@@ -37,8 +46,8 @@ function wordCloud(data) {
       return ~~(Math.random() * 2) * 90;
     })
     .fontSize(function (d) {
-        console.log(d)
-      return d.size;
+      // console.log(d)
+      return d.size+"";
     }) // font size of words
     .on("end", draw);
   layout.start();
