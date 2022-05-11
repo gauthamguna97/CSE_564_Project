@@ -1,23 +1,23 @@
 
 var pcaData=[];
 
-function PcpData(dimen) {
-  fetch('/pcpdata' , {
-    method: "GET",
-    headers : { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-  }).then(function (response) {
-    return response.json();
-  }).then(function (d) {
-      pcaData=d.data
-      PcpChart(d.data,d3.keys(d.data[0]))    
-  });
-}
+// function PcpData(dimen) {
+//   fetch('/pcpdata' , {
+//     method: "GET",
+//     headers : { 
+//           'Content-Type': 'application/json',
+//           'Accept': 'application/json'
+//         },
+//   }).then(function (response) {
+//     return response.json();
+//   }).then(function (d) {
+//       pcaData=d.data
+//       PcpChart(d.data,d3.keys(d.data[0]))    
+//   });
+// }
 
 function PcpChart(dataPcp,dim){
-
+  d3.selectAll('#pcpchart').remove()
   var pcp_wrap = d3.select('#pcp')
   let width = pcp_wrap.node().getBoundingClientRect().width - 100;
   let height = pcp_wrap.node().getBoundingClientRect().height - 100;
@@ -44,6 +44,7 @@ function PcpChart(dataPcp,dim){
 
  var svg = d3.select("#pcp")
       .append('svg')
+      .attr('id', 'pcpchart')
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
       .append("g")

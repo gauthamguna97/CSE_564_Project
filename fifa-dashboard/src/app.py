@@ -132,10 +132,15 @@ def alldata():
     # print(df)
 
     data = json.loads(json.dumps(data, default=vars))
+    
+    sdf = df[["age_cluster", "rating_cluster", "wage_cluster", "continent"]]
+    sdf = sdf.dropna()
+#     df["type"] = np.select(conditions, values)
     return jsonify({
         "sunburst": data,
         "geoData": geodata,
-        "data": df.to_json(orient='records')
+        "data": df.to_json(orient='records'),
+        'pcpdata': sdf.to_dict("records"),
     })
 
 @app.route("/sunburst", methods=["GET"])
@@ -201,7 +206,7 @@ def geomap():
 def pcpdata():
     #     body = request.get_json().get('value')
     df = pd.read_csv("static/data/fifa22.csv")
-    df = df[["age_cluster", "rating_cluster", "wage_cluster", "continent"]]
+    sdf = df[["age_cluster", "rating_cluster", "wage_cluster", "continent"]]
 #     conditions = [
 #     (df["club_position_15"] in Attacker),
 #     (df["club_position_15"] in Defense),
@@ -209,9 +214,9 @@ def pcpdata():
 #     (df["club_position_15"] in "GK")
 #     ]
 #     values = [0, 1, 2, 3]
-    df = df.dropna()
+    sdf = sdf.dropna()
 #     df["type"] = np.select(conditions, values)
-    response = jsonify({"data": df.to_dict("records")})
+    response = jsonify({"data": sdf.to_dict("records")})
     response.headers.add("Access-Control-Allow-Origin", "*")
     return response
 

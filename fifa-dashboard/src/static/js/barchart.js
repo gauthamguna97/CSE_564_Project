@@ -28,6 +28,7 @@ const sFeature = (d) => {
         plotSunBurst(response.sunburst, data)
         // var ndata = data.filter(s => s.nationality_name == "Brazil")
         // BarChart(data, [])
+        PcpChart(response.pcpdata,d3.keys(response.pcpdata[0]))  
     });
 }
 
@@ -36,13 +37,13 @@ const BarChart = (totaldata, filterdata=[]) => {
     d3.selectAll("#svgbar").remove()
     console.log(totaldata, filterdata);
 
-    var wrapper = d3.select("#sunburst")
+    var wrapper = d3.select("#barchart")
     let Twidth = wrapper.node().getBoundingClientRect().width - 50;
-    let Theight = wrapper.node().getBoundingClientRect().height - 50;
+    let Theight = wrapper.node().getBoundingClientRect().height - 100;
     
 
     // set the dimensions and margins of the graph
-    var margin = {top: 20, right: 30, bottom: 0, left: 150},
+    var margin = {top: 20, right: 0, bottom: 0, left: 150},
     width = Twidth - margin.left - margin.right,
     height = Theight - margin.top - margin.bottom;
 
@@ -78,15 +79,15 @@ const BarChart = (totaldata, filterdata=[]) => {
         var data = Array.from(map, ([name, value]) => ({ name, value }));
         data.sort((a, b) => b.value - a.value)
         var othercount = 0;
-        for (let i=15; i<data.length; i++) {
+        for (let i=28; i<data.length; i++) {
             othercount += data[i].value;
         }
-        data.length = 10;
-        // data.push({
-        //     'name': 'Other_leagues',
-        //     'value': othercount
-        // });
-        // data.sort((a, b) => b.value - a.value)
+        data.length = 28;
+        data.push({
+            'name': 'Other_leagues',
+            'value': othercount
+        });
+        data.sort((a, b) => b.value - a.value)
         console.log(data.length);
 
 
@@ -141,7 +142,6 @@ const BarChart = (totaldata, filterdata=[]) => {
             sFeature(d)
         })
 
-        // filteredbars
         if (filterdata.length > 0) {
             svg.selectAll("myRect2")
             .data(data)
@@ -153,14 +153,5 @@ const BarChart = (totaldata, filterdata=[]) => {
             .attr("height", y.bandwidth() )
             .attr("fill", "tomato")
         }
-        
-
-
-        // .attr("x", function(d) { return x(d.Country); })
-        // .attr("y", function(d) { return y(d.Value); })
-        // .attr("width", x.bandwidth())
-        // .attr("height", function(d) { return height - y(d.Value); })
-        // .attr("fill", "#69b3a2")
-    // })
 }
 // BarChart()

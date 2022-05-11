@@ -1,8 +1,6 @@
 window.onload = () => {
     console.log("window loaded")
     loadData();
-    PcpData([]);
-
 }
 
 const loadData = () => {
@@ -24,7 +22,7 @@ const loadData = () => {
             plotSunBurst(response.sunburst, data)
             // var ndata = data.filter(s => s.nationality_name == "Brazil")
             BarChart(data, [])
-            // PcpChart(data)
+            PcpChart(response.pcpdata,d3.keys(response.pcpdata[0]))    
             // GeoMap(response.geoData)
     });
 }
