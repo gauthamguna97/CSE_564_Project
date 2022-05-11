@@ -12,17 +12,24 @@ function PcpData(dimen) {
     return response.json();
   }).then(function (d) {
       pcaData=d.data
-      PcpChart(d.data,d3.keys(d.data[0]))     
+      PcpChart(d.data,d3.keys(d.data[0]))    
   });
 }
 
 function PcpChart(dataPcp,dim){
+
+  var pcp_wrap = d3.select('#pcp')
+  let width = pcp_wrap.node().getBoundingClientRect().width - 100;
+  let height = pcp_wrap.node().getBoundingClientRect().height - 100;
 //  d3.select("#svg_pcp1").html("");
   colors_opt = ["#EE964B","#F95738","#4B4E6D"];
- var color = d3.scaleOrdinal(colors_opt);
- var margin={top:50,right:200,bottom:50,left:80};
-var width = 900;
-var height = 350;
+  var color = d3.scaleOrdinal(colors_opt);
+  var margin= {
+    top:50,
+    right:50,
+    bottom:50,
+    left:50
+  };
  var x = d3.scalePoint().range([0, width], 1),
      y = {},
      dragging = {};
@@ -121,7 +128,6 @@ return true;
 .duration(2000)
        .attr("y", -15)
        .text(function(d) {
-         // console.log(d);
          return d;
        });
        
@@ -136,6 +142,7 @@ return true;
      function brush() {
        var actives = [];
        //filter brushed extents
+       console.log('actives', actives);
        svg.selectAll(".brush")
            .filter(function(d) {
                return d3.brushSelection(this);
@@ -154,6 +161,9 @@ return true;
                return active.extent[0] <= y[dim](d[dim]) && y[dim](d[dim])  <= active.extent[1];
            });
        });
+
+       console.log('actives', actives);
+
 
    }
 

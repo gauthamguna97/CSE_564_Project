@@ -8,6 +8,7 @@
     position: fixed;
     top: 42vh;
     left: 1vw;
+    height: 50px;
 }
 
 .swatch {

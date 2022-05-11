@@ -33,8 +33,7 @@ const sFeature = (d) => {
 
 
 const BarChart = (totaldata, filterdata=[]) => {
-    d3.selectAll("#svgbar").html("")
-    // check data
+    d3.selectAll("#svgbar").remove()
     console.log(totaldata, filterdata);
 
     var wrapper = d3.select("#sunburst")
@@ -143,7 +142,6 @@ const BarChart = (totaldata, filterdata=[]) => {
         })
 
         // filteredbars
-
         if (filterdata.length > 0) {
             svg.selectAll("myRect2")
             .data(data)
