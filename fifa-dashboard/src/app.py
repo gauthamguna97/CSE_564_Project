@@ -30,6 +30,7 @@ class Count:
 Defense = {"CB", "LB", "LWB", "RB", "RWB"}
 Mid_Fielder = {"CAM", "CDM", "CM", "LM", "RM"}
 Attacker = {"CF", "LW", "RW", "ST"}
+GoalKeeper = {"GK"}
 Others = {"SUB", "nan"}
 
 @app.route("/")
@@ -43,18 +44,35 @@ def hello1():
 @app.route("/fetchdata", methods=["POST"])
 def alldata():
     df = pd.read_csv("static/data/fifa22.csv")
-    
+
     val = request.get_json()
-    
+
     print(val)
-    
+
     if 'value' in val:
         df = df[df['final_league'] == val['value']]
 
     if 'nationality' in val:
         y = json.loads(val['nationality'])
         df = df[df['nationality_name'].isin(y)]
-    
+
+    if 'pos' in val:
+        if (val['pos'] not in "Players"):
+            if (val['pos'] == "Defence"):
+                df = df[df['player_position'].isin(list(Defense))]
+            elif (val['pos'] == "Mid Fielder"):
+                df = df[df['player_position'].isin(list(Mid_Fielder))]
+            elif (val['pos'] == "Attacker"):
+                df = df[df['player_position'].isin(list(Attacker))]
+            elif (val['pos'] == "Goal Keeper"):
+                df = df[df['player_position'].isin(["GK"])]
+            elif (val['pos'] in Defense or val['pos'] in Mid_Fielder or val['pos'] in Attacker):
+                df = df[df['player_position'].isin([val['pos']])]
+            else:
+                print("Invalid input passed")
+
+    print(df.head(5))
+
     #------------ geomap
     # geoData = jsonify(
     subdf = df[["nationality_name", "sofifa_id"]]
@@ -102,20 +120,21 @@ def alldata():
     PlayerList.append(Type("Defence", DefList))
     PlayerList.append(Type("Mid Fielder", MidList))
     PlayerList.append(Type("Attacker", AttList))
-    PlayerList.append(Count("Goal Keeper", pos["GK"]))
+    if ("GK" in pos):
+        PlayerList.append(Count("Goal Keeper", pos["GK"]))
     PlayerList.append(Count("Others", Others))
 
     data = Type("Players", PlayerList)
 
-    print(data)
-    print(geodata)
-    print(df)
+    # print(data)
+    # print(geodata)
+    # print(df)
 
     data = json.loads(json.dumps(data, default=vars))
     return jsonify({
         "sunburst": data,
         "geoData": geodata,
-        "data": df.to_json(orient='records'),
+        "data": df.to_json(orient='records')
     })
 
 @app.route("/sunburst", methods=["GET"])

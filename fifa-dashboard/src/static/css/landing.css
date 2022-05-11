@@ -47,12 +47,12 @@ text {
 
 #barchart {
   grid-column: 4 / span 1;
-  grid-row: 1 / span 3;
+  grid-row: 1 / span 2;
 }
 
 #wordcloud {
   grid-column: 4 / span 1;
-  grid-row: 4 / span 1;
+  grid-row: 3 / span 2;
 }
 
 

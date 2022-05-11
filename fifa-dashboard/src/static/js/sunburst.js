@@ -3,7 +3,7 @@
 let currentDepth = 0;
 
 // function SunBurst() {
-//   var url = "http://127.0.0.1:5005";
+var url = "http://127.0.0.1:5005";
 //   fetch(url + "/sunburst")
 //     .then((res) => res.json())
 //     .then((response) => {
@@ -37,6 +37,8 @@ function plotSunBurst(root) {
 
     var sequenceArray = getAncestors(d);
 
+    console.log(d.data.name);
+
     var percentage = d.value;
     var percentageString = percentage;
     if (percentage < 0.1) {
@@ -58,25 +60,26 @@ function plotSunBurst(root) {
       })
       .style("opacity", 1);
 
-    fetch(url + '/fetchdata', {
-        method: 'POST', // or 'PUT'
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ value: 'all' }),
+    fetch(url + "/fetchdata", {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ pos: d.data.name + "" }),
     })
-        .then(data => data.json())
-        .then(response => {
-            // plot_table(response.data)
-            // var attributes = response.data.map(d => d["Attributes"]);
-            // plot_scatter(attributes);
-            var data = JSON.parse(response.data)
-            GeoMap(response.geoData, data)
-            plotSunBurst(response.sunburst, data)
-            // var ndata = data.filter(s => s.nationality_name == "Brazil")
-            BarChart(data, [])
-            // GeoMap(response.geoData)
-        });
+      .then((data) => data.json())
+      .then((response) => {
+        console.log(response);
+        // plot_table(response.data)
+        // var attributes = response.data.map(d => d["Attributes"]);
+        // plot_scatter(attributes);
+        var data = JSON.parse(response.data);
+        GeoMap(response.geoData, data);
+        // plotSunBurst(response.sunburst, data)
+        // var ndata = data.filter(s => s.nationality_name == "Brazil")
+        BarChart(data, []);
+        // GeoMap(response.geoData)
+      });
   };
 
   const width = 400,
@@ -194,7 +197,7 @@ function plotSunBurst(root) {
     .append("textPath")
     .attr("startOffset", "50%")
     .attr("xlink:href", (_, i) => `#hiddenArc${i}`)
-    .attr("font-size", '12px')
+    .attr("font-size", "12px")
     .text((d) => d.data.name);
 
   function mouseover(d) {
