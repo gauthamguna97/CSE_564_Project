@@ -2,6 +2,8 @@ function wordCloud(data) {
   // List of words
   var myWords = data.slice(0, 100);
   // console.log(myWords)
+  d3.selectAll("#wordcloudplot").remove()
+
 
   for (var i = 0; i < myWords.length; i++) {
     console.log(myWords[i]);
@@ -17,14 +19,18 @@ function wordCloud(data) {
   // console.log(myWords)
 
   // set the dimensions and margins of the graph
-  var margin = { top: 10, right: 10, bottom: 10, left: 10 },
-    width = 400 - margin.left - margin.right,
-    height = 350 - margin.top - margin.bottom;
+
+  var wordcloud = d3.select('#wordcloud')
+  let width = wordcloud.node().getBoundingClientRect().width;
+  let height = wordcloud.node().getBoundingClientRect().height - 40;
+
+  var margin = { top: 10, right: 10, bottom: 10, left: 10 };
 
   // append the svg object to the body of the page
   var word_svg = d3
     .select("#wordcloud")
     .append("svg")
+    .attr("id", "wordcloudplot")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
