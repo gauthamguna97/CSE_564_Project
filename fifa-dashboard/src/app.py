@@ -95,6 +95,7 @@ def alldata():
         else:
             pos.update({st: 1})
     print(pos)
+
     DefList = list()
     for d in Defense:
         if d in pos:
@@ -127,15 +128,25 @@ def alldata():
 
     data = Type("Players", PlayerList)
 
+    WordList = list()
+    wordsdf = df[["short_name", "overall"]]
+
+    for index, row in wordsdf.iterrows():
+        WordList.append(Count(row["short_name"], row["overall"]))
+
+    wordcloud = json.loads(json.dumps(WordList, default=vars))
+
     # print(data)
     # print(geodata)
     # print(df)
+    # print(wordcloud)
 
     data = json.loads(json.dumps(data, default=vars))
     return jsonify({
         "sunburst": data,
         "geoData": geodata,
-        "data": df.to_json(orient='records')
+        "data": df.to_json(orient='records'),
+        "wordcloud": wordcloud
     })
 
 @app.route("/sunburst", methods=["GET"])

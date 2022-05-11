@@ -24,6 +24,7 @@ const loadData = () => {
             plotSunBurst(response.sunburst, data)
             // var ndata = data.filter(s => s.nationality_name == "Brazil")
             BarChart(data, [])
+            wordCloud(response.wordcloud)
             // PcpChart(data)
             // GeoMap(response.geoData)
     });
