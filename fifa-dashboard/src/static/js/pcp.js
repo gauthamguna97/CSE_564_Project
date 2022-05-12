@@ -1,5 +1,6 @@
 
 var pcaFData= new Set();
+var workinprogress = false;
 
 var Axes = {
   'wage_cluster' : {
@@ -18,6 +19,13 @@ var Axes = {
     name: 'Continent',
     value: ['Asia', 'Africa', 'Europe', 'North America', 'South America', 'Oceania']
   }
+}
+
+var color = {
+  '0' : "#5fad56", /* Defence */
+  '1' : "#F97068", /* Attacker */
+  '2' : "#66C4CF", /* Mid Fielder */
+  '3' : "#F2C14E" /* Goal Keeper */
 }
 
 
@@ -42,8 +50,8 @@ function PcpChart(dataPcp,dim){
   let width = pcp_wrap.node().getBoundingClientRect().width - 100;
   let height = pcp_wrap.node().getBoundingClientRect().height - 100;
 //  d3.select("#svg_pcp1").html("");
-  colors_opt = ["#0570b0","#F95738","#4B4E6D"];
-  var color = d3.scaleOrdinal(colors_opt);
+  // colors_opt = ["#0570b0","#F95738","#4B4E6D"];
+  // var color = d3.scaleOrdinal(colors_opt);
   var margin= {
     top:50,
     right:50,
@@ -73,7 +81,7 @@ function PcpChart(dataPcp,dim){
 
    // Extract the list of dimensions and create a scale for each.
   x.domain(dimensions = dim.filter(function(d) {
-     if(d==="sofifa_id") return false
+     if(d==="sofifa_id" || d === 'pos_type') return false
 
 if(d !== "wage_eur"){y[d] = d3.scalePoint()
           // .domain(dataPcp.map(function(p) { return p[d]; }).sort())
@@ -104,7 +112,7 @@ return true;
      .enter().append("path")
        .attr("d", path)
        .attr("style", function(d) {
-           return "stroke:" + color(d.clusters) + ";";
+           return "stroke:" + color[d.pos_type] + ";";
        });
 
    // Add a group element for each dimension.
@@ -187,9 +195,13 @@ return true;
            return value;
        });
 
-       setTimeout((e) => {
+       var calling = true;
+       if (pcaFData.size == 0) return;
+      //  setTimeout((e) => {
+          // if (calling) return;
         pFeature(Array.from(pcaFData))
-       }, 500)
+          // calling = false;
+      //  }, 1000)
    }
 
 
@@ -215,8 +227,10 @@ function brushstart() {
 }
 
 const pFeature = (slist) => {
-
+  if(slist.length == 0) return;
   globalfilter.pcpval = JSON.stringify(slist)
+
+  workinprogress = true;
 
   fetch('/fetchdata', {
       method: 'POST', // or 'PUT'
@@ -238,5 +252,7 @@ const pFeature = (slist) => {
       // PcpChart(response.pcpdata,d3.keys(response.pcpdata[0]))
       wordCloud(response.wordcloud)
       pcaFData = new Set();
+      workinprogress = false;
+
   });
 }

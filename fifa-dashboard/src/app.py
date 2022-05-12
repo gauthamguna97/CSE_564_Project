@@ -149,7 +149,7 @@ def alldata():
 
     data = json.loads(json.dumps(data, default=vars))
 
-    sdf = df[["sofifa_id","age_cluster", "rating_cluster", "wage_cluster", "continent"]]
+    sdf = df[["sofifa_id","age_cluster", "rating_cluster", "wage_cluster", "continent", 'pos_type']]
     sdf = sdf.dropna()
 #     df["type"] = np.select(conditions, values)
     return jsonify({
