@@ -156,17 +156,17 @@ function GeoMap(frequency, tdata) {
 
 // Geo()
 let mouseOver = function (d) {
-  d3.selectAll(".Country")
-    .filter((d) => !selectList.includes(d.name))
-    .transition()
-    .duration(200)
-    .style("opacity", 0.5);
+  // d3.selectAll(".Country")
+  //   .filter((d) => !selectList.includes(d.name))
+  //   .transition()
+  //   .duration(200)
+  //   .style("opacity", 0.5);
 
-  d3.select(this)
-    .transition()
-    .duration(200)
-    .style("opacity", 1)
-    .style("stroke", "white");
+  // d3.select(this)
+  //   .transition()
+  //   .duration(200)
+  //   .style("opacity", 1)
+  //   .style("stroke", "white");
 
   geo_tooltip.style("opacity", 1)
               .html(d.properties.name + "<br>Players: " +
@@ -174,7 +174,7 @@ let mouseOver = function (d) {
 };
 
 let mouseLeave = function (d) {
-  d3.selectAll(".Country").transition().duration(200).style("opacity", 0.8);
-  d3.select(this).transition().duration(200).style("stroke", "transparent");
+  // d3.selectAll(".Country").transition().duration(200).style("opacity", 0.8);
+  // d3.select(this).transition().duration(200).style("stroke", "transparent");
   geo_tooltip.style("opacity", 0);
 };

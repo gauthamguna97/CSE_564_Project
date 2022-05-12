@@ -48,7 +48,7 @@ function PcpChart(dataPcp,dim){
   d3.selectAll('#pcpchart').remove()
   var pcp_wrap = d3.select('#pcp')
   let width = pcp_wrap.node().getBoundingClientRect().width - 100;
-  let height = pcp_wrap.node().getBoundingClientRect().height - 100;
+  let height = pcp_wrap.node().getBoundingClientRect().height - 105;
 //  d3.select("#svg_pcp1").html("");
   // colors_opt = ["#0570b0","#F95738","#4B4E6D"];
   // var color = d3.scaleOrdinal(colors_opt);
