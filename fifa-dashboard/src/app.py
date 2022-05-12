@@ -45,13 +45,71 @@ dicti = {'2015': 'fifa15.csv', '2016': 'fifa16.csv','2017': 'fifa17.csv','2018':
 def hello():
     return render_template("index.html")
 
+@app.route("/radar")
+def radar_html():
+    return render_template("radar.html")
+
+@app.route('/get_radar_data', methods = ['POST'])
+def radar():
+    val = request.get_json()
+    print("hello1")
+
+    main_df = pd.read_csv("static/data/" + dicti[str(val['year'])])
+    df = main_df
+    print("hello2")
+
+    if 'name' in val:
+        print("hello3")
+        print(val['name'])
+        # y = json.loads(val['name'])
+        print("hello4")
+        df = df[df['short_name'] == val['name']]
+
+    print("hello5")
+
+    cols = ["pace", 'dribbling', 'passing', 'defending', 'movement_sprint_speed', "attacking_finishing"]
+    df = df[cols]
+    print("hello6")
+    print(df)
+
+    result = []
+    for i, row in df.iterrows():
+        for c in cols:
+            result.append({"axis":c, "value":row[c]})
+
+    print(result)
+
+    return jsonify(result)
+
+# @app.route('/get_radar_data', methods = ['POST', 'GET'])
+# def get_radar_details():
+#     year = int(request.get_json().get('year'))
+#     countries = request.get_json().get('country')
+#     df_query = datadf.copy()
+#     df_query["Population(thousands)"] = df_query["Population(thousands)"]/ df_query["Population(thousands)"].max()
+#     df_query["GDP"] = df_query["GDP"]/ df_query["GDP"].max()
+#     df_query = country_filter(df_query, countries)
+#     df_query = df_query[(df_query["Year"]==year)]
+#     # df_query = df_query[["Population(thousands)", "% urban", "GDP", "HDI"]]
+#     # scaler = MinMaxScaler()
+#     # df_query = pd.DataFrame(scaler.fit_transform(df_query), columns=["Population(thousands)", "% urban", "GDP", "HDI"])
+#     # df_query = df_query/ df_query.max()
+#     # print(df_query)
+#     result = []
+#     for i, row in df_query.iterrows():
+#         result.append([{"axis":"Population(thousands)", "value":row["Population(thousands)"], "ISO":row["ISO"]},
+#         {"axis":"% urban", "value":row["% urban"]/100, "ISO":row["ISO"]},
+#         {"axis":"GDP", "value":row["GDP"], "ISO":row["ISO"]},
+#         {"axis":"HDI", "value":row["HDI"], "ISO":row["ISO"]}])
+#     # print(result)
+#     return jsonify(result)
+
 @app.route("/pcp")
 def hello1():
     return render_template("pcp.html")
 
 @app.route("/fetchdata", methods=["POST"])
 def alldata():
-
     val = request.get_json()
     main_df = pd.read_csv("static/data/" + dicti[str(val['year'])])
     df = main_df
@@ -143,17 +201,12 @@ def alldata():
         WordList.append(WordFreq(row["short_name"], row["overall"], row["pos_type"]))
 
     wordcloud = json.loads(json.dumps(WordList, default=vars))
-
-    # print(data)
-    # print(geodata)
-    # print(df)
-    # print(wordcloud)
-
     data = json.loads(json.dumps(data, default=vars))
 
     sdf = df[["sofifa_id","age_cluster", "rating_cluster", "wage_cluster", "continent", 'pos_type']]
     sdf = sdf.dropna()
 #     df["type"] = np.select(conditions, values)
+
     return jsonify({
         "sunburst": data,
         "geoData": geodata,

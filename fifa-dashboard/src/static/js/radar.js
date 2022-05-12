@@ -1,4 +1,9 @@
-function RadarChart(id, data, options) {
+var rad_dict = {
+	"attacking_finishing" : "attacking",
+	"movement_sprint_speed": "sprint"
+}
+
+function RadarChart(id, t_data, options) {
   var cfg = {
     w: 600, //Width of the circle
     h: 600, //Height of the circle
@@ -24,6 +29,28 @@ function RadarChart(id, data, options) {
     } //for i
   } //if
 
+  for (var i = 0; i < t_data.length; i++) {
+	if (t_data[i].axis in rad_dict) {
+		t_data[i].axis = rad_dict[t_data[i].axis];
+	}
+	//Do something
+}
+
+  var data = []
+  data.push(t_data);
+//   var data = [
+// 	[//iPhone
+// 	      {axis:"Battery Life",value:0.22},
+// 	      {axis:"Brand",value:0.28},
+// 	      {axis:"Contract Cost",value:0.29},
+// 	      {axis:"Design And Quality",value:0.17},
+// 	      {axis:"Have Internet Connectivity",value:0.22},
+// 	      {axis:"Large Screen",value:0.02},
+// 	      {axis:"Price Of Device",value:0.21},
+// 	      {axis:"To Be A Smartphone",value:0.50}
+// 	]
+//       ];
+
   //If the supplied maxValue is smaller than the actual one, replace by the max in the data
   var maxValue = Math.max(
     cfg.maxValue,
@@ -35,6 +62,8 @@ function RadarChart(id, data, options) {
       );
     })
   );
+
+
 
   var allAxis = data[0].map(function (i, j) {
       return i.axis;
