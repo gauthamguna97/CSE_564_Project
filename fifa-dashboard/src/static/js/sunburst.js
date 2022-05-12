@@ -108,7 +108,7 @@ function plotSunBurst(root) {
   const turboColors = ["#23171b","#4a58dd","#2f9df5","#27d7c4","#4df884","#95fb51","#dedd32","#ffa423","#f65f18","#ba2208","#900c00"]
 
   const color = d3.scaleOrdinal([
-    "#A2FAA3", /* Defence */
+    "#5fad56", /* Defence */
     "#66C4CF", /* Mid Fielder */
     "#F97068", /* Attacker */
     "#F2C14E" /* Goal Keeper */

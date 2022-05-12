@@ -24,7 +24,7 @@ function wordCloud(data) {
   // }
 
   var color = {
-    0 : "#A2FAA3", /* Defence */
+    0 : "#5fad56", /* Defence */
     1 : "#F97068", /* Attacker */
     2 : "#66C4CF", /* Mid Fielder */
     3 : "#F2C14E" /* Goal Keeper */
