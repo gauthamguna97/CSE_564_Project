@@ -53,8 +53,6 @@ def alldata():
     df = main_df
     val = request.get_json()
 
-    print(val)
-
     if 'value' in val:
         y = json.loads(val['value'])
         df = df[df['final_league'].isin(y)]
@@ -77,13 +75,10 @@ def alldata():
                 df = df[df['player_position'].isin([val['pos']])]
             else:
                 print("Invalid input passed")
-    
+
     if 'pcpval' in val:
         y = json.loads(val['pcpval'])
-        print(y)
         df = df[df['sofifa_id'].isin(y)]
-    
-    print(df.head(5))
 
     #------------ geomap
     # geoData = jsonify(
@@ -105,7 +100,6 @@ def alldata():
             pos[st] += 1
         else:
             pos.update({st: 1})
-    print(pos)
 
     DefList = list()
     for d in Defense:
@@ -181,7 +175,7 @@ def biplot():
             pos[st] += 1
         else:
             pos.update({st: 1})
-    print(pos)
+
     DefList = list()
     for d in Defense:
         DefList.append(Count(d, int(pos[d])))

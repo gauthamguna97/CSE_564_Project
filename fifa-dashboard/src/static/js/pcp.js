@@ -24,7 +24,7 @@ var Axes = {
 // function PcpData(dimen) {
 //   fetch('/pcpdata' , {
 //     method: "GET",
-//     headers : { 
+//     headers : {
 //           'Content-Type': 'application/json',
 //           'Accept': 'application/json'
 //         },
@@ -32,7 +32,7 @@ var Axes = {
 //     return response.json();
 //   }).then(function (d) {
 //       pcaData=d.data
-//       PcpChart(d.data,d3.keys(d.data[0]))    
+//       PcpChart(d.data,d3.keys(d.data[0]))
 //   });
 // }
 
@@ -53,9 +53,9 @@ function PcpChart(dataPcp,dim){
  var x = d3.scalePoint().range([0, width], 1),
      y = {},
      dragging = {};
-     
+
    entity = {1:'India',2:'United States',3:'China',4:'Russia',5:'Australia',6:'Germany',7:'Japan',8:'New Zealand',9:'Mexico',10:'United Kingdom',11:'France',12:'Argentina',13:'Indonesia',14:'Italy',15:'Spain',16:'Saudi Arabia',17:'Switzerland',18:'Luxembourg',19:'Ireland',20:'Kuwait',21:'Austria'};
-   
+
 
  var line = d3.line(),
      axis = d3.axisLeft(),
@@ -152,7 +152,7 @@ return true;
        .text(function(d) {
          return Axes[d].name;
        });
-       
+
    yBrushes = {}
    g.append("g")
      .attr("class", "brush")
@@ -164,7 +164,6 @@ return true;
      function brush() {
        var actives = [];
        //filter brushed extents
-       console.log('actives', actives);
        svg.selectAll(".brush")
            .filter(function(d) {
                return d3.brushSelection(this);
@@ -177,7 +176,6 @@ return true;
            });
        //set un-brushed foreground line disappear
        foreground.classed("fade", function(d,i) {
-            console.log('pcpd', d);
            var value = !actives.every(function(active) {
                var dim = active.dimension;
                return active.extent[0] <= y[dim](d[dim]) && y[dim](d[dim])  <= active.extent[1];
@@ -189,8 +187,6 @@ return true;
            return value;
        });
 
-       console.log('actives', pcaFData);
-       
        setTimeout((e) => {
         pFeature(Array.from(pcaFData))
        }, 500)
@@ -232,7 +228,6 @@ const pFeature = (slist) => {
   .then(data => data.json())
   .then(response => {
       // plot_table(response.data)
-      console.log(response)
       // plot_scatter(attributes);
       var data = JSON.parse(response.data)
       var maindata = JSON.parse(response.mainData)
