@@ -184,7 +184,7 @@ const BarChart = (totaldata, filterdata = []) => {
         .attr("width", function(d) { console.log(d.value); return x(d.value); })
         .attr("height", y.bandwidth() )
         .attr("fill", "#8da7be")
-        .attr("opacity", 0.6)
+        .attr("opacity", filterdata.length > 0 ? 0.5 : 1)
         .on("click", (d) => {
             console.log(d)
             sFeature(d)
