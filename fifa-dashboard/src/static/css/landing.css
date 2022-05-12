@@ -7,7 +7,8 @@
   font-family: Sans-serif;
   font-size: 8px;
   background-color: black;
-  color: white
+  color: white;
+  /* display: none */
 }
 
 .mybody .domain {
@@ -29,6 +30,10 @@ text {
   vertical-align: middle;
   width: 50%;
   text-align: center;
+}
+
+#header {
+  background: crimson;
 }
 
 #dashboard {

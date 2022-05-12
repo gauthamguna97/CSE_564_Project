@@ -1,0 +1,133 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald:700);
+
+.wrap {
+    width: 100vw;
+    padding-left: 45%;
+    padding-right: 45%;
+    position: fixed;
+    height: 96vh;
+    top: 4.5vh;
+    background: black;
+    z-index: 10;
+}
+
+.curve {
+  left:200px;
+  width:200px;
+  height:200px;
+  border-radius:100px;
+  background: #252527;
+  -webkit-animation: spin 1.5s;
+   -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+   -moz-animation: spin 1.5s;
+   -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  animation: spin 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);}
+  100% {-webkit-transform: rotate(360deg);}
+}
+
+@-moz-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);}
+  100% {-moz-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+  0% {
+   transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
+
+.curve3 {
+  position:absolute;
+  margin-top:149px;
+  width:200px;
+  height:200px;
+  border-radius:100px;
+  box-shadow: 0px 3px 5px 0.02em #888888;
+
+}
+
+.glow {
+  box-shadow: 0px 3px 15px 0.02em #888888;
+}
+
+.topleft {
+  width:100px;
+  height:100px;
+  border-top-left-radius:100px;
+  background:-webkit-linear-gradient(top right, #AAAAB3 10%, #252527 80%);
+  background:-moz-linear-gradient(top right, #AAAAB3 10%, #252527 80%);
+  background:linear-gradient(to bottom left, #AAAAB3 10%, #252527 80%);
+}
+
+.bottomright {
+  width:100px;
+  height:100px;
+  border-bottom-right-radius:100px;
+ background:-webkit-linear-gradient( top right, #252527 20%, #AAAAB3 90%);
+  background:-moz-linear-gradient( top right, #252527 20%, #AAAAB3 90%);
+  background:linear-gradient( to bottom left, #252527 20%, #AAAAB3 90%);
+  position:relative;
+  left:100px;
+}
+
+.curve2 {
+  top:175px;
+  left:25px;
+  position:relative;
+  width:150px;
+  height:150px;
+  border-radius:100px;
+background-color:#252527;
+  z-index:2;
+  box-shadow: 0px 0px 5px 0.02em #888888;
+}
+
+.text {
+    display: inline-block;
+    font-family: 'Oswald';
+    font-size: 50px;
+    margin-left: 27px;
+    margin-top: 40px;
+    background: -webkit-linear-gradient( top left, white, #ffd700, #998100 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #ffd700;
+}
+
+
+.bottomleft {
+  width:50px;
+  height:50px;
+  border-bottom-left-radius:50px;
+  background:#252527;
+  position:relative;
+  z-index:-4;
+  top:-100px;
+}
+
+.glow {
+  box-shadow: 16px 30px 30px 5px #ffffff;
+}
+
+
+.topright {
+  width:50px;
+  height:50px;
+  border-top-right-radius:50px;
+  background:#252527;
+  position:relative;
+  left:125px;
+  bottom:220px; 
+  box-shadow: 5px -5px 35px 5px #ffffff;   
+  z-index:-4;
+}

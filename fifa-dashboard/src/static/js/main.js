@@ -26,5 +26,9 @@ const loadData = () => {
             // PcpChart(data)
             PcpChart(response.pcpdata,d3.keys(response.pcpdata[0]))
             // GeoMap(response.geoData)
+            setTimeout(() => {
+                document.getElementById('loader').style.display = 'none'
+                document.getElementById('wholebody').style.display = 'block'
+            }, 1000)
     });
 }

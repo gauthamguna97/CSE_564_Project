@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../static/css/sequences.css" />
     <link rel="stylesheet" href="../static/css/geomap.css" />
     <link rel="stylesheet" href="../static/css/timeline.css" />
+    <link rel="stylesheet" href="../static/css/loader.css" />
     <title>FIFA Dashboard</title>
     <script src="https://d3js.org/d3.v4.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
@@ -12883,9 +12884,26 @@
         ]
       }
     </script>
+    <script>
+      function handleclick(e) {
+        console.log(e.target.innerHTML)
+      }
+    </script>
   </head>
-
-  <body class="mybody">
+  <div class="wrap" id='loader'>
+    <div class="curve3"></div>
+    <div class="curve2">
+      <div class="text">2022</div>
+    </div>
+    <div class="curve">
+      <div class="topleft"></div>
+      <div class="bottomright"></div>
+    </div>
+    <div class="bottomleft glow"></div>
+    <div class="topright"></div>
+  </div>
+  <body class="mybody" id="wholebody">
+    
     <!-- <div id="sliderx"></div> -->
     <a href="/pcp.html"></a>
     <div id="header">
@@ -12914,26 +12932,17 @@
           </div>
         </form>
       </div> -->
-      <div class="container">
-        <div class="radio_container">
-            <input type="radio" name="radio" id="one" checked>
-            <label for="one">one</label>
-            <input type="radio" name="radio" id="two">
-            <label for="two">two</label>
-            <input type="radio" name="radio" id="three">
-            <label for="three">three</label>
-            <input type="radio" name="radio" id="four">
-            <label for="three">three</label>
-            <input type="radio" name="radio" id="five">
-            <label for="three">three</label>
-            <input type="radio" name="radio" id="six">
-            <label for="three">three</label>
-            <input type="radio" name="radio" id="seven">
-            <label for="three">three</label>
-            <input type="radio" name="radio" id="eight">
-            <label for="three">three</label>
-        </div>
-      </div>
+      <nav onclick="handleclick(event)">
+        <a id="2015" href="#">2015</a>
+        <a  id="2016" href="#">2016</a>
+        <a id="2017" href="#">2017</a>
+        <a id="2018" href="#">2018</a>
+        <a id="2019" href="#">2019</a>
+        <a id="2020" href="#">2020</a>
+        <a id="2021" href="#">2021</a>
+        <a id="2022" href="#">2022</a>
+        <div class="animation start-home"></div>
+      </nav>
     </div>
     <div id="visdashboard">
       <div id="geoMap">
