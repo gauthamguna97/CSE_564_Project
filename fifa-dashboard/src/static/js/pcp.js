@@ -1,6 +1,18 @@
 
 var pcaFData= new Set();
 
+var wageMap = {
+  1: '0 - 20000',
+  2: '20000 - 50000',
+  3: '50000 - 100000',
+  4: '100001 - 150000',
+  5: '150001 - 200000',
+  6: '200001 - 250000',
+  7: '250001 - 300000',
+  8: '250001 - 300000',
+  9: '300001 - 350000',
+}
+
 
 // function PcpData(dimen) {
 //   fetch('/pcpdata' , {
@@ -200,12 +212,14 @@ function brushstart() {
 
 const pFeature = (slist) => {
 
+  globalfilter.pcpval = JSON.stringify(slist)
+
   fetch('/fetchdata', {
       method: 'POST', // or 'PUT'
       headers: {
           'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ pcpval: JSON.stringify(slist)}),
+      body: JSON.stringify(globalfilter),
   })
   .then(data => data.json())
   .then(response => {
@@ -213,7 +227,7 @@ const pFeature = (slist) => {
       console.log(response)
       // plot_scatter(attributes);
       var data = JSON.parse(response.data)
-      var maindata = JSON.parse(response.data)
+      var maindata = JSON.parse(response.mainData)
       GeoMap(response.geoData, data)
       plotSunBurst(response.sunburst, data)
       // var ndata = data.filter(s => s.nationality_name == "Brazil")

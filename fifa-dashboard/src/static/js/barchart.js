@@ -168,7 +168,7 @@ const BarChart = (totaldata, filterdata=[]) => {
             .attr("y", function(d) { console.log(y(d.name)); return y(d.name); })
             .attr("width", function(d) { console.log(map2.get(d.name), d.name); return x(map2.get(d.name)); })
             .attr("height", y.bandwidth() )
-            .attr("fill", "tomato")
+            .attr("fill", "black")
         }
 }
 // BarChart()

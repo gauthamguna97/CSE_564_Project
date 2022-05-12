@@ -1,93 +1,93 @@
 sofifa_id,nationality_name,overall,club_name,club_position,league_name,age,wage_eur,league_name.1,pos_type,player_position,short_name,long_name,final_league,age_cluster,rating_cluster,continent,wage_cluster
-158023,Argentina,93,Paris Saint-Germain,RW,French Ligue 1,34,320000.0,French Ligue 1,1,RW,L. Messi,Lionel Andrés Messi Cuccittini,French Ligue,31-35,91-95,South America,6
-188545,Poland,92,FC Bayern München,ST,German 1. Bundesliga,32,270000.0,German 1. Bundesliga,1,ST,R. Lewandowski,Robert Lewandowski,German Bundesliga,31-35,91-95,Europe,5
-20801,Portugal,91,Manchester United,ST,English Premier League,36,270000.0,English Premier League,1,ST,Cristiano Ronaldo,Cristiano Ronaldo dos Santos Aveiro,English Premier League,36-40,91-95,Europe,5
-190871,Brazil,91,Paris Saint-Germain,LW,French Ligue 1,29,270000.0,French Ligue 1,1,LW,Neymar Jr,Neymar da Silva Santos Júnior,French Ligue,26-30,91-95,South America,5
-192985,Belgium,91,Manchester City,RCM,English Premier League,30,350000.0,English Premier League,2,CM,K. De Bruyne,Kevin De Bruyne,English Premier League,26-30,91-95,Europe,6
+158023,Argentina,93,Paris Saint-Germain,RW,French Ligue 1,34,320000.0,French Ligue 1,1,RW,L. Messi,Lionel Andrés Messi Cuccittini,French Ligue,31-35,91-95,South America,8
+188545,Poland,92,FC Bayern München,ST,German 1. Bundesliga,32,270000.0,German 1. Bundesliga,1,ST,R. Lewandowski,Robert Lewandowski,German Bundesliga,31-35,91-95,Europe,7
+20801,Portugal,91,Manchester United,ST,English Premier League,36,270000.0,English Premier League,1,ST,Cristiano Ronaldo,Cristiano Ronaldo dos Santos Aveiro,English Premier League,36-40,91-95,Europe,7
+190871,Brazil,91,Paris Saint-Germain,LW,French Ligue 1,29,270000.0,French Ligue 1,1,LW,Neymar Jr,Neymar da Silva Santos Júnior,French Ligue,26-30,91-95,South America,7
+192985,Belgium,91,Manchester City,RCM,English Premier League,30,350000.0,English Premier League,2,CM,K. De Bruyne,Kevin De Bruyne,English Premier League,26-30,91-95,Europe,8
 200389,Slovenia,91,Atlético de Madrid,GK,Spain Primera Division,28,130000.0,Spain Primera Division,3,GK,J. Oblak,Jan Oblak,Spanish La Liga,26-30,91-95,Europe,4
-231747,France,91,Paris Saint-Germain,ST,French Ligue 1,22,230000.0,French Ligue 1,1,ST,K. Mbappé,Kylian Mbappé Lottin,French Ligue,21-25,91-95,Europe,5
+231747,France,91,Paris Saint-Germain,ST,French Ligue 1,22,230000.0,French Ligue 1,1,ST,K. Mbappé,Kylian Mbappé Lottin,French Ligue,21-25,91-95,Europe,6
 167495,Germany,90,FC Bayern München,GK,German 1. Bundesliga,35,86000.0,German 1. Bundesliga,3,GK,M. Neuer,Manuel Peter Neuer,German Bundesliga,31-35,86-90,Europe,3
-192448,Germany,90,FC Barcelona,GK,Spain Primera Division,29,250000.0,Spain Primera Division,3,GK,M. ter Stegen,Marc-André ter Stegen,Spanish La Liga,26-30,86-90,Europe,5
-202126,England,90,Tottenham Hotspur,ST,English Premier League,27,240000.0,English Premier League,1,ST,H. Kane,Harry Kane,English Premier League,26-30,86-90,Europe,5
-215914,France,90,Chelsea,RCM,English Premier League,30,230000.0,English Premier League,2,CDM,N. Kanté,N'Golo Kanté,English Premier League,26-30,86-90,Europe,5
-165153,France,89,Real Madrid CF,CF,Spain Primera Division,33,350000.0,Spain Primera Division,1,CF,K. Benzema,Karim Benzema,Spanish La Liga,31-35,86-90,Europe,6
-192119,Belgium,89,Real Madrid CF,GK,Spain Primera Division,29,250000.0,Spain Primera Division,3,GK,T. Courtois,Thibaut Courtois,Spanish La Liga,26-30,86-90,Europe,5
-200104,Korea Republic,89,Tottenham Hotspur,LW,English Premier League,28,220000.0,English Premier League,2,LM,H. Son,손흥민 孙兴慜,English Premier League,26-30,86-90,Asia,5
-200145,Brazil,89,Real Madrid CF,CDM,Spain Primera Division,29,310000.0,Spain Primera Division,2,CDM,Casemiro,Carlos Henrique Venancio Casimiro,Spanish La Liga,26-30,86-90,South America,6
-203376,Netherlands,89,Liverpool,LCB,English Premier League,29,230000.0,English Premier League,0,CB,V. van Dijk,Virgil van Dijk,English Premier League,26-30,86-90,Europe,5
-208722,Senegal,89,Liverpool,LW,English Premier League,29,270000.0,English Premier League,1,LW,S. Mané,Sadio Mané,English Premier League,26-30,86-90,Africa,5
-209331,Egypt,89,Liverpool,RW,English Premier League,29,270000.0,English Premier League,1,RW,M. Salah,Mohamed Salah Ghaly,English Premier League,26-30,86-90,Africa,5
-210257,Brazil,89,Manchester City,GK,English Premier League,27,200000.0,English Premier League,3,GK,Ederson,Ederson Santana de Moraes,English Premier League,26-30,86-90,South America,4
-212622,Germany,89,FC Bayern München,RDM,German 1. Bundesliga,26,160000.0,German 1. Bundesliga,2,CDM,J. Kimmich,Joshua Walter Kimmich,German Bundesliga,,86-90,Europe,4
-212831,Brazil,89,Liverpool,GK,English Premier League,28,190000.0,English Premier League,3,GK,Alisson,Alisson Ramsés Becker,English Premier League,26-30,86-90,South America,4
+192448,Germany,90,FC Barcelona,GK,Spain Primera Division,29,250000.0,Spain Primera Division,3,GK,M. ter Stegen,Marc-André ter Stegen,Spanish La Liga,26-30,86-90,Europe,6
+202126,England,90,Tottenham Hotspur,ST,English Premier League,27,240000.0,English Premier League,1,ST,H. Kane,Harry Kane,English Premier League,26-30,86-90,Europe,6
+215914,France,90,Chelsea,RCM,English Premier League,30,230000.0,English Premier League,2,CDM,N. Kanté,N'Golo Kanté,English Premier League,26-30,86-90,Europe,6
+165153,France,89,Real Madrid CF,CF,Spain Primera Division,33,350000.0,Spain Primera Division,1,CF,K. Benzema,Karim Benzema,Spanish La Liga,31-35,86-90,Europe,8
+192119,Belgium,89,Real Madrid CF,GK,Spain Primera Division,29,250000.0,Spain Primera Division,3,GK,T. Courtois,Thibaut Courtois,Spanish La Liga,26-30,86-90,Europe,6
+200104,Korea Republic,89,Tottenham Hotspur,LW,English Premier League,28,220000.0,English Premier League,2,LM,H. Son,손흥민 孙兴慜,English Premier League,26-30,86-90,Asia,6
+200145,Brazil,89,Real Madrid CF,CDM,Spain Primera Division,29,310000.0,Spain Primera Division,2,CDM,Casemiro,Carlos Henrique Venancio Casimiro,Spanish La Liga,26-30,86-90,South America,8
+203376,Netherlands,89,Liverpool,LCB,English Premier League,29,230000.0,English Premier League,0,CB,V. van Dijk,Virgil van Dijk,English Premier League,26-30,86-90,Europe,6
+208722,Senegal,89,Liverpool,LW,English Premier League,29,270000.0,English Premier League,1,LW,S. Mané,Sadio Mané,English Premier League,26-30,86-90,Africa,7
+209331,Egypt,89,Liverpool,RW,English Premier League,29,270000.0,English Premier League,1,RW,M. Salah,Mohamed Salah Ghaly,English Premier League,26-30,86-90,Africa,7
+210257,Brazil,89,Manchester City,GK,English Premier League,27,200000.0,English Premier League,3,GK,Ederson,Ederson Santana de Moraes,English Premier League,26-30,86-90,South America,5
+212622,Germany,89,FC Bayern München,RDM,German 1. Bundesliga,26,160000.0,German 1. Bundesliga,2,CDM,J. Kimmich,Joshua Walter Kimmich,German Bundesliga,,86-90,Europe,5
+212831,Brazil,89,Liverpool,GK,English Premier League,28,190000.0,English Premier League,3,GK,Alisson,Alisson Ramsés Becker,English Premier League,26-30,86-90,South America,5
 230621,Italy,89,Paris Saint-Germain,GK,French Ligue 1,22,110000.0,French Ligue 1,3,GK,G. Donnarumma,Gianluigi Donnarumma,French Ligue,21-25,86-90,Europe,4
 155862,Spain,88,Paris Saint-Germain,LCB,French Ligue 1,35,115000.0,French Ligue 1,0,CB,Sergio Ramos,Sergio Ramos García,French Ligue,31-35,86-90,Europe,4
 176580,Uruguay,88,Atlético de Madrid,RS,Spain Primera Division,34,135000.0,Spain Primera Division,1,ST,L. Suárez,Luis Alberto Suárez Díaz,Spanish La Liga,31-35,86-90,South America,4
-182521,Germany,88,Real Madrid CF,LCM,Spain Primera Division,31,310000.0,Spain Primera Division,2,CM,T. Kroos,Toni Kroos,Spanish La Liga,31-35,86-90,Europe,6
-192505,Belgium,88,Chelsea,ST,English Premier League,28,260000.0,English Premier League,1,ST,R. Lukaku,Romelu Lukaku Menama,English Premier League,26-30,86-90,Europe,5
+182521,Germany,88,Real Madrid CF,LCM,Spain Primera Division,31,310000.0,Spain Primera Division,2,CM,T. Kroos,Toni Kroos,Spanish La Liga,31-35,86-90,Europe,8
+192505,Belgium,88,Chelsea,ST,English Premier League,28,260000.0,English Premier League,1,ST,R. Lukaku,Romelu Lukaku Menama,English Premier League,26-30,86-90,Europe,7
 193041,Costa Rica,88,Paris Saint-Germain,SUB,French Ligue 1,34,130000.0,French Ligue 1,3,GK,K. Navas,Keylor Navas Gamboa,French Ligue,31-35,86-90,North America,4
-202652,England,88,Manchester City,SUB,English Premier League,26,290000.0,English Premier League,1,LW,R. Sterling,Raheem Sterling,English Premier League,,86-90,Europe,5
-212198,Portugal,88,Manchester United,CAM,English Premier League,26,250000.0,English Premier League,2,CAM,Bruno Fernandes,Bruno Miguel Borges Fernandes,English Premier League,,86-90,Europe,5
+202652,England,88,Manchester City,SUB,English Premier League,26,290000.0,English Premier League,1,LW,R. Sterling,Raheem Sterling,English Premier League,,86-90,Europe,7
+212198,Portugal,88,Manchester United,CAM,English Premier League,26,250000.0,English Premier League,2,CAM,Bruno Fernandes,Bruno Miguel Borges Fernandes,English Premier League,,86-90,Europe,6
 239085,Norway,88,Borussia Dortmund,RS,German 1. Bundesliga,20,110000.0,German 1. Bundesliga,1,ST,E. Haaland,Erling Braut Haaland,German Bundesliga,16-20,86-90,Europe,4
-153079,Argentina,87,FC Barcelona,ST,Spain Primera Division,33,260000.0,Spain Primera Division,1,ST,S. Agüero,Sergio Leonel Agüero del Castillo,Spanish La Liga,31-35,86-90,South America,5
+153079,Argentina,87,FC Barcelona,ST,Spain Primera Division,33,260000.0,Spain Primera Division,1,ST,S. Agüero,Sergio Leonel Agüero del Castillo,Spanish La Liga,31-35,86-90,South America,7
 167948,France,87,Tottenham Hotspur,GK,English Premier League,34,125000.0,English Premier League,3,GK,H. Lloris,Hugo Lloris,English Premier League,31-35,86-90,Europe,4
-177003,Croatia,87,Real Madrid CF,RCM,Spain Primera Division,35,190000.0,Spain Primera Division,2,CM,L. Modrić,Luka Modrić,Spanish La Liga,31-35,86-90,Europe,4
-183898,Argentina,87,Paris Saint-Germain,SUB,French Ligue 1,33,160000.0,French Ligue 1,1,RW,Á. Di María,Ángel Fabián Di María Hernández,French Ligue,31-35,86-90,South America,4
+177003,Croatia,87,Real Madrid CF,RCM,Spain Primera Division,35,190000.0,Spain Primera Division,2,CM,L. Modrić,Luka Modrić,Spanish La Liga,31-35,86-90,Europe,5
+183898,Argentina,87,Paris Saint-Germain,SUB,French Ligue 1,33,160000.0,French Ligue 1,1,RW,Á. Di María,Ángel Fabián Di María Hernández,French Ligue,31-35,86-90,South America,5
 186153,Poland,87,Juventus,GK,Italian Serie A,31,105000.0,Italian Serie A,3,GK,W. Szczęsny,Wojciech Tomasz Szczęsny,Italian Serie,31-35,86-90,Europe,4
 189596,Germany,87,FC Bayern München,CAM,German 1. Bundesliga,31,140000.0,German 1. Bundesliga,2,CAM,T. Müller,Thomas Müller,German Bundesliga,31-35,86-90,Europe,4
 192387,Italy,87,Lazio,ST,Italian Serie A,31,125000.0,Italian Serie A,1,ST,C. Immobile,Ciro Immobile,Italian Serie,31-35,86-90,Europe,4
-195864,France,87,Manchester United,RDM,English Premier League,28,220000.0,English Premier League,2,CM,P. Pogba,Paul Pogba,English Premier League,26-30,86-90,Europe,5
-199556,Italy,87,Paris Saint-Germain,LCM,French Ligue 1,28,155000.0,French Ligue 1,2,CM,M. Verratti,Marco Verratti,French Ligue,26-30,86-90,Europe,4
+195864,France,87,Manchester United,RDM,English Premier League,28,220000.0,English Premier League,2,CM,P. Pogba,Paul Pogba,English Premier League,26-30,86-90,Europe,6
+199556,Italy,87,Paris Saint-Germain,LCM,French Ligue 1,28,155000.0,French Ligue 1,2,CM,M. Verratti,Marco Verratti,French Ligue,26-30,86-90,Europe,5
 207865,Brazil,87,Paris Saint-Germain,RCB,French Ligue 1,27,135000.0,French Ligue 1,0,CB,Marquinhos,Marcos Aoás Corrêa,French Ligue,26-30,86-90,South America,4
 209658,Germany,87,FC Bayern München,LDM,German 1. Bundesliga,26,140000.0,German 1. Bundesliga,2,CM,L. Goretzka,Leon Christoph Goretzka,German Bundesliga,,86-90,Europe,4
-211110,Argentina,87,Juventus,CAM,Italian Serie A,27,160000.0,Italian Serie A,1,CF,P. Dybala,Paulo Bruno Exequiel Dybala,Italian Serie,26-30,86-90,South America,4
-216267,Scotland,87,Liverpool,LB,English Premier League,27,175000.0,English Premier League,0,LB,A. Robertson,Andrew Robertson,English Premier League,26-30,86-90,Europe,4
-228702,Netherlands,87,FC Barcelona,RCM,Spain Primera Division,24,210000.0,Spain Primera Division,2,CM,F. de Jong,Frenkie de Jong,Spanish La Liga,21-25,86-90,Europe,5
+211110,Argentina,87,Juventus,CAM,Italian Serie A,27,160000.0,Italian Serie A,1,CF,P. Dybala,Paulo Bruno Exequiel Dybala,Italian Serie,26-30,86-90,South America,5
+216267,Scotland,87,Liverpool,LB,English Premier League,27,175000.0,English Premier League,0,LB,A. Robertson,Andrew Robertson,English Premier League,26-30,86-90,Europe,5
+228702,Netherlands,87,FC Barcelona,RCM,Spain Primera Division,24,210000.0,Spain Primera Division,2,CM,F. de Jong,Frenkie de Jong,Spanish La Liga,21-25,86-90,Europe,6
 231281,England,87,Liverpool,RB,English Premier League,22,150000.0,English Premier League,0,RB,T. Alexander-Arnold,Trent Alexander-Arnold,English Premier League,21-25,86-90,Europe,4
 233049,England,87,Manchester United,LM,English Premier League,21,150000.0,English Premier League,2,RM,J. Sancho,Jadon Sancho,English Premier League,21-25,86-90,Europe,4
-239818,Portugal,87,Manchester City,RCB,English Premier League,24,170000.0,English Premier League,0,CB,Rúben Dias,Rúben dos Santos Gato Alves Dias,English Premier League,21-25,86-90,Europe,4
+239818,Portugal,87,Manchester City,RCB,English Premier League,24,170000.0,English Premier League,0,CB,Rúben Dias,Rúben dos Santos Gato Alves Dias,English Premier League,21-25,86-90,Europe,5
 138956,Italy,86,Juventus,SUB,Italian Serie A,36,88000.0,Italian Serie A,0,CB,G. Chiellini,Giorgio Chiellini,Italian Serie,36-40,86-90,Europe,3
 162835,Slovenia,86,Inter,GK,Italian Serie A,36,78000.0,Italian Serie A,3,GK,S. Handanovič,Samir Handanovič,Italian Serie,36-40,86-90,Europe,3
 178603,Germany,86,Borussia Dortmund,LCB,German 1. Bundesliga,32,95000.0,German 1. Bundesliga,0,CB,M. Hummels,Mats Hummels,German Bundesliga,31-35,86-90,Europe,3
-189332,Spain,86,FC Barcelona,LB,Spain Primera Division,32,200000.0,Spain Primera Division,0,LB,Jordi Alba,Jordi Alba Ramos,Spanish La Liga,31-35,86-90,Europe,4
-189509,Spain,86,Liverpool,LCM,English Premier League,30,180000.0,English Premier League,2,CM,Thiago,Thiago Alcântara do Nascimento,English Premier League,26-30,86-90,Europe,4
-189511,Spain,86,FC Barcelona,CDM,Spain Primera Division,32,200000.0,Spain Primera Division,2,CDM,Sergio Busquets,Sergio Busquets i Burgos,Spanish La Liga,31-35,86-90,Europe,4
+189332,Spain,86,FC Barcelona,LB,Spain Primera Division,32,200000.0,Spain Primera Division,0,LB,Jordi Alba,Jordi Alba Ramos,Spanish La Liga,31-35,86-90,Europe,5
+189509,Spain,86,Liverpool,LCM,English Premier League,30,180000.0,English Premier League,2,CM,Thiago,Thiago Alcântara do Nascimento,English Premier League,26-30,86-90,Europe,5
+189511,Spain,86,FC Barcelona,CDM,Spain Primera Division,32,200000.0,Spain Primera Division,2,CDM,Sergio Busquets,Sergio Busquets i Burgos,Spanish La Liga,31-35,86-90,Europe,5
 189513,Spain,86,Villarreal CF,LCM,Spain Primera Division,32,64000.0,Spain Primera Division,2,CM,Parejo,Daniel Parejo Muñoz,Spanish La Liga,31-35,86-90,Europe,3
 192984,Belgium,86,VfL Wolfsburg,GK,German 1. Bundesliga,29,88000.0,German 1. Bundesliga,3,GK,K. Casteels,Koen Casteels,German Bundesliga,26-30,86-90,Europe,3
 198219,Italy,86,Napoli,LW,Italian Serie A,30,125000.0,Italian Serie A,1,LW,L. Insigne,Lorenzo Insigne,Italian Serie,26-30,86-90,Europe,4
 201024,Senegal,86,Napoli,LCB,Italian Serie A,30,105000.0,Italian Serie A,0,CB,K. Koulibaly,Kalidou Koulibaly,Italian Serie,26-30,86-90,Africa,4
-201535,France,86,Manchester United,RCB,English Premier League,28,180000.0,English Premier League,0,CB,R. Varane,Raphaël Varane,English Premier League,26-30,86-90,Europe,4
-204485,Algeria,86,Manchester City,RW,English Premier League,30,220000.0,English Premier League,1,RW,R. Mahrez,Riyad Mahrez,English Premier League,26-30,86-90,Africa,5
+201535,France,86,Manchester United,RCB,English Premier League,28,180000.0,English Premier League,0,CB,R. Varane,Raphaël Varane,English Premier League,26-30,86-90,Europe,5
+204485,Algeria,86,Manchester City,RW,English Premier League,30,220000.0,English Premier League,1,RW,R. Mahrez,Riyad Mahrez,English Premier League,26-30,86-90,Africa,6
 208093,Spain,86,Villarreal CF,RS,Spain Primera Division,29,73000.0,Spain Primera Division,1,ST,Gerard Moreno,Gerard Moreno Balagueró,Spanish La Liga,26-30,86-90,Europe,3
-208830,England,86,Leicester City,ST,English Premier League,34,180000.0,English Premier League,1,ST,J. Vardy,Jamie Vardy,English Premier League,31-35,86-90,Europe,4
-209499,Brazil,86,Liverpool,CDM,English Premier League,27,165000.0,English Premier League,2,CDM,Fabinho,Fábio Henrique Tavares,English Premier League,26-30,86-90,South America,4
-210514,Portugal,86,Manchester City,LB,English Premier League,27,185000.0,English Premier League,0,RB,João Cancelo,João Pedro Cavaco Cancelo,English Premier League,26-30,86-90,Europe,4
-212218,Spain,86,Manchester City,LCB,English Premier League,27,185000.0,English Premier League,0,CB,A. Laporte,Aymeric Laporte,English Premier League,26-30,86-90,Europe,4
+208830,England,86,Leicester City,ST,English Premier League,34,180000.0,English Premier League,1,ST,J. Vardy,Jamie Vardy,English Premier League,31-35,86-90,Europe,5
+209499,Brazil,86,Liverpool,CDM,English Premier League,27,165000.0,English Premier League,2,CDM,Fabinho,Fábio Henrique Tavares,English Premier League,26-30,86-90,South America,5
+210514,Portugal,86,Manchester City,LB,English Premier League,27,185000.0,English Premier League,0,RB,João Cancelo,João Pedro Cavaco Cancelo,English Premier League,26-30,86-90,Europe,5
+212218,Spain,86,Manchester City,LCB,English Premier League,27,185000.0,English Premier League,0,CB,A. Laporte,Aymeric Laporte,English Premier League,26-30,86-90,Europe,5
 213345,France,86,FC Bayern München,SUB,German 1. Bundesliga,25,120000.0,German 1. Bundesliga,2,LM,K. Coman,Kingsley Junior Coman,German Bundesliga,21-25,86-90,Europe,4
-218667,Portugal,86,Manchester City,SUB,English Premier League,26,200000.0,English Premier League,2,CAM,Bernardo Silva,Bernardo Mota Veiga de Carvalho e Silva,English Premier League,,86-90,Europe,4
+218667,Portugal,86,Manchester City,SUB,English Premier League,26,200000.0,English Premier League,2,CAM,Bernardo Silva,Bernardo Mota Veiga de Carvalho e Silva,English Premier League,,86-90,Europe,5
 226161,Spain,86,Atlético de Madrid,RM,Spain Primera Division,26,95000.0,Spain Primera Division,2,CM,Marcos Llorente,Marcos Llorente Moreno,Spanish La Liga,,86-90,Europe,3
-231866,Spain,86,Manchester City,CDM,English Premier League,25,175000.0,English Premier League,2,CDM,Rodri,Rodrigo Hernández Cascante,English Premier League,21-25,86-90,Europe,4
+231866,Spain,86,Manchester City,CDM,English Premier League,25,175000.0,English Premier League,2,CDM,Rodri,Rodrigo Hernández Cascante,English Premier League,21-25,86-90,Europe,5
 232363,Slovakia,86,Inter,RCB,Italian Serie A,26,150000.0,Italian Serie A,0,CB,M. Škriniar,Milan Škriniar,Italian Serie,,86-90,Europe,4
 143076,Argentina,85,Sevilla FC,LCM,Spain Primera Division,33,51000.0,Spain Primera Division,2,CAM,A. Gómez,Alejandro Darío Gómez,Spanish La Liga,31-35,81-85,South America,3
 163587,Denmark,85,Leicester City,GK,English Premier League,34,115000.0,English Premier League,3,GK,K. Schmeichel,Kasper Peter Schmeichel,English Premier League,31-35,81-85,Europe,4
 164240,Brazil,85,Chelsea,SUB,English Premier League,36,105000.0,English Premier League,0,CB,Thiago Silva,Thiago Emiliano da Silva,English Premier League,36-40,81-85,South America,4
 168542,Spain,85,Real Sociedad,CAM,Spain Primera Division,35,44000.0,Spain Primera Division,2,CAM,David Silva,David Josué Jiménez Silva,Spanish La Liga,31-35,81-85,Europe,2
 177683,Switzerland,85,Borussia Mönchengladbach,GK,German 1. Bundesliga,32,40000.0,German 1. Bundesliga,3,GK,Y. Sommer,Yann Sommer,German Bundesliga,31-35,81-85,Europe,2
-179813,Uruguay,85,Manchester United,SUB,English Premier League,34,190000.0,English Premier League,1,ST,E. Cavani,Edinson Roberto Cavani Gómez,English Premier League,31-35,81-85,South America,4
-183277,Belgium,85,Real Madrid CF,LW,Spain Primera Division,30,240000.0,Spain Primera Division,1,LW,E. Hazard,Eden Hazard,Spanish La Liga,26-30,81-85,Europe,5
+179813,Uruguay,85,Manchester United,SUB,English Premier League,34,190000.0,English Premier League,1,ST,E. Cavani,Edinson Roberto Cavani Gómez,English Premier League,31-35,81-85,South America,5
+183277,Belgium,85,Real Madrid CF,LW,Spain Primera Division,30,240000.0,Spain Primera Division,1,LW,E. Hazard,Eden Hazard,Spanish La Liga,26-30,81-85,Europe,6
 184344,Italy,85,Juventus,RCB,Italian Serie A,34,110000.0,Italian Serie A,0,CB,L. Bonucci,Leonardo Bonucci,Italian Serie,31-35,81-85,Europe,4
 185122,Hungary,85,RB Leipzig,GK,German 1. Bundesliga,31,87000.0,German 1. Bundesliga,3,GK,P. Gulácsi,Péter Gulácsi,German Bundesliga,31-35,81-85,Europe,3
-186942,Germany,85,Manchester City,LCM,English Premier League,30,185000.0,English Premier League,2,CM,İ. Gündoğan,İlkay Gündoğan,English Premier League,26-30,81-85,Europe,4
+186942,Germany,85,Manchester City,LCM,English Premier League,30,185000.0,English Premier League,2,CM,İ. Gündoğan,İlkay Gündoğan,English Premier League,26-30,81-85,Europe,5
 188350,Germany,85,Borussia Dortmund,CAM,German 1. Bundesliga,32,95000.0,German 1. Bundesliga,2,CAM,M. Reus,Marco Reus,German Bundesliga,31-35,81-85,Europe,3
-188377,England,85,Manchester City,RB,English Premier League,31,170000.0,English Premier League,0,RB,K. Walker,Kyle Walker,English Premier League,31-35,81-85,Europe,4
+188377,England,85,Manchester City,RB,English Premier League,31,170000.0,English Premier League,0,RB,K. Walker,Kyle Walker,English Premier League,31-35,81-85,Europe,5
 188567,Gabon,85,Arsenal,ST,English Premier League,32,145000.0,English Premier League,1,ST,P. Aubameyang,Pierre-Emerick Emiliano François Aubameyang,English Premier League,31-35,81-85,Africa,4
 193747,Spain,85,Atlético de Madrid,RCM,Spain Primera Division,29,90000.0,Spain Primera Division,2,CM,Koke,Jorge Resurrección Merodio,Spanish La Liga,26-30,81-85,Europe,3
-194765,France,85,Atlético de Madrid,LS,Spain Primera Division,30,220000.0,Spain Primera Division,1,ST,A. Griezmann,Antoine Griezmann,Spanish La Liga,26-30,81-85,Europe,5
+194765,France,85,Atlético de Madrid,LS,Spain Primera Division,30,220000.0,Spain Primera Division,1,ST,A. Griezmann,Antoine Griezmann,Spanish La Liga,26-30,81-85,Europe,6
 198176,Netherlands,85,Inter,CB,Italian Serie A,29,145000.0,Italian Serie A,0,CB,S. de Vrij,Stefan de Vrij,Italian Serie,26-30,81-85,Europe,4
-201942,Brazil,85,Liverpool,CF,English Premier League,29,185000.0,English Premier League,1,CF,Roberto Firmino,Roberto Firmino Barbosa de Oliveira,English Premier League,26-30,81-85,South America,4
-202556,Netherlands,85,FC Barcelona,LW,Spain Primera Division,27,220000.0,Spain Primera Division,1,CF,M. Depay,Memphis Depay,Spanish La Liga,26-30,81-85,Europe,5
-204963,Spain,85,Real Madrid CF,RB,Spain Primera Division,29,210000.0,Spain Primera Division,0,RB,Carvajal,Daniel Carvajal Ramos,Spanish La Liga,26-30,81-85,Europe,5
-205498,Italy,85,Chelsea,LCM,English Premier League,29,170000.0,English Premier League,2,CM,Jorginho,Luiz Frello Filho Jorge,English Premier League,26-30,81-85,Europe,4
+201942,Brazil,85,Liverpool,CF,English Premier League,29,185000.0,English Premier League,1,CF,Roberto Firmino,Roberto Firmino Barbosa de Oliveira,English Premier League,26-30,81-85,South America,5
+202556,Netherlands,85,FC Barcelona,LW,Spain Primera Division,27,220000.0,Spain Primera Division,1,CF,M. Depay,Memphis Depay,Spanish La Liga,26-30,81-85,Europe,6
+204963,Spain,85,Real Madrid CF,RB,Spain Primera Division,29,210000.0,Spain Primera Division,0,RB,Carvajal,Daniel Carvajal Ramos,Spanish La Liga,26-30,81-85,Europe,6
+205498,Italy,85,Chelsea,LCM,English Premier League,29,170000.0,English Premier League,2,CM,Jorginho,Luiz Frello Filho Jorge,English Premier League,26-30,81-85,Europe,5
 206113,Germany,85,FC Bayern München,RM,German 1. Bundesliga,25,110000.0,German 1. Bundesliga,2,RM,S. Gnabry,Serge David Gnabry,German Bundesliga,21-25,81-85,Europe,4
 223848,Serbia,85,Lazio,RCM,Italian Serie A,26,100000.0,Italian Serie A,2,CM,S. Milinković-Savić,Sergej Milinković-Savić,Italian Serie,,81-85,Europe,3
 226790,Nigeria,85,Leicester City,LDM,English Premier League,24,120000.0,English Premier League,2,CDM,W. Ndidi,Onyinye Wilfred Ndidi,English Premier League,21-25,81-85,Africa,4
@@ -98,7 +98,7 @@ sofifa_id,nationality_name,overall,club_name,club_position,league_name,age,wage_
 235243,Netherlands,85,Juventus,LCB,Italian Serie A,21,81000.0,Italian Serie A,0,CB,M. de Ligt,Matthijs de Ligt,Italian Serie,21-25,81-85,Europe,3
 41236,Sweden,84,AC Milan,SUB,Italian Serie A,39,51000.0,Italian Serie A,1,ST,Z. Ibrahimović,Zlatan Ibrahimović,Italian Serie,36-40,81-85,Europe,3
 146536,Spain,84,Sevilla FC,RB,Spain Primera Division,35,30000.0,Spain Primera Division,0,RB,Jesús Navas,Jesús Navas González,Spanish La Liga,31-35,81-85,Europe,2
-152729,Spain,84,FC Barcelona,LCB,Spain Primera Division,34,175000.0,Spain Primera Division,0,CB,Piqué,Gerard Piqué Bernabéu,Spanish La Liga,31-35,81-85,Europe,4
+152729,Spain,84,FC Barcelona,LCB,Spain Primera Division,34,175000.0,Spain Primera Division,0,CB,Piqué,Gerard Piqué Bernabéu,Spanish La Liga,31-35,81-85,Europe,5
 175943,Belgium,84,Napoli,SUB,Italian Serie A,34,105000.0,Italian Serie A,1,CF,D. Mertens,Dries Mertens,Italian Serie,31-35,81-85,Europe,4
 181291,Netherlands,84,Paris Saint-Germain,RCM,French Ligue 1,30,115000.0,French Ligue 1,2,CM,G. Wijnaldum,Georginio Wijnaldum,French Ligue,26-30,81-85,Europe,4
 183711,England,84,Liverpool,RCM,English Premier League,31,140000.0,English Premier League,2,CDM,J. Henderson,Jordan Henderson,English Premier League,31-35,81-85,Europe,4
@@ -106,26 +106,26 @@ sofifa_id,nationality_name,overall,club_name,club_position,league_name,age,wage_
 186345,England,84,Atlético de Madrid,SUB,Spain Primera Division,30,74000.0,Spain Primera Division,0,RB,K. Trippier,Kieran Trippier,Spanish La Liga,26-30,81-85,Europe,3
 192629,Spain,84,RC Celta de Vigo,RS,Spain Primera Division,33,46000.0,Spain Primera Division,1,ST,Iago Aspas,Iago Aspas Juncal,Spanish La Liga,31-35,81-85,Europe,2
 193080,Spain,84,Manchester United,GK,English Premier League,30,120000.0,English Premier League,3,GK,De Gea,David De Gea Quintana,English Premier League,26-30,81-85,Europe,4
-197445,Austria,84,Real Madrid CF,LB,Spain Primera Division,29,195000.0,Spain Primera Division,0,CB,D. Alaba,David Olatukunbo Alaba,Spanish La Liga,26-30,81-85,Europe,4
+197445,Austria,84,Real Madrid CF,LB,Spain Primera Division,29,195000.0,Spain Primera Division,0,CB,D. Alaba,David Olatukunbo Alaba,Spanish La Liga,26-30,81-85,Europe,5
 198706,Spain,84,Lazio,LCM,Italian Serie A,28,95000.0,Italian Serie A,2,CAM,Luis Alberto,Luis Alberto Romero Alconchel,Italian Serie,26-30,81-85,Europe,3
 199434,Serbia,84,Ajax,LW,Holland Eredivisie,32,32000.0,Holland Eredivisie,1,LW,D. Tadić,Dušan Tadić,Holland Eredivisie,31-35,81-85,Europe,2
 199451,France,84,AS Monaco,ST,French Ligue 1,30,88000.0,French Ligue 1,1,ST,W. Ben Yedder,Wissam Ben Yedder,French Ligue,26-30,81-85,Europe,3
 200458,France,84,Everton,LB,English Premier League,27,110000.0,English Premier League,0,LB,L. Digne,Lucas Digne,English Premier League,26-30,81-85,Europe,4
 200647,Slovenia,84,Atalanta,SUB,Italian Serie A,33,84000.0,Italian Serie A,1,CF,J. Iličić,Josip Iličić,Italian Serie,31-35,81-85,Europe,3
 202811,Argentina,84,Aston Villa,GK,English Premier League,28,81000.0,English Premier League,3,GK,E. Martínez,Damián Emiliano Martínez,English Premier League,26-30,81-85,South America,3
-203263,England,84,Manchester United,LCB,English Premier League,28,155000.0,English Premier League,0,CB,H. Maguire,Harry Maguire,English Premier League,26-30,81-85,Europe,4
+203263,England,84,Manchester United,LCB,English Premier League,28,155000.0,English Premier League,0,CB,H. Maguire,Harry Maguire,English Premier League,26-30,81-85,Europe,5
 204639,Montenegro,84,Atlético de Madrid,RCB,Spain Primera Division,30,74000.0,Spain Primera Division,0,CB,S. Savić,Stefan Savić,Spanish La Liga,26-30,81-85,Europe,3
 204923,Austria,84,FC Bayern München,SUB,German 1. Bundesliga,27,110000.0,German 1. Bundesliga,2,CM,M. Sabitzer,Marcel Sabitzer,German Bundesliga,26-30,81-85,Europe,4
 205988,England,84,Manchester United,LB,English Premier League,25,140000.0,English Premier League,0,LB,L. Shaw,Luke Shaw,English Premier League,21-25,81-85,Europe,4
-206517,England,84,Manchester City,LW,English Premier League,25,180000.0,English Premier League,1,LW,J. Grealish,Jack Grealish,English Premier League,21-25,81-85,Europe,4
+206517,England,84,Manchester City,LW,English Premier League,25,180000.0,English Premier League,1,LW,J. Grealish,Jack Grealish,English Premier League,21-25,81-85,Europe,5
 207862,Germany,84,Borussia Mönchengladbach,RCB,German 1. Bundesliga,27,45000.0,German 1. Bundesliga,0,CB,M. Ginter,Matthias Ginter,German Bundesliga,26-30,81-85,Europe,2
 207863,Brazil,84,Atlético de Madrid,SUB,Spain Primera Division,32,74000.0,Spain Primera Division,0,CB,Felipe,Felipe Augusto de Almeida Monteiro,Spanish La Liga,31-35,81-85,South America,3
 208418,Belgium,84,Atlético de Madrid,LM,Spain Primera Division,27,81000.0,Spain Primera Division,2,LM,Y. Carrasco,Yannick Ferreira Carrasco,Spanish La Liga,26-30,81-85,Europe,3
 208574,Serbia,84,Eintracht Frankfurt,LM,German 1. Bundesliga,28,52000.0,German 1. Bundesliga,2,LM,F. Kostić,Filip Kostić,German Bundesliga,26-30,81-85,Europe,3
-208670,Morocco,84,Chelsea,SUB,English Premier League,28,170000.0,English Premier League,1,RW,H. Ziyech,Hakim Ziyech,English Premier League,26-30,81-85,Africa,4
+208670,Morocco,84,Chelsea,SUB,English Premier League,28,170000.0,English Premier League,1,RW,H. Ziyech,Hakim Ziyech,English Premier League,26-30,81-85,Africa,5
 209889,Portugal,84,Borussia Dortmund,LB,German 1. Bundesliga,27,79000.0,German 1. Bundesliga,0,LB,R. Guerreiro,Raphaël Adelino José Guerreiro,German Bundesliga,26-30,81-85,Europe,3
 210243,Portugal,84,Leicester City,RB,English Premier League,27,130000.0,English Premier League,0,RB,Ricardo Pereira,Ricardo Domingos Barbosa Pereira,English Premier League,26-30,81-85,Europe,4
-212188,Germany,84,Chelsea,SUB,English Premier League,25,155000.0,English Premier League,1,ST,T. Werner,Timo Werner,English Premier League,21-25,81-85,Europe,4
+212188,Germany,84,Chelsea,SUB,English Premier League,25,155000.0,English Premier League,1,ST,T. Werner,Timo Werner,English Premier League,21-25,81-85,Europe,5
 215698,France,84,AC Milan,GK,Italian Serie A,25,45000.0,Italian Serie A,3,GK,M. Maignan,Mike Maignan,Italian Serie,21-25,81-85,Europe,2
 216352,Croatia,84,Inter,CDM,Italian Serie A,28,130000.0,Italian Serie A,2,CDM,M. Brozović,Marcelo Brozović,Italian Serie,26-30,81-85,Europe,4
 216393,Belgium,84,Leicester City,RDM,English Premier League,24,125000.0,English Premier League,2,CM,Y. Tielemans,Youri Tielemans,English Premier League,21-25,81-85,Europe,4
@@ -180,21 +180,21 @@ sofifa_id,nationality_name,overall,club_name,club_position,league_name,age,wage_
 216354,Croatia,83,TSG Hoffenheim,CAM,German 1. Bundesliga,30,59000.0,German 1. Bundesliga,1,ST,A. Kramarić,Andrej Kramarić,German Bundesliga,26-30,81-85,Europe,3
 220651,Spain,83,RB Leipzig,LB,German 1. Bundesliga,24,77000.0,German 1. Bundesliga,0,LWB,Angeliño,José Ángel Esmoris Tasende,German Bundesliga,21-25,81-85,Europe,3
 220814,France,83,FC Bayern München,SUB,German 1. Bundesliga,25,85000.0,German 1. Bundesliga,0,LB,L. Hernández,Lucas François Bernard Hernández Pi,German Bundesliga,21-25,81-85,Europe,3
-220834,Spain,83,Real Madrid CF,SUB,Spain Primera Division,25,190000.0,Spain Primera Division,1,RW,Marco Asensio,Marco Asensio Willemsen,Spanish La Liga,21-25,81-85,Europe,4
+220834,Spain,83,Real Madrid CF,SUB,Spain Primera Division,25,190000.0,Spain Primera Division,1,RW,Marco Asensio,Marco Asensio Willemsen,Spanish La Liga,21-25,81-85,Europe,5
 223689,Netherlands,83,VfL Wolfsburg,ST,German 1. Bundesliga,28,95000.0,German 1. Bundesliga,1,ST,W. Weghorst,Wout Weghorst,German Bundesliga,26-30,81-85,Europe,3
 223697,Germany,83,Atalanta,LM,Italian Serie A,26,65000.0,Italian Serie A,0,LWB,R. Gosens,Robin Everardus Gosens,Italian Serie,,81-85,Europe,3
 225193,Spain,83,Real Sociedad,RCM,Spain Primera Division,25,47000.0,Spain Primera Division,2,CM,Merino,Mikel Merino Zazón,Spanish La Liga,21-25,81-85,Europe,2
 225850,France,83,Paris Saint-Germain,SUB,French Ligue 1,25,90000.0,French Ligue 1,0,CB,P. Kimpembe,Presnel Kimpembe,French Ligue,21-25,81-85,Europe,3
-228618,France,83,Real Madrid CF,SUB,Spain Primera Division,26,170000.0,Spain Primera Division,0,LB,F. Mendy,Ferland Mendy,Spanish La Liga,,81-85,Europe,4
+228618,France,83,Real Madrid CF,SUB,Spain Primera Division,26,170000.0,Spain Primera Division,0,LB,F. Mendy,Ferland Mendy,Spanish La Liga,,81-85,Europe,5
 229880,England,83,Manchester United,RB,English Premier League,23,115000.0,English Premier League,0,RB,A. Wan-Bissaka,Aaron Wan-Bissaka,English Premier League,21-25,81-85,Europe,4
 230481,Brazil,83,Grêmio,CAM,Campeonato Brasileiro Série A,29,49000.0,Campeonato Brasileiro Série A,2,CAM,Ronaldo Cabrais,Ronaldo Jailson Cabrais Petri,Brasileiro Série A,26-30,81-85,South America,2
 230658,Brazil,83,Juventus,SUB,Italian Serie A,24,90000.0,Italian Serie A,2,CM,Arthur,Arthur Henrique Ramos de Oliveira Melo,Italian Serie,21-25,81-85,South America,3
 230666,Brazil,83,Manchester City,SUB,English Premier League,24,150000.0,English Premier League,1,ST,Gabriel Jesus,Gabriel Fernando de Jesus,English Premier League,21-25,81-85,South America,4
-231443,France,83,FC Barcelona,RW,Spain Primera Division,24,165000.0,Spain Primera Division,1,RW,O. Dembélé,Ousmane Dembélé,Spanish La Liga,21-25,81-85,Europe,4
+231443,France,83,FC Barcelona,RW,Spain Primera Division,24,165000.0,Spain Primera Division,1,RW,O. Dembélé,Ousmane Dembélé,Spanish La Liga,21-25,81-85,Europe,5
 233064,England,83,Chelsea,RW,English Premier League,22,120000.0,English Premier League,2,CAM,M. Mount,Mason Mount,English Premier League,21-25,81-85,Europe,4
 234642,Senegal,83,Chelsea,GK,English Premier League,29,105000.0,English Premier League,3,GK,É. Mendy,Édouard Mendy,English Premier League,26-30,81-85,Africa,4
 235805,Italy,83,Juventus,LM,Italian Serie A,23,74000.0,Italian Serie A,1,RW,F. Chiesa,Federico Chiesa,Italian Serie,21-25,81-85,Europe,3
-239053,Uruguay,83,Real Madrid CF,SUB,Spain Primera Division,22,160000.0,Spain Primera Division,2,CM,F. Valverde,Federico Santiago Valverde Dipetta,Spanish La Liga,21-25,81-85,South America,4
+239053,Uruguay,83,Real Madrid CF,SUB,Spain Primera Division,22,160000.0,Spain Primera Division,2,CM,F. Valverde,Federico Santiago Valverde Dipetta,Spanish La Liga,21-25,81-85,South America,5
 241486,France,83,Sevilla FC,RCB,Spain Primera Division,22,33000.0,Spain Primera Division,0,CB,J. Koundé,Jules Koundé,Spanish La Liga,21-25,81-85,Europe,2
 242444,Portugal,83,Atlético de Madrid,SUB,Spain Primera Division,21,61000.0,Spain Primera Division,1,CF,João Félix,João Félix Sequeira,Spanish La Liga,21-25,81-85,Europe,3
 120533,Portugal,82,FC Porto,LCB,Portuguese Liga ZON SAGRES,38,14000.0,Portuguese Liga ZON SAGRES,0,CB,Pepe,Kléper Laveran de Lima Ferreira,Portuguese Liga,36-40,81-85,Europe,1
@@ -202,15 +202,15 @@ sofifa_id,nationality_name,overall,club_name,club_position,league_name,age,wage_
 164835,Poland,82,West Ham United,GK,English Premier League,36,43000.0,English Premier League,3,GK,Ł. Fabiański,Łukasz Fabiański,English Premier League,36-40,81-85,Europe,2
 168435,Italy,82,Genoa,GK,Italian Serie A,34,20000.0,Italian Serie A,3,GK,S. Sirigu,Salvatore Sirigu,Italian Serie,31-35,81-85,Europe,1
 168651,Croatia,82,Sevilla FC,SUB,Spain Primera Division,33,39000.0,Spain Primera Division,2,CM,I. Rakitić,Ivan Rakitić,Spanish La Liga,31-35,81-85,Europe,2
-173731,Wales,82,Real Madrid CF,RW,Spain Primera Division,31,170000.0,Spain Primera Division,2,RM,G. Bale,Gareth Frank Bale,Spanish La Liga,31-35,81-85,Europe,4
+173731,Wales,82,Real Madrid CF,RW,Spain Primera Division,31,170000.0,Spain Primera Division,2,RM,G. Bale,Gareth Frank Bale,Spanish La Liga,31-35,81-85,Europe,5
 178005,Portugal,82,Roma,GK,Italian Serie A,33,51000.0,Italian Serie A,3,GK,Rui Patrício,Rui Pedro dos Santos Patrício,Italian Serie,31-35,81-85,Europe,3
 178562,Argentina,82,Al Shabab,CAM,Saudi Abdul L. Jameel League,33,46000.0,Saudi Abdul L. Jameel League,2,CDM,É. Banega,Éver Maximiliano David Banega,Saudi League,31-35,81-85,South America,2
-180206,Bosnia and Herzegovina,82,Beşiktaş JK,RCM,Turkish Süper Lig,31,155000.0,Turkish Süper Lig,2,CM,M. Pjanić,Miralem Pjanić,Turkish Süper Lig,31-35,81-85,Europe,4
+180206,Bosnia and Herzegovina,82,Beşiktaş JK,RCM,Turkish Süper Lig,31,155000.0,Turkish Süper Lig,2,CM,M. Pjanić,Miralem Pjanić,Turkish Süper Lig,31-35,81-85,Europe,5
 183512,Spain,82,Athletic Club de Bilbao,SUB,Spain Primera Division,31,35000.0,Spain Primera Division,0,LB,Yuri Berchiche,Yuri Berchiche Izeta,Spanish La Liga,31-35,81-85,Europe,2
 187072,Germany,82,Borussia Mönchengladbach,CAM,German 1. Bundesliga,32,41000.0,German 1. Bundesliga,2,CAM,L. Stindl,Lars Edi Stindl,German Bundesliga,31-35,81-85,Europe,2
 188152,Brazil,82,Shanghai Port FC,CAM,Chinese Super League,29,38000.0,Chinese Super League,2,CAM,Oscar,Oscar dos Santos Emboaba Júnior,Chinese Super League,26-30,81-85,South America,2
 188943,Germany,82,Eintracht Frankfurt,GK,German 1. Bundesliga,30,31000.0,German 1. Bundesliga,3,GK,K. Trapp,Kevin Trapp,German Bundesliga,26-30,81-85,Europe,2
-189242,Brazil,82,FC Barcelona,SUB,Spain Primera Division,29,165000.0,Spain Primera Division,2,CAM,Coutinho,Philippe Coutinho Correia,Spanish La Liga,26-30,81-85,South America,4
+189242,Brazil,82,FC Barcelona,SUB,Spain Primera Division,29,165000.0,Spain Primera Division,2,CAM,Coutinho,Philippe Coutinho Correia,Spanish La Liga,26-30,81-85,South America,5
 190460,Denmark,82,Inter,RES,Italian Serie A,29,120000.0,Italian Serie A,2,CM,C. Eriksen,Christian Dannemann Eriksen,Italian Serie,26-30,81-85,Europe,4
 190815,Netherlands,82,Ajax,LB,Holland Eredivisie,31,23000.0,Holland Eredivisie,0,CB,D. Blind,Daley Blind,Holland Eredivisie,31-35,81-85,Europe,2
 192318,Germany,82,PSV,CAM,Holland Eredivisie,29,29000.0,Holland Eredivisie,2,CAM,M. Götze,Mario Götze,Holland Eredivisie,26-30,81-85,Europe,2
@@ -221,7 +221,7 @@ sofifa_id,nationality_name,overall,club_name,club_position,league_name,age,wage_
 193525,Russia,82,PFC CSKA Moscow,RB,Russian Premier League,30,57000.0,Russian Premier League,0,RB,Mário Fernandes,Mário Figueira Fernandes,Russian Premier League,26-30,81-85,Europe,3
 193698,Germany,82,TSG Hoffenheim,GK,German 1. Bundesliga,31,37000.0,German 1. Bundesliga,3,GK,O. Baumann,Oliver Baumann,German Bundesliga,31-35,81-85,Europe,2
 194404,Brazil,82,FC Barcelona,SUB,Spain Primera Division,31,115000.0,Spain Primera Division,3,GK,Neto,Norberto Murara Neto,Spanish La Liga,31-35,81-85,South America,4
-197781,Spain,82,Real Madrid CF,SUB,Spain Primera Division,29,175000.0,Spain Primera Division,2,CAM,Isco,Francisco Román Alarcón Suárez,Spanish La Liga,26-30,81-85,Europe,4
+197781,Spain,82,Real Madrid CF,SUB,Spain Primera Division,29,175000.0,Spain Primera Division,2,CAM,Isco,Francisco Román Alarcón Suárez,Spanish La Liga,26-30,81-85,Europe,5
 198717,Côte d'Ivoire,82,Crystal Palace,RW,English Premier League,28,85000.0,English Premier League,1,CF,W. Zaha,Wilfried Zaha,English Premier League,26-30,81-85,Europe,3
 199110,Colombia,82,Atalanta,SUB,Italian Serie A,30,70000.0,Italian Serie A,1,ST,L. Muriel,Luis Fernando Muriel Fruto,Italian Serie,26-30,81-85,South America,3
 199482,Portugal,82,Olympique Lyonnais,GK,French Ligue 1,30,60000.0,French Ligue 1,3,GK,A. Lopes,Anthony Lopes,French Ligue,26-30,81-85,Europe,3
@@ -333,7 +333,7 @@ sofifa_id,nationality_name,overall,club_name,club_position,league_name,age,wage_
 208330,Belgium,81,Real Sociedad,RW,Spain Primera Division,26,45000.0,Spain Primera Division,1,RW,A. Januzaj,Adnan Januzaj,Spanish La Liga,,81-85,Europe,2
 208448,Sweden,81,RB Leipzig,CAM,German 1. Bundesliga,29,87000.0,German 1. Bundesliga,2,CAM,E. Forsberg,Emil Peter Forsberg,German Bundesliga,26-30,81-85,Europe,3
 208596,Italy,81,Torino F.C.,ST,Italian Serie A,27,61000.0,Italian Serie A,1,ST,A. Belotti,Andrea Belotti,Italian Serie,26-30,81-85,Europe,3
-208618,Spain,81,Real Madrid CF,SUB,Spain Primera Division,30,170000.0,Spain Primera Division,1,RW,Lucas Vázquez,Lucas Vázquez Iglesias,Spanish La Liga,26-30,81-85,Europe,4
+208618,Spain,81,Real Madrid CF,SUB,Spain Primera Division,30,170000.0,Spain Primera Division,1,RW,Lucas Vázquez,Lucas Vázquez Iglesias,Spanish La Liga,26-30,81-85,Europe,5
 209297,Brazil,81,Manchester United,LDM,English Premier League,28,120000.0,English Premier League,2,CDM,Fred,Frederico Rodrigues de Paula Santos,English Premier League,26-30,81-85,South America,4
 210008,France,81,Juventus,LDM,Italian Serie A,26,87000.0,Italian Serie A,2,CM,A. Rabiot,Adrien Rabiot,Italian Serie,,81-85,Europe,3
 210385,Portugal,81,Real Betis Balompié,GK,Spain Primera Division,27,24000.0,Spain Primera Division,3,GK,Rui Silva,Rui Tiago Dantas da Silva,Spanish La Liga,26-30,81-85,Europe,2

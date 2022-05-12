@@ -5,9 +5,9 @@
     padding-left: 45%;
     padding-right: 45%;
     position: fixed;
-    height: 96vh;
-    top: 4.5vh;
-    background: white;
+    height: 93vh;
+    top: 7vh;
+    background: #F4F9FE;
     z-index: 10;
 }
 

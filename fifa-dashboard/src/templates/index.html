@@ -12886,7 +12886,7 @@
     </script>
     <script>
       function handleclick(e) {
-        console.log(e.target.innerHTML)
+        console.log(e.target.dataset.debtAmount)
       }
     </script>
   </head>
@@ -12908,10 +12908,9 @@
     <a href="/pcp.html"></a>
     <div id="header">
       <h1 class="globalplayers">Global Football Dashboard</h1>
-      <!-- <div id="form-wrapper">
+      <div id="form-wrapper">
         <form action="/p/quote.php" method="GET">
-          <h1 id="form-title">Select Year</h1>
-          <div id="debt-amount-slider">
+          <div id="debt-amount-slider" onclick="handleclick(event)">
             <input type="radio" name="debt-amount" id="1" value="1" required>
             <label for="1" data-debt-amount="2015"></label>
             <input type="radio" name="debt-amount" id="2" value="2" required>
@@ -12931,18 +12930,7 @@
             <div id="debt-amount-pos"></div>
           </div>
         </form>
-      </div> -->
-      <nav onclick="handleclick(event)">
-        <a id="2015" href="#">2015</a>
-        <a  id="2016" href="#">2016</a>
-        <a id="2017" href="#">2017</a>
-        <a id="2018" href="#">2018</a>
-        <a id="2019" href="#">2019</a>
-        <a id="2020" href="#">2020</a>
-        <a id="2021" href="#">2021</a>
-        <a id="2022" href="#">2022</a>
-        <div class="animation start-home"></div>
-      </nav>
+      </div>
     </div>
     <div id="visdashboard">
       <div id="geoMap">

@@ -1,3 +1,7 @@
+var globalfilter = {
+    'year': 2022
+}
+
 window.onload = () => {
     console.log("window loaded")
     loadData();
@@ -10,7 +14,7 @@ const loadData = () => {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ val: 'all' }),
+        body: JSON.stringify(globalfilter),
     })
         .then(data => data.json())
         .then(response => {

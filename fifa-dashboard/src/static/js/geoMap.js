@@ -65,13 +65,15 @@ function GeoMap(frequency, tdata) {
   let handleclick = (d) => {
     console.log(d.properties.name);
     list.push(d.properties.name);
+
+    globalfilter.nationality = JSON.stringify(list);
     // var ndata = tdata.filter(s => list.includes(s.nationality_name))
     fetch("/fetchdata", {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ nationality: JSON.stringify(list) }),
+      body: JSON.stringify(globalfilter),
     })
       .then((data) => data.json())
       .then((response) => {

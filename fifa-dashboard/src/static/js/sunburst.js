@@ -63,12 +63,14 @@ function plotSunBurst(root) {
       })
       .style("opacity", 1);
 
+    globalfilter.pos = d.data.name + "";
+
     fetch(url + "/fetchdata", {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ pos: d.data.name + "" }),
+      body: JSON.stringify(globalfilter),
     })
       .then((data) => data.json())
       .then((response) => {
