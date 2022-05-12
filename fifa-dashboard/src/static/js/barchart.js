@@ -37,7 +37,7 @@ const sFeature = (d) => {
             selectList.push(d.name);
         }
     }
-    
+
     var sdata = {};
     if (selectList.length == 0) {
         sdata = {};
@@ -183,7 +183,7 @@ const BarChart = (totaldata, filterdata = []) => {
         .attr("y", function(d) { console.log(y(d.name)); return y(d.name); })
         .attr("width", function(d) { console.log(d.value); return x(d.value); })
         .attr("height", y.bandwidth() )
-        .attr("fill", "#284b63")
+        .attr("fill", "#8da7be")
         .attr("opacity", 0.6)
         .on("click", (d) => {
             console.log(d)
