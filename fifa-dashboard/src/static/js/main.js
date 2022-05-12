@@ -3,18 +3,6 @@ var globalfilter = {
     'year': 2022
 }
 
-window.onload = () => {
-    console.log("window loaded")
-    loadData(2022);
-}
-
-function reloadPage() {
-    globalfilter = {
-        'year': 2022
-    }
-    loadData(2022)
-}
-
 const loadData = (year) => {
     if (!year) return;
     globalfilter = {
@@ -48,3 +36,21 @@ const loadData = (year) => {
             }, 1000)
     });
 }
+
+
+window.onload = () => {
+    console.log("window loaded")
+    loadData(2022);
+}
+
+// function reloadPage() {
+//     globalfilter = {
+//         'year': 2022
+//     }
+//     loadData(2022)
+// }
+document.getElementById("resetButton").addEventListener("click", (e) => {
+    loadData(2022);
+    e.stopPropagation();
+})
+

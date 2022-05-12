@@ -1,3 +1,32 @@
+var slist = [];
+const selectData = (list) => {
+  
+if (list.length == 0) {
+  delete globalfilter['wfilter']
+} else {
+  globalfilter.wfilter = JSON.stringify(list)
+}
+fetch("/fetchdata", {
+  method: "POST", // or 'PUT'
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(globalfilter),
+})
+  .then((data) => data.json())
+  .then((response) => {
+    // plot_table(response.data)
+    console.log(response);
+    // plot_scatter(attributes);
+    var data = JSON.parse(response.data);
+    GeoMap(response.geoData, data);
+    plotSunBurst(response.sunburst, data);
+    // var ndata = data.filter(s => s.nationality_name == "Brazil")
+    // BarChart(data, [])
+    PcpChart(response.pcpdata, d3.keys(response.pcpdata[0]));
+    // wordCloud(response.wordcloud);
+  });
+};
 function wordCloud(data) {
   // List of words
   var myWords = data
@@ -119,6 +148,7 @@ function wordCloud(data) {
       .data(words)
       .enter()
       .append("text")
+      .attr("class", "wtext")
       .attr("font-size", "0px")
       // .transition()
       // .duration(1000)
@@ -140,25 +170,40 @@ function wordCloud(data) {
 
       mydict
       .on("click", handleClick)
-      .on("mouseover", mouseOver)
-      .on("mouseleave", mouseLeave)
-      .on("mousemove", mouseOver);
+      // .on("mouseover", mouseOver)
+      // .on("mouseleave", mouseLeave)
+      // .on("mousemove", mouseOver);
   }
 
   function handleClick(d) {
-    console.log(d)
+    if (slist.indexOf(d.text) > -1) {
+      slist.splice(slist.indexOf(d.text), 1);
+    } else {
+      slist.push(d.text);
+    }
+    d3.selectAll(".wtext").style("opacity", 0.2)
+
+    if (slist.length != 0) {
+      d3.selectAll(".wtext").filter(c => slist.indexOf(c.text) > -1).style("opacity", 1)
+      selectData(slist)
+    } else {
+      d3.selectAll(".wtext").style("opacity", 1)
+      selectData(slist)
+
+    }
+    
   }
 
-  function mouseOver(d) {
-    wordcloud_tooltip
-            .style("opacity", 1)
-            .style("top", (event.pageY)+"px")
-            .style("left",(event.pageX)+"px")
-            .style("color", "black")
-            .html("<p>" + d.text + "</p>");
-  };
+  // function mouseOver(d) {
+  //   wordcloud_tooltip
+  //           .style("opacity", 1)
+  //           .style("top", (event.pageY)+"px")
+  //           .style("left",(event.pageX)+"px")
+  //           .style("color", "black")
+  //           .html("<p>" + d.text + "</p>");
+  // };
 
-  function mouseLeave(d) {
-    wordcloud_tooltip.style("opacity", 0);
-  };
+  // function mouseLeave(d) {
+  //   wordcloud_tooltip.style("opacity", 0);
+  // };
 }

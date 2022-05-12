@@ -49,37 +49,38 @@ def hello():
 def radar_html():
     return render_template("radar.html")
 
-@app.route('/get_radar_data', methods = ['POST'])
-def radar():
-    val = request.get_json()
-    print("hello1")
+# @app.route('/get_radar_data', methods = ['POST'])
+# def radar():
+#     val = request.get_json()
+#     print("hello1")
 
-    main_df = pd.read_csv("static/data/" + dicti[str(val['year'])])
-    df = main_df
-    print("hello2")
+#     main_df = pd.read_csv("static/data/" + dicti[str(val['year'])])
+#     df = main_df
+#     print("hello2")
 
-    if 'name' in val:
-        print("hello3")
-        print(val['name'])
-        # y = json.loads(val['name'])
-        print("hello4")
-        df = df[df['short_name'] == val['name']]
 
-    print("hello5")
+#     if 'name' in val:
+#         print("hello3")
+#         print(val['name'])
+#         # y = json.loads(val['name'])
+#         print("hello4")
+#         df = df[df['short_name'] == val['name']]
 
-    cols = ["pace", 'dribbling', 'passing', 'defending', 'movement_sprint_speed', "attacking_finishing"]
-    df = df[cols]
-    print("hello6")
-    print(df)
+#     print("hello5")
 
-    result = []
-    for i, row in df.iterrows():
-        for c in cols:
-            result.append({"axis":c, "value":row[c]})
+#     cols = ["pace", 'dribbling', 'passing', 'defending', 'movement_sprint_speed', "attacking_finishing"]
+#     df = df[cols]
+#     print("hello6")
+#     print(df)
 
-    print(result)
+#     result = []
+#     for i, row in df.iterrows():
+#         for c in cols:
+#             result.append({"axis":c, "value":row[c]})
 
-    return jsonify(result)
+#     print(result)
+
+#     return jsonify(result)
 
 # @app.route('/get_radar_data', methods = ['POST', 'GET'])
 # def get_radar_details():
@@ -118,6 +119,7 @@ def alldata():
     main_df = pd.read_csv("static/data/" + dicti[str(val['year'])])
     df = main_df
 
+
     if 'value' in val:
         y = json.loads(val['value'])
         df = df[df['final_league'].isin(y)]
@@ -144,6 +146,10 @@ def alldata():
     if 'pcpval' in val:
         y = json.loads(val['pcpval'])
         df = df[df['sofifa_id'].isin(y)]
+        
+    if 'wfilter' in val:
+        y = json.loads(val['wfilter'])
+        df = df[df["short_name"].isin(y)]
 
     #------------ geomap
     # geoData = jsonify(
