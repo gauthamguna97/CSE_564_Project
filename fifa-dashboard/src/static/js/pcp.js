@@ -220,6 +220,6 @@ const pFeature = (slist) => {
       BarChart(maindata, data)
       // PcpChart(response.pcpdata,d3.keys(response.pcpdata[0]))
       wordCloud(response.wordcloud)
-      pcaFData = new Set()
+      pcaFData = new Set();
   });
 }

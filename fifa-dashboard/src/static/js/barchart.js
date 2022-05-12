@@ -10,13 +10,25 @@ const sFeature = (d) => {
     } else {
         selectList.push(d.name);
     }
+    var sdata = {}
+    if (selectList.length == 0) {
+        sdata = {}
+    } else {
+        sdata = {value: JSON.stringify(selectList)};
+    }
+
+    var values = d3.selectAll("barrect").filter(d => selectList.indexOf(d.name) > -1)
+    console.log(values)
+    values.attr("opacity", 1);
+    d3.selectAll("barrect").filter(d => !selectList.indexOf(d.name) > -1).attr("opacity", 0.3);
+
 
     fetch('/fetchdata', {
         method: 'POST', // or 'PUT'
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ value: JSON.stringify(selectList)}),
+        body: JSON.stringify(sdata),
     })
     .then(data => data.json())
     .then(response => {
@@ -133,6 +145,7 @@ const BarChart = (totaldata, filterdata=[]) => {
         .data(data)
         .enter()
         .append("rect")
+        .attr("class", 'barrect')
         .attr("x", () => {console.log(x(0)); return x(0)})
         .attr("y", function(d) { console.log(y(d.name)); return y(d.name); })
         .attr("width", function(d) { console.log(d.value); return x(d.value); })

@@ -77,8 +77,9 @@ function GeoMap(frequency, tdata) {
       .then((response) => {
         console.log(response);
         var data = JSON.parse(response.data);
+        var maindata = JSON.parse(response.mainData);
         plotSunBurst(response.sunburst, data);
-        BarChart(data, []);
+        BarChart(maindata, data);
         PcpChart(response.pcpdata,d3.keys(response.pcpdata[0]))
       });
     // BarChart(tdata, ndata);
