@@ -43,16 +43,8 @@
 
 #explanation {
   position: absolute;
-  top: 19vh;
-  left: 46vw;
+  top: 21vh;
+  left: 49vw;
   width: 140px;
   text-align: center;
-  color: white;
-  z-index: -1;
-  font-weight: 500;
-  font-size: 10px;
-}
-
-#percentage {
-  font-size: 2.5em;
 }

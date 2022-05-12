@@ -37,6 +37,17 @@ function wordCloud(data) {
   //   '#219ebc', /* Defence*/
   // ]);
 
+  var wordcloud_tooltip = d3.select("#geoMap")
+    .append("div")
+    .style("opacity", 0)
+    .attr("class", "tooltip")
+    .style("background-color", "white")
+    .style("color", "black")
+    .style("border", "solid")
+    .style("border-width", "2px")
+    .style("border-radius", "5px")
+    .style("padding", "5px")
+
   var wordcloud = d3.select('#wordcloud')
   let width = wordcloud.node().getBoundingClientRect().width;
   let height = wordcloud.node().getBoundingClientRect().height - 40;
@@ -76,6 +87,8 @@ function wordCloud(data) {
   // This function takes the output of 'layout' above and draw the words
   // Wordcloud features that are THE SAME from one word to the other can be here
   function draw(words) {
+    wordcloud_tooltip.style("opacity", 0);
+
     word_svg
       .append("g")
       .attr(
@@ -100,10 +113,26 @@ function wordCloud(data) {
       .text(function (d) {
         return d.text;
       })
-      .on("click", handleClick);
+      .on("click", handleClick)
+      .on("mouseover", mouseOver)
+      .on("mouseleave", mouseLeave)
+      .on("mousemove", mouseOver);
   }
 
   function handleClick(d) {
     console.log(d)
   }
+
+  function mouseOver(d) {
+    wordcloud_tooltip
+            .style("opacity", 1)
+            .style("top", (event.pageY)+"px")
+            .style("left",(event.pageX)+"px")
+            .style("color", "black")
+            .html("<p>" + d.text + "</p>");
+  };
+
+  function mouseLeave(d) {
+    wordcloud_tooltip.style("opacity", 0);
+  };
 }

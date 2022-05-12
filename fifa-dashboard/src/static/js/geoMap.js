@@ -36,6 +36,7 @@ var geoData = JSON.parse(document.getElementById("worldData").innerHTML);
 
 function GeoMap(frequency, tdata) {
   d3.selectAll("#scalegeo").remove();
+  geo_tooltip.style("opacity", 0);
 
   freq = frequency;
   var max = d3.max(Object.values(frequency))
@@ -70,7 +71,6 @@ function GeoMap(frequency, tdata) {
     .call(legendLinear);
 
   let handleclick = (d) => {
-    console.log(d.properties.name);
     list.push(d.properties.name);
 
     globalfilter.nationality = JSON.stringify(list);
@@ -84,7 +84,6 @@ function GeoMap(frequency, tdata) {
     })
       .then((data) => data.json())
       .then((response) => {
-        console.log(response);
         var data = JSON.parse(response.data);
         var maindata = JSON.parse(response.mainData);
         plotSunBurst(response.sunburst, data);
@@ -92,7 +91,6 @@ function GeoMap(frequency, tdata) {
         PcpChart(response.pcpdata,d3.keys(response.pcpdata[0]))
       });
     // BarChart(tdata, ndata);
-    // console.log(tdata, ndata)
 
     d3.selectAll(".Country")
       .filter((d) => list.includes(d.properties.name))
@@ -125,7 +123,6 @@ function GeoMap(frequency, tdata) {
     .attr("d", d3.geoPath().projection(projection))
     // set the color of each country
     .attr("fill", function (d) {
-      console.log(d);
       var value = frequency[d.properties.name];
       return colorScale(value || 0);
     })
@@ -138,7 +135,6 @@ function GeoMap(frequency, tdata) {
     .on("mouseover", mouseOver)
     .on("mouseleave", mouseLeave)
     .on("mousemove", function(d) {
-      console.log(d)
       return geo_tooltip
                 .style("top", (event.pageY)+"px")
                 .style("left",(event.pageX)+"px")

@@ -109,46 +109,55 @@ form #debt-amount-slider label::after {
 form #debt-amount-slider label:hover::after {
   transform: translate(-50%, -50%) scale(1.25);
 }
+
 form #debt-amount-slider input {
   display: none;
 }
+
 form #debt-amount-slider input:checked + label::before {
   font-weight: 800;
   opacity: 1;
 }
+
 form #debt-amount-slider input:checked + label::after {
   border-width: 4px;
   transform: translate(-50%, -50%) scale(0.75);
 }
+
 form #debt-amount-slider input:checked ~ #debt-amount-pos {
   opacity: 1;
 }
+
 form #debt-amount-slider input:checked:nth-child(1) ~ #debt-amount-pos {
   left: 6.25%;
 }
+
 form #debt-amount-slider input:checked:nth-child(3) ~ #debt-amount-pos {
-  left: 30%;
+  left: 18.75%;
 }
+
 form #debt-amount-slider input:checked:nth-child(5) ~ #debt-amount-pos {
-  left: 50%;
+  left: 31.25%;
 }
+
 form #debt-amount-slider input:checked:nth-child(7) ~ #debt-amount-pos {
-  left: 70%;
+  left: 43.75%;
 }
+
 form #debt-amount-slider input:checked:nth-child(9) ~ #debt-amount-pos {
-  left: 90%;
+  left: 56.25%;
 }
 
 form #debt-amount-slider input:checked:nth-child(11) ~ #debt-amount-pos {
-  left: 90%;
+  left: 68.75%;
 }
 
 form #debt-amount-slider input:checked:nth-child(13) ~ #debt-amount-pos {
-  left: 90%;
+  left: 81.25%;
 }
 
 form #debt-amount-slider input:checked:nth-child(15) ~ #debt-amount-pos {
-  left: 90%;
+  left: 93.75%;
 }
 
 form #debt-amount-slider #debt-amount-pos {

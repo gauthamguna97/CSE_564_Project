@@ -11,13 +11,44 @@ var url = "http://127.0.0.1:5005";
 //     });
 // }
 
+var positions = {
+  "CB"  : "Center Back",
+  "RB"  : "Right Back",
+  "LB"  : "Left Back",
+  "RWB" : "Right Winger Back",
+  "LWB" : "Left Winger Back",
+
+  "CM"  : "Central Mid Fielder",
+  "CDM" : "Defensive Mid Fielder",
+  "CAM" : "Attacking Mid Fielder",
+  "RM"  : "Right Mid Fielder",
+  "LM"  : "Left Mid Fielder",
+
+  "ST"  : "Striker",
+  "CF"  : "Center Forward",
+  "RW"  : "Right Winger",
+  "LW"  : "Left Winger"
+}
+
+var sunburst_tooltip = d3.select("#geoMap")
+    .append("div")
+    .style("opacity", 0)
+    .attr("class", "tooltip")
+    .style("background-color", "white")
+    .style("border", "solid")
+    .style("border-width", "2px")
+    .style("border-radius", "5px")
+    .style("padding", "5px")
+
 function plotSunBurst(root) {
   d3.selectAll("#sunburstplot").remove();
+  sunburst_tooltip.style("opacity", 0)
 
   var wrapper = d3.select("#sunburst")
   let width = wrapper.node().getBoundingClientRect().width - 50;
   let height = wrapper.node().getBoundingClientRect().height - 50;
-  let numClicks = 0;
+  // let numClicks = 0;
+
   const handleClick = (d) => {
     // numClicks++;
 
@@ -40,17 +71,16 @@ function plotSunBurst(root) {
 
     var sequenceArray = getAncestors(d);
 
-    console.log(d.data.name);
-
     var percentage = d.value;
-    var percentageString = percentage;
+    var percentageString = "<p>" + percentage + "<br/>" + (d.data.name == "Players" ? d.data.name : d.data.name in positions ? positions[d.data.name] : d.data.name) + "</p>";
+
     if (percentage < 0.1) {
       percentageString = "< 0.1%";
     }
 
-    d3.select("#percentage").text(percentageString);
+    d3.select("#percentage").html(percentageString).style("color", "#2b193d");
 
-    d3.select("#explanation").style("visibility", "");
+    // d3.select("#explanation").style("visibility", "");
 
     // Fade all the segments.
     d3.selectAll("path.main-arc").style("opacity", 0.3);
@@ -74,7 +104,6 @@ function plotSunBurst(root) {
     })
       .then((data) => data.json())
       .then((response) => {
-        console.log(response);
         // plot_table(response.data)
         // var attributes = response.data.map(d => d["Attributes"]);
         // plot_scatter(attributes);
@@ -92,7 +121,7 @@ function plotSunBurst(root) {
 
   // const width = 400,
   //   height = 400,
-    maxRadius = Math.min(width, height) / 2 - 5;
+  maxRadius = Math.min(width, height) / 2 - 5;
 
   const totalSize = 0;
 
@@ -172,6 +201,11 @@ function plotSunBurst(root) {
   root = d3.hierarchy(root);
   root.sum((d) => d.count);
 
+  d3.select("#percentage")
+  .html("<p>" + root.value + "<br/>" + "Players</p>")
+  .style("color", "#2b193d");
+
+
   const slice = svg.selectAll("g.slice").data(partition(root).descendants());
 
   // svg.append("svg:circle")
@@ -184,13 +218,10 @@ function plotSunBurst(root) {
     .enter()
     .append("g")
     .attr("class", "slice")
-    .on("click", (d) => handleClick(d));
-  // .on("mouseover", (d) => mouseover(d))
-  // .on("mouseleave", (d) => mouseleave(d))
-
-  newSlice
-    .append("title")
-    .text((d) => d.data.name + "\n" + formatNumber(d.value));
+    .on("click", (d) => handleClick(d))
+    .on("mouseover", (d) => mousemove(d))
+    .on("mouseleave", (d) => mouseleave(d))
+    .on("mousemove", (d) => mousemove(d))
 
   newSlice
     .append("path")
@@ -228,28 +259,28 @@ function plotSunBurst(root) {
     .style("fill", d => d.data.name === "Players" ? "white" : "tatu");
 
   function mouseover(d) {
-    var sequenceArray = getAncestors(d);
+    // var sequenceArray = getAncestors(d);
 
-    var percentage = d.value;
-    var percentageString = percentage;
-    if (percentage < 0.1) {
-      percentageString = "< 0.1%";
-    }
+    // var percentage = d.value;
+    // var percentageString = percentage;
+    // if (percentage < 0.1) {
+    //   percentageString = "< 0.1%";
+    // }
 
-    d3.select("#percentage").text(percentageString);
+    // d3.select("#percentage").text(percentageString);
 
-    d3.select("#explanation").style("visibility", "");
+    // d3.select("#explanation").style("visibility", "");
 
-    // Fade all the segments.
-    d3.selectAll("path.main-arc").style("opacity", 0.3);
+    // // Fade all the segments.
+    // d3.selectAll("path.main-arc").style("opacity", 0.3);
 
-    // Then highlight only those that are an ancestor of the current segment.
-    svg
-      .selectAll("path.main-arc")
-      .filter(function (node) {
-        return sequenceArray.indexOf(node) >= 0;
-      })
-      .style("opacity", 1);
+    // // Then highlight only those that are an ancestor of the current segment.
+    // svg
+    //   .selectAll("path.main-arc")
+    //   .filter(function (node) {
+    //     return sequenceArray.indexOf(node) >= 0;
+    //   })
+    //   .style("opacity", 1);
   }
 
   function getAncestors(node) {
@@ -264,19 +295,27 @@ function plotSunBurst(root) {
 
   function mouseleave(d) {
     // Deactivate all segments during transition.
-    d3.selectAll("path.main-arc").on("mouseover", null);
+    // d3.selectAll("path.main-arc").on("mouseover", null);
 
-    // Transition each segment to full opacity and then reactivate it.
-    d3.selectAll("path.main-arc").style("opacity", 1);
-    // .each("end", function() {
-    //         d3.select(this).on("mouseover", mouseover);
-    //       });
+    // // Transition each segment to full opacity and then reactivate it.
+    // d3.selectAll("path.main-arc").style("opacity", 1);
+    // // .each("end", function() {
+    // //         d3.select(this).on("mouseover", mouseover);
+    // //       });
 
-    d3.select("#explanation").style("visibility", "hidden");
+    // d3.select("#explanation").style("visibility", "hidden");
+    sunburst_tooltip.style("opacity", 0)
+  }
+
+  function mousemove(d) {
+    sunburst_tooltip
+        .style("opacity", 1)
+        .style("top", (event.pageY)+"px")
+        .style("left",(event.pageX)+"px")
+        .html((d.data.name in positions ? positions[d.data.name] : d.data.name) + " : " + formatNumber(d.value));
   }
 
   function focusOn(d = { x0: 0, x1: 1, y0: 0, y1: 1 }) {
-    console.log(d);
     // Fade all the segments.
     // d3.selectAll("path.main-arc").style("opacity", 1);
     // Reset to top-level if no data point specified

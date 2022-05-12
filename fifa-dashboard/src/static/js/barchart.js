@@ -1,62 +1,75 @@
-
 var x, y;
 var selectList = [];
 
+var bar_tooltip = d3
+  .select("#geoMap")
+  .append("div")
+  .style("opacity", 0)
+  .attr("class", "tooltip")
+  .style("background-color", "white")
+  .style("color", "black")
+  .style("border", "solid")
+  .style("border-width", "2px")
+  .style("border-radius", "5px")
+  .style("padding", "5px");
+
 const sFeature = (d) => {
+  const index = selectList.indexOf(d.name);
+  if (index > -1) {
+    selectList.splice(index, 1);
+  } else {
+    selectList.push(d.name);
+  }
+  var sdata = {};
+  if (selectList.length == 0) {
+    sdata = {};
+  } else {
+    sdata = { value: JSON.stringify(selectList) };
+  }
 
-    const index = selectList.indexOf(d.name)
-    if (index > -1) {
-        selectList.splice(index, 1);
-    } else {
-        selectList.push(d.name);
-    }
-    var sdata = {}
-    if (selectList.length == 0) {
-        sdata = {}
-    } else {
-        sdata = {value: JSON.stringify(selectList)};
-    }
+  var values = d3
+    .selectAll("barrect")
+    .filter((d) => selectList.indexOf(d.name) > -1);
+  console.log(values);
+  values.attr("opacity", 1);
+  d3.selectAll("barrect")
+    .filter((d) => !selectList.indexOf(d.name) > -1)
+    .attr("opacity", 0.3);
 
-    var values = d3.selectAll("barrect").filter(d => selectList.indexOf(d.name) > -1)
-    console.log(values)
-    values.attr("opacity", 1);
-    d3.selectAll("barrect").filter(d => !selectList.indexOf(d.name) > -1).attr("opacity", 0.3);
-
-
-    fetch('/fetchdata', {
-        method: 'POST', // or 'PUT'
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(sdata),
-    })
-    .then(data => data.json())
-    .then(response => {
-        // plot_table(response.data)
-        console.log(response)
-        // plot_scatter(attributes);
-        var data = JSON.parse(response.data)
-        GeoMap(response.geoData, data)
-        plotSunBurst(response.sunburst, data)
-        // var ndata = data.filter(s => s.nationality_name == "Brazil")
-        // BarChart(data, [])
-        PcpChart(response.pcpdata,d3.keys(response.pcpdata[0]))
-        wordCloud(response.wordcloud)
+  fetch("/fetchdata", {
+    method: "POST", // or 'PUT'
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(sdata),
+  })
+    .then((data) => data.json())
+    .then((response) => {
+      // plot_table(response.data)
+      console.log(response);
+      // plot_scatter(attributes);
+      var data = JSON.parse(response.data);
+      GeoMap(response.geoData, data);
+      plotSunBurst(response.sunburst, data);
+      // var ndata = data.filter(s => s.nationality_name == "Brazil")
+      // BarChart(data, [])
+      PcpChart(response.pcpdata, d3.keys(response.pcpdata[0]));
+      wordCloud(response.wordcloud);
     });
-}
+};
 
+const BarChart = (totaldata, filterdata = []) => {
+  d3.selectAll("#svgbar").remove();
+  bar_tooltip.style("opacity", 0)
 
-const BarChart = (totaldata, filterdata=[]) => {
-    d3.selectAll("#svgbar").remove()
-    console.log(totaldata, filterdata);
+  console.log(totaldata, filterdata);
 
-    var wrapper = d3.select("#barchart")
-    let Twidth = wrapper.node().getBoundingClientRect().width - 50;
-    let Theight = wrapper.node().getBoundingClientRect().height - 100;
+  var wrapper = d3.select("#barchart");
+  let Twidth = wrapper.node().getBoundingClientRect().width - 50;
+  let Theight = wrapper.node().getBoundingClientRect().height - 100;
 
-
-    // set the dimensions and margins of the graph
-    var margin = {top: 20, right: 0, bottom: 0, left: 150},
+  // set the dimensions and margins of the graph
+  var margin = { top: 20, right: 0, bottom: 0, left: 150 },
     width = Twidth - margin.left - margin.right,
     height = Theight - margin.top - margin.bottom;
 
@@ -155,7 +168,24 @@ const BarChart = (totaldata, filterdata=[]) => {
         .on("click", (d) => {
             console.log(d)
             sFeature(d)
-        })
+        }).on("mouseover", mouseOver)
+        .on("mouseleave", mouseLeave)
+        .on("mousemove", mouseOver);
+
+      // rgb(166, 189, 219)
+
+      function mouseOver(d) {
+        bar_tooltip
+                .style("opacity", 1)
+                .style("top", (event.pageY)+"px")
+                .style("left",(event.pageX)+"px")
+                .style("color", "black")
+                .html(d.name + " : " + d.value);
+      };
+
+      function mouseLeave(d) {
+        bar_tooltip.style("opacity", 0);
+      };
 
         // rgb(166, 189, 219)
 
