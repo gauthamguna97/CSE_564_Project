@@ -18,6 +18,7 @@
   }
 
   #sunburst text {
-      color: black;
-      fill: darkslateblue
+    color: black;
+    fill: darkslateblue;
+    font-weight: 600;
   }

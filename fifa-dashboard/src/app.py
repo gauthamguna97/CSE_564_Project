@@ -49,6 +49,10 @@ def hello():
 def hello1():
     return render_template("pcp.html")
 
+@app.route("/radar")
+def hello2():
+    return render_template("radar.html")
+
 @app.route("/fetchdata", methods=["POST"])
 def alldata():
 

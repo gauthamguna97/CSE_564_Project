@@ -159,7 +159,8 @@ return true;
        .attr("y", -15)
        .text(function(d) {
          return Axes[d].name;
-       });
+       })
+       .attr("font-size", "15px");
 
    yBrushes = {}
    g.append("g")

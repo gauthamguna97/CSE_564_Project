@@ -16,6 +16,7 @@ var bar_tooltip = d3
 
 const sFeature = (d) => {
 
+
     const index = selectList.indexOf(d.name);
 
     if (d.name == "Other_leagues") {
@@ -45,8 +46,15 @@ const sFeature = (d) => {
         globalfilter.value = JSON.stringify(selectList);
     }
 
-    d3.selectAll('.barrect').filter(d => selectList.indexOf(d.name) > -1).attr('fill', 'red').style('opacity', 1)
-    d3.selectAll('.barrect').filter(d => !selectList.indexOf(d.name) > -1).attr("fill", "#284b63").style('opacity', 0.5)
+    console.log(d, selectList);
+
+    var filter  = d3.selectAll('.barrect').filter(d => {
+        console.log(selectList.indexOf(d.name));
+        return selectList.indexOf(d.name) > -1
+    }).style('opacity', 1)
+
+    console.log(filter)
+    d3.selectAll('.barrect').filter(d => selectList.indexOf(d.name) < 0).style('opacity', 0.5)
 
 
   fetch("/fetchdata", {
@@ -74,6 +82,18 @@ const sFeature = (d) => {
 const BarChart = (totaldata, filterdata = []) => {
   d3.selectAll("#svgbar").remove();
   bar_tooltip.style("opacity", 0)
+
+  var color = {
+    0 : "#5fad56", /* Defence */
+    1 : "#F97068", /* Attacker */
+    2 : "#66C4CF", /* Mid Fielder */
+    3 : "#F2C14E" /* Goal Keeper */
+  }
+
+  var mycolor = 'rgb(74, 111, 165)'
+  if (globalfilter.player_pos < 4) {
+      mycolor = color[globalfilter.player_pos];
+  }
 
   console.log(totaldata, filterdata);
 
@@ -118,6 +138,7 @@ const BarChart = (totaldata, filterdata = []) => {
         var data = Array.from(map, ([name, value]) => ({ name, value }));
         data.sort((a, b) => b.value - a.value)
         var othercount = 0;
+        otherlist = []
         for (let i=28; i<data.length; i++) {
             otherlist.push(data[i].name);
             othercount += data[i].value;
@@ -184,7 +205,7 @@ const BarChart = (totaldata, filterdata = []) => {
         .attr("width", function(d) { console.log(d.value); return x(d.value); })
         .attr("height", y.bandwidth() )
         .attr("fill", "#8da7be")
-        .attr("opacity", filterdata.length > 0 ? 0.5 : 1)
+        .attr("opacity", (d) => filterdata.length > 0 && selectList.indexOf(d.name) < 0 ? 0.5 : 1)
         .on("click", (d) => {
             console.log(d)
             sFeature(d)
@@ -221,7 +242,7 @@ const BarChart = (totaldata, filterdata = []) => {
             .transition()
             .duration(1000)
             .attr("width", function(d) { console.log(map2.get(d.name), d.name); return x(map2.get(d.name) || 0); })
-            .attr("fill", "rgb(74, 111, 165)")
+            .attr("fill", mycolor)
         }
 }
 // BarChart()

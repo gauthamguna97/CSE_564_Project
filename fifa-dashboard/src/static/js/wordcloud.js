@@ -109,7 +109,7 @@ function wordCloud(data) {
   function draw(words) {
     wordcloud_tooltip.style("opacity", 0);
 
-    word_svg
+    var mydict = word_svg
       .append("g")
       .attr(
         "transform",
@@ -119,6 +119,9 @@ function wordCloud(data) {
       .data(words)
       .enter()
       .append("text")
+      .attr("font-size", "0px")
+      // .transition()
+      // .duration(1000)
       .attr("font-size", function (d) {
         return d.size+"";
       })
@@ -133,6 +136,9 @@ function wordCloud(data) {
       .text(function (d) {
         return d.text;
       })
+
+
+      mydict
       .on("click", handleClick)
       .on("mouseover", mouseOver)
       .on("mouseleave", mouseLeave)

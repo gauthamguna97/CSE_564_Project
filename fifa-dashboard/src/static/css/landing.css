@@ -40,6 +40,9 @@ text {
   fill: white;
 } */
 
+text {
+  transition: font-size 1s;
+}
 
 .mybody h1 {
   font-size: 16px;

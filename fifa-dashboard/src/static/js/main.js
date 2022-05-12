@@ -1,4 +1,4 @@
-console.log = () => {}
+// console.log = () => {}
 var globalfilter = {
     'year': 2022
 }

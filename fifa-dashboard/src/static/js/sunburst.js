@@ -29,6 +29,39 @@ var positions = {
   "RW"  : "Right Winger",
   "LW"  : "Left Winger"
 }
+// var color = {
+//   0 : "#5fad56", /* Defence */
+//   1 : "#F97068", /* Attacker */
+//   2 : "#66C4CF", /* Mid Fielder */
+//   3 : "#F2C14E" /* Goal Keeper */
+// }
+var t_positions = {
+  "CB"  : 0,
+  "RB"  : 0,
+  "LB"  : 0,
+  "RWB" : 0,
+  "LWB" : 0,
+
+  "CM"  : 2,
+  "CDM" : 2,
+  "CAM" : 2,
+  "RM"  : 2,
+  "LM"  : 2,
+
+  "ST"  : 1,
+  "CF"  : 1,
+  "RW"  : 1,
+  "LW"  : 1,
+
+  "Gk" : 3,
+
+  "Attacker": 1,
+  "Mid Fielder": 2,
+  "Goal Keeper": 3,
+  "Defence": 0,
+
+  "Players": 5
+}
 
 var sunburst_tooltip = d3.select("#geoMap")
     .append("div")
@@ -95,6 +128,8 @@ function plotSunBurst(root) {
 
     globalfilter.pos = d.data.name + "";
 
+    globalfilter.player_pos = t_positions[d.data.name];
+
     fetch(url + "/fetchdata", {
       method: "POST", // or 'PUT'
       headers: {
@@ -138,19 +173,25 @@ function plotSunBurst(root) {
 
   const turboColors = ["#23171b","#4a58dd","#2f9df5","#27d7c4","#4df884","#95fb51","#dedd32","#ffa423","#f65f18","#ba2208","#900c00"]
 
-  const color = d3.scaleOrdinal([
-    "#5fad56", /* Defence */
-    "#66C4CF", /* Mid Fielder */
-    "#F97068", /* Attacker */
-    "#F2C14E" /* Goal Keeper */
+  // const color = d3.scaleOrdinal([
+  //   "#5fad56", /* Defence */
+  //   "#66C4CF", /* Mid Fielder */
+  //   "#F97068", /* Attacker */
+  //   "#F2C14E" /* Goal Keeper */
 
-    // var color = {
-    //   0 : "#A2FAA3", /* Defence */
-    //   1 : "#F97068", /* Attacker */
-    //   2 : "#66C4CF", /* Mid Fielder */
-    //   3 : "#F2C14E" /* Goal Keeper */
-    // }
-  ]);
+  //   // var color = {
+  //   //   0 : "#A2FAA3", /* Defence */
+  //   //   1 : "#F97068", /* Attacker */
+  //   //   2 : "#66C4CF", /* Mid Fielder */
+  //   //   3 : "#F2C14E" /* Goal Keeper */
+  //   // }
+  // ]);
+  var color = {
+    0 : "#5fad56", /* Defence */
+    1 : "#F97068", /* Attacker */
+    2 : "#66C4CF", /* Mid Fielder */
+    3 : "#F2C14E" /* Goal Keeper */
+  }
 
   // var color = d3.scaleOrdinal(d3.schemeCategory10);
   const partition = d3.partition();
@@ -226,7 +267,7 @@ function plotSunBurst(root) {
   newSlice
     .append("path")
     .attr("class", "main-arc")
-    .style("fill", (d) => d.data.name === "Players" ? '#4A6FA5' : color((d.children ? d : d.parent).data.name))
+    .style("fill", (d) => d.data.name === "Players" ? '#4A6FA5' : color[t_positions[d.data.name]])
     .attr("d", arc);
 
   newSlice
@@ -256,7 +297,7 @@ function plotSunBurst(root) {
     .attr("xlink:href", (_, i) => `#hiddenArc${i}`)
     .attr("font-size", "11px")
     .text((d) => d.data.name)
-    .style("fill", d => d.data.name === "Players" ? "white" : "tatu");
+    .style("fill", "white");
 
   function mouseover(d) {
     // var sequenceArray = getAncestors(d);
@@ -312,7 +353,7 @@ function plotSunBurst(root) {
         .style("opacity", 1)
         .style("top", (event.pageY)+"px")
         .style("left",(event.pageX)+"px")
-        .html((d.data.name in positions ? positions[d.data.name] : d.data.name) + " : " + formatNumber(d.value));
+        .html((d.data.name in positions ? positions[d.data.name] : d.data.name) + " " + formatNumber(d.value));
   }
 
   function focusOn(d = { x0: 0, x1: 1, y0: 0, y1: 1 }) {
