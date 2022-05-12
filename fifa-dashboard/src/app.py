@@ -49,9 +49,10 @@ def hello1():
 
 @app.route("/fetchdata", methods=["POST"])
 def alldata():
-    main_df = pd.read_csv("static/data/fifa22.csv")
-    df = main_df
+    dicti = {'2015': 'fifa15.csv', '2016': 'fifa16.csv','2017': 'fifa17.csv','2018': 'fifa18.csv', '2019': 'fifa19.csv', '2020': 'fifa20.csv','2021': 'fifa21.csv','2022': 'fifa22.csv'}
     val = request.get_json()
+    main_df = pd.read_csv("static/data/" + dicti[str(val['year'])])
+    df = main_df
 
     if 'value' in val:
         y = json.loads(val['value'])

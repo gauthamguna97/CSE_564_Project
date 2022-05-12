@@ -1,5 +1,6 @@
 var x, y;
 var selectList = [];
+var otherlist = [];
 
 var bar_tooltip = d3
   .select("#geoMap")
@@ -14,34 +15,46 @@ var bar_tooltip = d3
   .style("padding", "5px");
 
 const sFeature = (d) => {
-  const index = selectList.indexOf(d.name);
-  if (index > -1) {
-    selectList.splice(index, 1);
-  } else {
-    selectList.push(d.name);
-  }
-  var sdata = {};
-  if (selectList.length == 0) {
-    sdata = {};
-  } else {
-    sdata = { value: JSON.stringify(selectList) };
-  }
 
-  var values = d3
-    .selectAll("barrect")
-    .filter((d) => selectList.indexOf(d.name) > -1);
-  console.log(values);
-  values.attr("opacity", 1);
-  d3.selectAll("barrect")
-    .filter((d) => !selectList.indexOf(d.name) > -1)
-    .attr("opacity", 0.3);
+    const index = selectList.indexOf(d.name);
+
+    if (d.name == "Other_leagues") {
+        var contains = false;
+        otherlist.forEach(d => {
+            if (selectList.indexOf(d) > -1) {
+                selectList.splice(selectList.indexOf(d), 1)
+                contains = true;
+            }
+        })
+
+        if (!contains) {
+            selectList = [...selectList, ...otherlist]
+        }
+    } else {
+        if (index > -1) {
+            selectList.splice(index, 1);
+        } else {
+            selectList.push(d.name);
+        }
+    }
+    
+    var sdata = {};
+    if (selectList.length == 0) {
+        sdata = {};
+    } else {
+        globalfilter.value = JSON.stringify(selectList);
+    }
+
+    d3.selectAll('.barrect').filter(d => selectList.indexOf(d.name) > -1).attr('fill', 'red').style('opacity', 1)
+    d3.selectAll('.barrect').filter(d => !selectList.indexOf(d.name) > -1).attr("fill", "#284b63").style('opacity', 0.5)
+
 
   fetch("/fetchdata", {
     method: "POST", // or 'PUT'
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(sdata),
+    body: JSON.stringify(globalfilter),
   })
     .then((data) => data.json())
     .then((response) => {
@@ -106,6 +119,7 @@ const BarChart = (totaldata, filterdata = []) => {
         data.sort((a, b) => b.value - a.value)
         var othercount = 0;
         for (let i=28; i<data.length; i++) {
+            otherlist.push(data[i].name);
             othercount += data[i].value;
         }
         data.length = 28;
@@ -121,6 +135,12 @@ const BarChart = (totaldata, filterdata = []) => {
         filterdata.map(node => {
             map2.set(node[value], (map2.get(node[value]) || 0) + 1);
         })
+
+        var sum = 0;
+        otherlist.forEach(v => {
+            sum += map2.get(v)
+        })
+        map2.set("Other_leagues", sum)
 
         console.log(map)
         console.log(map2)
@@ -196,9 +216,9 @@ const BarChart = (totaldata, filterdata = []) => {
             .append("rect")
             .attr("x", () => {console.log(x(0)); return x(0)})
             .attr("y", function(d) { console.log(y(d.name)); return y(d.name); })
-            .attr("width", function(d) { console.log(map2.get(d.name), d.name); return x(map2.get(d.name)); })
+            .attr("width", function(d) { console.log(map2.get(d.name), d.name); return x(map2.get(d.name) || 0); })
             .attr("height", y.bandwidth() )
-            .attr("fill", "black")
+            .attr("fill", "rgb(74, 111, 165)")
         }
 }
 // BarChart()

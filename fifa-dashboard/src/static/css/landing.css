@@ -59,7 +59,7 @@ text {
   display: grid;
   grid-gap: 10px;
   grid-template-columns: 37vw 5vw 25vw 5vw 25vw;
-  grid-template-rows: 45vh 5vh 5vh 35vh;
+  grid-template-rows: 50vh 5vh 5vh 30vh;
   height: 95vh;
   width: 100vw;
   position: fixed;
