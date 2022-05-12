@@ -22,10 +22,17 @@
 // Data and color scale
   var data = d3.map();
 
-
+var geo_tooltip = d3.select("#geoMap")
+  .append("div")
+  .style("opacity", 0)
+  .attr("class", "tooltip")
+  .style("background-color", "white")
+  .style("border", "solid")
+  .style("border-width", "2px")
+  .style("border-radius", "5px")
+  .style("padding", "5px")
 
 var geoData = JSON.parse(document.getElementById("worldData").innerHTML);
-
 
 function GeoMap(frequency, tdata) {
   d3.selectAll("#scalegeo").remove();
@@ -126,10 +133,19 @@ function GeoMap(frequency, tdata) {
     .attr("class", function (d) {
       return "Country";
     })
-    .style("opacity", 1)
-    // .on("mouseover", mouseOver )
-    .on("click", handleclick);
-  // .on("mouseleave", mouseLeave )
+    .style("opacity", 0.8)
+    .on("click", handleclick)
+    .on("mouseover", mouseOver)
+    .on("mouseleave", mouseLeave)
+    .on("mousemove", function(d) {
+      console.log(d)
+      return geo_tooltip
+                .style("top", (event.pageY)+"px")
+                .style("left",(event.pageX)+"px")
+                .html(d.properties.name + "<br>Players: " +
+                (frequency[d.properties.name] === undefined ? "None" : frequency[d.properties.name]));
+    });
+
   const zoom = d3.zoom().scaleExtent([1, 8]).on("zoom", zoomed);
 
   geo_svg.call(zoom);
@@ -142,25 +158,26 @@ function GeoMap(frequency, tdata) {
 }
 
 // Geo()
-
-let mouseOver = function (d, frequency) {
-  // console.log(d.properties.name)
-  // console.log(frequency[d.properties.name])
-
-
-d3.selectAll(".Country")
+let mouseOver = function (d) {
+  d3.selectAll(".Country")
     .filter((d) => !selectList.includes(d.name))
     .transition()
     .duration(200)
     .style("opacity", 0.5);
+
   d3.select(this)
     .transition()
     .duration(200)
     .style("opacity", 1)
     .style("stroke", "white");
+
+  geo_tooltip.style("opacity", 1)
+              .html(d.properties.name + "<br>Players: " +
+                (freq[d.properties.name] === undefined ? "None" : freq[d.properties.name]));
 };
 
 let mouseLeave = function (d) {
   d3.selectAll(".Country").transition().duration(200).style("opacity", 0.8);
   d3.select(this).transition().duration(200).style("stroke", "transparent");
+  geo_tooltip.style("opacity", 0);
 };

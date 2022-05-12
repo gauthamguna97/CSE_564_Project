@@ -13,6 +13,18 @@
   /* display: none */
 }
 
+.tooltip {
+  width: 100px;
+  height: 50px;
+  text-align: center;
+}
+
+.bartooltip {
+  width: 100px;
+  height: 50px;
+  text-align: center;
+}
+
 /* .mybody .domain {
   stroke: white;
 }
@@ -148,3 +160,8 @@ rect.selection {
 #percentage {
   font-size: 2.5em;
 }
+
+/* .tooltip {
+  width: 20px;
+  height: 20px;
+} */
