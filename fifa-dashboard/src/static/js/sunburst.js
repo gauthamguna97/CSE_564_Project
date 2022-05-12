@@ -207,7 +207,7 @@ function plotSunBurst(root) {
     .attr("xlink:href", (_, i) => `#hiddenArc${i}`)
     .attr("font-size", "12px")
     .text((d) => d.data.name)
-    .style("fill", d => d.data.name === "Players" ? "white" : "");
+    .style("fill", d => d.data.name === "Players" ? "white" : "tatu");
 
   function mouseover(d) {
     var sequenceArray = getAncestors(d);

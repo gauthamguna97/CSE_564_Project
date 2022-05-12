@@ -3,9 +3,11 @@
   text-align: center;
   margin: 5px 0px;
 }
+
 .mybody {
   font-family: Sans-serif;
   font-size: 8px;
+  background: #F4F9FE;
   /* background-color: black;
   color: white; */
   /* display: none */
@@ -32,10 +34,7 @@ text {
   vertical-align: middle;
   width: 50%;
   text-align: center;
-}
 
-#header {
-  background: crimson;
 }
 
 #dashboard {
@@ -57,7 +56,8 @@ text {
 #pcp, #sunburst, #geoMap, #barchart, #wordcloud {
   border: 1px solid black;
   border-radius: 10px;
-  box-shadow: 2px 2px 2px grey
+  box-shadow: 2px 2px 2px grey;
+  background: white;
 }
 
 #geoMap {

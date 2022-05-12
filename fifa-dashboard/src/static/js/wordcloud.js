@@ -9,7 +9,19 @@ function wordCloud(data) {
   }
 
   // set the dimensions and margins of the graph
-  var color = d3.scaleOrdinal(d3.schemeCategory10);
+  var color = {
+    0 : '#219ebc', /* Defence*/
+    1 : "#ffd166"/* Attacker*/,
+    2 : '#ef476f',/* Mid*/
+    3 : "#06d6a0",/* Goal*/
+  }
+
+  // var color = d3.scaleOrdinal([
+  //   "#ffd166"/* Attacker*/,
+  //   "#06d6a0",/* Goal*/
+  //   '#ef476f',/* Mid*/
+  //   '#219ebc', /* Defence*/
+  // ]);
 
   var wordcloud = d3.select('#wordcloud')
   let width = wordcloud.node().getBoundingClientRect().width;
@@ -64,7 +76,7 @@ function wordCloud(data) {
         return d.size;
       })
       .style("fill", function (d) {
-        return color(d.pos);
+        return color[d.pos];
       })
       .attr("text-anchor", "middle")
       .style("font-family", "Impact")

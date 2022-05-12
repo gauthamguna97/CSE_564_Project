@@ -38,13 +38,13 @@ function GeoMap(frequency, tdata) {
   var colorScale = d3
   .scaleThreshold()
   .domain([0, max/100, max/40, max/20, max/10, max/5, max/4, max/2])
-  .range(d3.schemeOrRd[9]);
+  .range(d3.schemePuBu[9]);
 
   list.push(max)
 
   var linear = d3.scaleQuantile()
   .domain(list)
-  .range(d3.schemeOrRd[9]);
+  .range(d3.schemePuBu[9]);
 
   var svg1 = d3.select("#geoMap").append("svg").attr("id", 'scalegeo');
 

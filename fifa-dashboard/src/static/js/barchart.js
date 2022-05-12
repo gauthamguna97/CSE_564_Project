@@ -119,7 +119,7 @@ const BarChart = (totaldata, filterdata=[]) => {
             y = d3.scaleBand()
             .range([ 0, height ])
             .domain(data.map(function(d) { return d.name; }))
-            .padding(.3);
+            .padding(.1);
             svg.append("g")
             .call(d3.axisLeft(y))
             .selectAll("text")
@@ -137,11 +137,13 @@ const BarChart = (totaldata, filterdata=[]) => {
         .attr("y", function(d) { console.log(y(d.name)); return y(d.name); })
         .attr("width", function(d) { console.log(d.value); return x(d.value); })
         .attr("height", y.bandwidth() )
-        .attr("fill", "bisque")
+        .attr("fill", "rgb(5, 112, 176)")
         .on("click", (d) => {
             console.log(d)
             sFeature(d)
         })
+
+        // rgb(166, 189, 219)
 
         if (filterdata.length > 0) {
             svg.selectAll("myRect2")
