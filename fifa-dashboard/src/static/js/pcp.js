@@ -1,5 +1,6 @@
 
-var pcaData=[];
+var pcaFData= new Set();
+
 
 // function PcpData(dimen) {
 //   fetch('/pcpdata' , {
@@ -22,7 +23,7 @@ function PcpChart(dataPcp,dim){
   let width = pcp_wrap.node().getBoundingClientRect().width - 100;
   let height = pcp_wrap.node().getBoundingClientRect().height - 100;
 //  d3.select("#svg_pcp1").html("");
-  colors_opt = ["#EE964B","#F95738","#4B4E6D"];
+  colors_opt = ["#0570b0","#F95738","#4B4E6D"];
   var color = d3.scaleOrdinal(colors_opt);
   var margin= {
     top:50,
@@ -53,7 +54,7 @@ function PcpChart(dataPcp,dim){
 
    // Extract the list of dimensions and create a scale for each.
   x.domain(dimensions = dim.filter(function(d) {
-     if(d==="clusters") return false
+     if(d==="sofifa_id") return false
 
 if(d !== "wage_eur"){y[d] = d3.scalePoint()
           .domain(dataPcp.map(function(p) { return p[d]; }).sort())
@@ -156,16 +157,23 @@ return true;
            });
        //set un-brushed foreground line disappear
        foreground.classed("fade", function(d,i) {
-
-           return !actives.every(function(active) {
+            console.log('pcpd', d);
+           var value = !actives.every(function(active) {
                var dim = active.dimension;
                return active.extent[0] <= y[dim](d[dim]) && y[dim](d[dim])  <= active.extent[1];
            });
+
+           if (!value) {
+             pcaFData.add(d['sofifa_id'])
+           }
+           return value;
        });
 
-       console.log('actives', actives);
-
-
+       console.log('actives', pcaFData);
+       
+       setTimeout((e) => {
+        pFeature(Array.from(pcaFData))
+       }, 500)
    }
 
 
@@ -188,4 +196,30 @@ function brushstart() {
  d3.event.sourceEvent.stopPropagation();
 }
 
+}
+
+const pFeature = (slist) => {
+
+  fetch('/fetchdata', {
+      method: 'POST', // or 'PUT'
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ pcpval: JSON.stringify(slist)}),
+  })
+  .then(data => data.json())
+  .then(response => {
+      // plot_table(response.data)
+      console.log(response)
+      // plot_scatter(attributes);
+      var data = JSON.parse(response.data)
+      var maindata = JSON.parse(response.data)
+      GeoMap(response.geoData, data)
+      plotSunBurst(response.sunburst, data)
+      // var ndata = data.filter(s => s.nationality_name == "Brazil")
+      BarChart(maindata, data)
+      // PcpChart(response.pcpdata,d3.keys(response.pcpdata[0]))
+      wordCloud(response.wordcloud)
+      pcaFData = new Set()
+  });
 }

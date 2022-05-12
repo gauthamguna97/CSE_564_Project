@@ -88,7 +88,7 @@ function GeoMap(frequency, tdata) {
       .filter((d) => list.includes(d.properties.name))
       .transition()
       .duration(200)
-      .style("opacity", 0.8);
+      .style("opacity", 1);
 
     d3.selectAll(".Country")
       .filter((d) => !list.includes(d.properties.name))
@@ -123,7 +123,7 @@ function GeoMap(frequency, tdata) {
     .attr("class", function (d) {
       return "Country";
     })
-    .style("opacity", 0.8)
+    .style("opacity", 1)
     // .on("mouseover", mouseOver )
     .on("click", handleclick);
   // .on("mouseleave", mouseLeave )

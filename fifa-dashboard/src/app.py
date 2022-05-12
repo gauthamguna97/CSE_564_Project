@@ -49,8 +49,8 @@ def hello1():
 
 @app.route("/fetchdata", methods=["POST"])
 def alldata():
-    df = pd.read_csv("static/data/fifa22.csv")
-
+    main_df = pd.read_csv("static/data/fifa22.csv")
+    df = main_df
     val = request.get_json()
 
     print(val)
@@ -77,7 +77,12 @@ def alldata():
                 df = df[df['player_position'].isin([val['pos']])]
             else:
                 print("Invalid input passed")
-
+    
+    if 'pcpval' in val:
+        y = json.loads(val['pcpval'])
+        print(y)
+        df = df[df['sofifa_id'].isin(y)]
+    
     print(df.head(5))
 
     #------------ geomap
@@ -149,13 +154,14 @@ def alldata():
 
     data = json.loads(json.dumps(data, default=vars))
 
-    sdf = df[["age_cluster", "rating_cluster", "wage_cluster", "continent"]]
+    sdf = df[["sofifa_id","age_cluster", "rating_cluster", "wage_cluster", "continent"]]
     sdf = sdf.dropna()
 #     df["type"] = np.select(conditions, values)
     return jsonify({
         "sunburst": data,
         "geoData": geodata,
         "data": df.to_json(orient='records'),
+        "mainData": main_df.to_json(orient='records'),
         "wordcloud": wordcloud,
         "pcpdata": sdf.to_dict("records"),
     })

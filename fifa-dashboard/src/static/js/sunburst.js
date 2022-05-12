@@ -77,10 +77,11 @@ function plotSunBurst(root) {
         // var attributes = response.data.map(d => d["Attributes"]);
         // plot_scatter(attributes);
         var data = JSON.parse(response.data);
+        var mainData = JSON.parse(response.mainData);
         GeoMap(response.geoData, data);
         // plotSunBurst(response.sunburst, data)
         // var ndata = data.filter(s => s.nationality_name == "Brazil")
-        BarChart(data, []);
+        BarChart(mainData, data || []);
         PcpChart(response.pcpdata,d3.keys(response.pcpdata[0]))
         wordCloud(response.wordcloud);
         // GeoMap(response.geoData)
