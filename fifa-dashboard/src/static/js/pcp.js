@@ -1,16 +1,23 @@
 
 var pcaFData= new Set();
 
-var wageMap = {
-  1: '0 - 20000',
-  2: '20000 - 50000',
-  3: '50000 - 100000',
-  4: '100001 - 150000',
-  5: '150001 - 200000',
-  6: '200001 - 250000',
-  7: '250001 - 300000',
-  8: '250001 - 300000',
-  9: '300001 - 350000',
+var Axes = {
+  'wage_cluster' : {
+    name: 'Wage Euros',
+    value: ['0-20000','20001-50000','50001-100000','100001-150000','150001-200000','200001-250000','250001-300000','250001-300000','300000-350000']
+  },
+  'rating_cluster' : {
+    name: 'Rating',
+    value: ['0-20','21-30','31-40','41-50','51-60','61-65','66-70','71-75', '76-80', '81-85', '86-90', '91-100']
+  },
+  'age_cluster' : {
+    name: 'Age',
+    value: ['11-15','16-20','21-25', '26-30','31-35','36-40','41-50']
+  },
+  'continent': {
+    name: 'Continent',
+    value: ['Asia', 'Africa', 'Europe', 'North America', 'South America', 'Oceania']
+  }
 }
 
 
@@ -69,7 +76,8 @@ function PcpChart(dataPcp,dim){
      if(d==="sofifa_id") return false
 
 if(d !== "wage_eur"){y[d] = d3.scalePoint()
-          .domain(dataPcp.map(function(p) { return p[d]; }).sort())
+          // .domain(dataPcp.map(function(p) { return p[d]; }).sort())
+          .domain(Axes[d].value)
           .range([height, 0]);}
 else{
 y[d] = d3.scaleLinear()
@@ -142,7 +150,7 @@ return true;
 .duration(2000)
        .attr("y", -15)
        .text(function(d) {
-         return d;
+         return Axes[d].name;
        });
        
    yBrushes = {}
