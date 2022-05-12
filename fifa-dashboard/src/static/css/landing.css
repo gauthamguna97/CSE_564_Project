@@ -6,12 +6,12 @@
 .mybody {
   font-family: Sans-serif;
   font-size: 8px;
-  background-color: black;
-  color: white;
+  /* background-color: black;
+  color: white; */
   /* display: none */
 }
 
-.mybody .domain {
+/* .mybody .domain {
   stroke: white;
 }
 
@@ -21,7 +21,9 @@
 text {
   color: white;
   fill: white;
-}
+} */
+
+
 .mybody h1 {
   font-size: 16px;
   text-align: center;
@@ -53,9 +55,9 @@ text {
 }
 
 #pcp, #sunburst, #geoMap, #barchart, #wordcloud {
-  border: 1px solid white;
+  border: 1px solid black;
   border-radius: 10px;
-  box-shadow: 5px 5px 5px grey
+  box-shadow: 2px 2px 2px grey
 }
 
 #geoMap {

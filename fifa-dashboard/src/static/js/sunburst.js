@@ -101,7 +101,8 @@ function plotSunBurst(root) {
 
   const y = d3.scaleLinear().range([maxRadius * 0.4, maxRadius]);
 
-  const color = d3.scaleOrdinal(d3.schemeCategory10);
+  // const color = d3.scaleOrdinal(["#23DECA", '#5DA8FF', "#FBDA67", 'ef476f']);
+  const color = d3.scaleOrdinal(["#219ebc", '#ef476f', "#ffd166", '#06d6a0']);
 
   const partition = d3.partition();
 
@@ -174,7 +175,7 @@ function plotSunBurst(root) {
   newSlice
     .append("path")
     .attr("class", "main-arc")
-    .style("fill", (d) => color((d.children ? d : d.parent).data.name))
+    .style("fill", (d) => d.data.name === "Players" ? '#284b63' : color((d.children ? d : d.parent).data.name))
     .attr("d", arc);
 
   newSlice
@@ -203,7 +204,8 @@ function plotSunBurst(root) {
     .attr("startOffset", "50%")
     .attr("xlink:href", (_, i) => `#hiddenArc${i}`)
     .attr("font-size", "12px")
-    .text((d) => d.data.name);
+    .text((d) => d.data.name)
+    .style("fill", d => d.data.name === "Players" ? "white" : "");
 
   function mouseover(d) {
     var sequenceArray = getAncestors(d);
