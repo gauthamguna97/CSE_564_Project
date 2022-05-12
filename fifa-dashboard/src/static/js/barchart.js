@@ -210,14 +210,17 @@ const BarChart = (totaldata, filterdata = []) => {
         // rgb(166, 189, 219)
 
         if (filterdata.length > 0) {
-            svg.selectAll("myRect2")
+            var rect2 = svg.selectAll("myRect2")
             .data(data)
             .enter()
             .append("rect")
             .attr("x", () => {console.log(x(0)); return x(0)})
             .attr("y", function(d) { console.log(y(d.name)); return y(d.name); })
+            .attr("width", 0)
+            .attr("height", y.bandwidth())
+            .transition()
+            .duration(1000)
             .attr("width", function(d) { console.log(map2.get(d.name), d.name); return x(map2.get(d.name) || 0); })
-            .attr("height", y.bandwidth() )
             .attr("fill", "rgb(74, 111, 165)")
         }
 }

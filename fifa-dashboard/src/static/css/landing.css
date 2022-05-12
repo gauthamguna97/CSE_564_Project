@@ -1,9 +1,12 @@
 .mybody .globalplayers {
-  font-size: 24px;
+  font-size: 25px;
+  font-weight: 600;
   text-align: center;
   margin: 5px 0px;
+  height: 100%;
+  vertical-align: middle;
+  padding-top: 4px;
 }
-
 .mybody {
   font-family: Sans-serif;
   font-size: 8px;
@@ -40,6 +43,7 @@ text {
 
 .mybody h1 {
   font-size: 16px;
+  color: darkslateblue;
   text-align: center;
   margin: 0;
   display: inline-block;

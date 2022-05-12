@@ -5,10 +5,15 @@ var globalfilter = {
 
 window.onload = () => {
     console.log("window loaded")
-    loadData();
+    loadData(2022);
 }
 
-const loadData = () => {
+const loadData = (year) => {
+
+    if (!year) return;
+    globalfilter = {
+        'year': window.year || year || 2022
+    }
     var url = 'http://127.0.0.1:5005'
     fetch(url + '/fetchdata', {
         method: 'POST', // or 'PUT'

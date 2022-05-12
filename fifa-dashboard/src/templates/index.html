@@ -12887,11 +12887,9 @@
     <script>
       function handleclick(e) {
         console.log(e.target.dataset.debtAmount)
-        globalfilter = {
-          'year': e.target.dataset.debtAmount
-        }
         document.getElementById('loader').style.display = 'block'
-        loadData()
+        loadData(e.target.dataset.debtAmount)
+        e.stopPropagation()
       }
     </script>
   </head>

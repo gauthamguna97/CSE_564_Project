@@ -12,7 +12,7 @@ function wordCloud(data) {
 
   for (var i = 0; i < myWords.length; i++) {
     if (max != min)
-      myWords[i].count = Math.pow(((myWords[i].count - min) / (max - min)) , 5) * 30;
+      myWords[i].count = Math.pow(((myWords[i].count - min) / (max - min)) , 2) * 30;
     else
       myWords[i].count = 1 * 20;
     //Do something
