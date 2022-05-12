@@ -24,8 +24,8 @@
 
 var geo_tooltip = d3.select("#geoMap")
   .append("div")
-  // .style("opacity", 0)
-  .attr("class", "geotooltip")
+  .style("opacity", 0)
+  .attr("class", "tooltip")
   .style("background-color", "white")
   .style("border", "solid")
   .style("border-width", "2px")
@@ -138,8 +138,8 @@ function GeoMap(frequency, tdata) {
     .on("mousemove", function(d) {
       console.log(d)
       return geo_tooltip
-                .style("top",  (d3.mouse(this)[1])-50 + "px")
-                .style("left", (d3.mouse(this)[0]) + "px")
+                .style("top", (event.pageY)+"px")
+                .style("left",(event.pageX)+"px")
                 .html(d.properties.name + "<br>Players: " +
                 (frequency[d.properties.name] === undefined ? "None" : frequency[d.properties.name]));
     });
@@ -177,5 +177,5 @@ let mouseOver = function (d) {
 let mouseLeave = function (d) {
   d3.selectAll(".Country").transition().duration(200).style("opacity", 0.8);
   d3.select(this).transition().duration(200).style("stroke", "transparent");
-  // geo_tooltip.style("opacity", 0);
+  geo_tooltip.style("opacity", 0);
 };
