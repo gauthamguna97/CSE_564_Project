@@ -1,24 +1,15 @@
 function wordCloud(data) {
   // List of words
   var myWords = data.slice(0, 100);
-  // console.log(myWords)
   d3.selectAll("#wordcloudplot").remove()
 
-
   for (var i = 0; i < myWords.length; i++) {
-    console.log(myWords[i]);
     myWords[i].count = (myWords.length - i) * 0.5;
     //Do something
   }
 
-  console.log(myWords[0])
-  console.log(myWords[99])
-
-  // myWords = [{word: "Running", size: "10"}, {word: "Surfing", size: "20"}, {word: "Climbing", size: "50"}, {word: "Kiting", size: "30"}, {word: "Sailing", size: "20"}, {word: "Snowboarding", size: "60"} ];
-
-  // console.log(myWords)
-
   // set the dimensions and margins of the graph
+  var color = d3.scaleOrdinal(d3.schemeCategory10);
 
   var wordcloud = d3.select('#wordcloud')
   let width = wordcloud.node().getBoundingClientRect().width;
@@ -43,8 +34,7 @@ function wordCloud(data) {
     .size([width, height])
     .words(
       myWords.map(function (d) {
-        // console.log(d)
-        return { text: d.name, size: d.count };
+        return { text: d.name, size: d.count, pos: d.pos };
       })
     )
     .padding(5) //space between words
@@ -52,7 +42,6 @@ function wordCloud(data) {
       return ~~(Math.random() * 2) * 90;
     })
     .fontSize(function (d) {
-      // console.log(d)
       return d.size+"";
     }) // font size of words
     .on("end", draw);
@@ -72,10 +61,11 @@ function wordCloud(data) {
       .enter()
       .append("text")
       .attr("font-size", function (d) {
-        console.log(d);
         return d.size;
       })
-      .style("fill", "#69b3a2")
+      .style("fill", function (d) {
+        return color(d.pos);
+      })
       .attr("text-anchor", "middle")
       .style("font-family", "Impact")
       .attr("transform", function (d) {
@@ -83,6 +73,11 @@ function wordCloud(data) {
       })
       .text(function (d) {
         return d.text;
-      });
+      })
+      .on("click", handleClick);
+  }
+
+  function handleClick(d) {
+    console.log(d)
   }
 }

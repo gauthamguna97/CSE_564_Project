@@ -26,6 +26,12 @@ class Count:
         self.name = name
         self.count = count
 
+class WordFreq:
+    def __init__(self, name, count, pos):
+        self.name = name;
+        self.count = count;
+        self.pos = pos;
+
 
 Defense = {"CB", "LB", "LWB", "RB", "RWB"}
 Mid_Fielder = {"CAM", "CDM", "CM", "LM", "RM"}
@@ -129,10 +135,10 @@ def alldata():
     data = Type("Players", PlayerList)
 
     WordList = list()
-    wordsdf = df[["short_name", "overall"]]
+    wordsdf = df[["short_name", "overall", "pos_type"]]
 
     for index, row in wordsdf.iterrows():
-        WordList.append(Count(row["short_name"], row["overall"]))
+        WordList.append(WordFreq(row["short_name"], row["overall"], row["pos_type"]))
 
     wordcloud = json.loads(json.dumps(WordList, default=vars))
 

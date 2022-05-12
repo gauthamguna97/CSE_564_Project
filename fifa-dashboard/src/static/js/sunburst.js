@@ -82,6 +82,7 @@ function plotSunBurst(root) {
         // var ndata = data.filter(s => s.nationality_name == "Brazil")
         BarChart(data, []);
         PcpChart(response.pcpdata,d3.keys(response.pcpdata[0]))
+        wordCloud(response.wordcloud);
         // GeoMap(response.geoData)
       });
   };
@@ -104,6 +105,7 @@ function plotSunBurst(root) {
   // const color = d3.scaleOrdinal(["#23DECA", '#5DA8FF', "#FBDA67", 'ef476f']);
   const color = d3.scaleOrdinal(["#219ebc", '#ef476f', "#ffd166", '#06d6a0']);
 
+  // var color = d3.scaleOrdinal(d3.schemeCategory10);
   const partition = d3.partition();
 
   const arc = d3
