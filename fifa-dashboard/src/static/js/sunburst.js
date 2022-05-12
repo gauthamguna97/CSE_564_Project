@@ -72,7 +72,7 @@ function plotSunBurst(root) {
     var sequenceArray = getAncestors(d);
 
     var percentage = d.value;
-    var percentageString = "<p>" + percentage + "<br/>" + (d.data.name == "Players" ? d.data.name : d.data.name in positions ? positions[d.data.name] : d.data.name) + "</p>";
+    var percentageString = "<p>Total : " + percentage + "<br/>" + (d.data.name == "Players" ? d.data.name : d.data.name in positions ? positions[d.data.name] : d.data.name) + "</p>";
 
     if (percentage < 0.1) {
       percentageString = "< 0.1%";
@@ -254,7 +254,7 @@ function plotSunBurst(root) {
     .append("textPath")
     .attr("startOffset", "50%")
     .attr("xlink:href", (_, i) => `#hiddenArc${i}`)
-    .attr("font-size", "12px")
+    .attr("font-size", "11px")
     .text((d) => d.data.name)
     .style("fill", d => d.data.name === "Players" ? "white" : "tatu");
 

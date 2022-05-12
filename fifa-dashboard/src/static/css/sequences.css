@@ -43,8 +43,14 @@
 
 #explanation {
   position: absolute;
-  top: 21vh;
-  left: 49vw;
+  top: 24vh;
+  left: 48vw;
   width: 140px;
+  height: 60px;
   text-align: center;
+}
+
+#percentage {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 14px;
 }

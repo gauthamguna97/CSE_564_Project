@@ -161,8 +161,13 @@ rect.selection {
   font-size: 2.5em;
 }
 
-#percentage {
-  font-size: 2.5em;
+.legendradar {
+  font-family: 'Raleway', sans-serif;
+  fill: #333333;
+}
+
+.tooltipradar {
+  fill: #333333;
 }
 
 /* .tooltip {
