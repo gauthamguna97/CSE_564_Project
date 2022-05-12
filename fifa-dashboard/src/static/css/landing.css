@@ -103,8 +103,6 @@ text {
   grid-row: 2 / span 3;
 }
 
-
-
 /* #visdashboard * {
   border: 1px solid black
 } */
@@ -176,6 +174,7 @@ rect.selection {
 #resetButton {
   width: 56px;
   /* display: inline-block; */
+  background-color: #483C8A;
   transition-duration: 0.4s;
   height: 32px;
   text-align: center;
