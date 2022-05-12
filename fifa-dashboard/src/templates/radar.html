@@ -47,8 +47,11 @@
     <div class="radarChart"></div>
 
     <script src="../static/js/radar.js"></script>
-    <script src="../static/js/main.js"></script>
     <script>
+      var globalfilter = {
+        year: 2022,
+        name: "Piqué",
+      };
       /* Radar chart design created by Nadieh Bremer - VisualCinnamon.com */
 
       //////////////////////////////////////////////////////////////
@@ -89,8 +92,8 @@
       };
 
       function radar_data() {
-    	var url = 'http://127.0.0.1:5005'
-        fetch(url + "/fetchdata", {
+        var url = "http://127.0.0.1:5005";
+        fetch(url + "/get_radar_data", {
           method: "POST", // or 'PUT'
           headers: {
             "Content-Type": "application/json",

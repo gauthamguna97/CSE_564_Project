@@ -8,8 +8,14 @@ window.onload = () => {
     loadData(2022);
 }
 
-const loadData = (year) => {
+function reloadPage() {
+    globalfilter = {
+        'year': 2022
+    }
+    loadData(2022)
+}
 
+const loadData = (year) => {
     if (!year) return;
     globalfilter = {
         'year': window.year || year || 2022
