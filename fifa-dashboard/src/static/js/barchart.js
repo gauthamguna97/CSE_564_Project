@@ -10,7 +10,7 @@ const sFeature = (d) => {
     } else {
         selectList.push(d.name);
     }
-    
+
     fetch('/fetchdata', {
         method: 'POST', // or 'PUT'
         headers: {
@@ -28,7 +28,7 @@ const sFeature = (d) => {
         plotSunBurst(response.sunburst, data)
         // var ndata = data.filter(s => s.nationality_name == "Brazil")
         // BarChart(data, [])
-        PcpChart(response.pcpdata,d3.keys(response.pcpdata[0]))  
+        PcpChart(response.pcpdata,d3.keys(response.pcpdata[0]))
         wordCloud(response.wordcloud)
     });
 }
@@ -41,7 +41,7 @@ const BarChart = (totaldata, filterdata=[]) => {
     var wrapper = d3.select("#barchart")
     let Twidth = wrapper.node().getBoundingClientRect().width - 50;
     let Theight = wrapper.node().getBoundingClientRect().height - 100;
-    
+
 
     // set the dimensions and margins of the graph
     var margin = {top: 20, right: 0, bottom: 0, left: 150},
@@ -64,7 +64,7 @@ const BarChart = (totaldata, filterdata=[]) => {
         .append("g")
         .attr("transform",
             "translate(" + margin.left + "," + margin.top + ")");
-        
+
         // skipsetting = false;
     // }
 
@@ -126,7 +126,7 @@ const BarChart = (totaldata, filterdata=[]) => {
             .attr("fill", "white");
         // }
 
-        
+
         // if (!skipsetting)
         //Bars
         svg.selectAll("myRect")

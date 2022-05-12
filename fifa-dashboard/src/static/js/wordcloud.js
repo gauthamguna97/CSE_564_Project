@@ -9,11 +9,25 @@ function wordCloud(data) {
   }
 
   // set the dimensions and margins of the graph
+    // var color = {
+    //   0 : "#26a96c", /* Defence*/
+    //   1 : "#e83f6f", /* Attacker*/
+    //   2 : "#4d9de0", /* Mid*/
+    //   3 : "#ffbf00", /* Goal*/
+    // }
+
+  // var color = {
+  //   0 : "#27d7c4", /* Defence */
+  //   1 : "#f65f18", /* Attacker */
+  //   2 : "#4a58dd", /* Mid Fielder */
+  //   3 : "#dedd32" /* Goal Keeper */
+  // }
+
   var color = {
-    0 : '#219ebc', /* Defence*/
-    1 : "#ffd166"/* Attacker*/,
-    2 : '#ef476f',/* Mid*/
-    3 : "#06d6a0",/* Goal*/
+    0 : "#A2FAA3", /* Defence */
+    1 : "#F97068", /* Attacker */
+    2 : "#66C4CF", /* Mid Fielder */
+    3 : "#F2C14E" /* Goal Keeper */
   }
 
   // var color = d3.scaleOrdinal([

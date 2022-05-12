@@ -103,7 +103,22 @@ function plotSunBurst(root) {
   const y = d3.scaleLinear().range([maxRadius * 0.4, maxRadius]);
 
   // const color = d3.scaleOrdinal(["#23DECA", '#5DA8FF', "#FBDA67", 'ef476f']);
-  const color = d3.scaleOrdinal(["#219ebc", '#ef476f', "#ffd166", '#06d6a0']);
+
+  const turboColors = ["#23171b","#4a58dd","#2f9df5","#27d7c4","#4df884","#95fb51","#dedd32","#ffa423","#f65f18","#ba2208","#900c00"]
+
+  const color = d3.scaleOrdinal([
+    "#A2FAA3", /* Defence */
+    "#66C4CF", /* Mid Fielder */
+    "#F97068", /* Attacker */
+    "#F2C14E" /* Goal Keeper */
+
+    // var color = {
+    //   0 : "#A2FAA3", /* Defence */
+    //   1 : "#F97068", /* Attacker */
+    //   2 : "#66C4CF", /* Mid Fielder */
+    //   3 : "#F2C14E" /* Goal Keeper */
+    // }
+  ]);
 
   // var color = d3.scaleOrdinal(d3.schemeCategory10);
   const partition = d3.partition();
@@ -177,7 +192,7 @@ function plotSunBurst(root) {
   newSlice
     .append("path")
     .attr("class", "main-arc")
-    .style("fill", (d) => d.data.name === "Players" ? '#284b63' : color((d.children ? d : d.parent).data.name))
+    .style("fill", (d) => d.data.name === "Players" ? '#4A6FA5' : color((d.children ? d : d.parent).data.name))
     .attr("d", arc);
 
   newSlice
