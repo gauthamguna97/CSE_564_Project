@@ -89,6 +89,7 @@ function GeoMap(frequency, tdata) {
         plotSunBurst(response.sunburst, data);
         BarChart(maindata, data);
         PcpChart(response.pcpdata,d3.keys(response.pcpdata[0]))
+        wordCloud(response.wordcloud);
       });
     // BarChart(tdata, ndata);
 

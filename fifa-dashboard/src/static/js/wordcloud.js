@@ -1,12 +1,31 @@
 function wordCloud(data) {
   // List of words
-  var myWords = data.slice(0, 100);
+  var myWords = data
   d3.selectAll("#wordcloudplot").remove()
 
+  var min = d3.min(myWords.map( (d) => d.count));
+  var max = d3.max(myWords.map( (d) => d.count));
+
+  console.log(myWords)
+
+  myWords.length = Math.min(100, myWords.length)
+
   for (var i = 0; i < myWords.length; i++) {
-    myWords[i].count = (myWords.length - i) * 0.5;
+    if (max != min)
+      myWords[i].count = Math.pow(((myWords[i].count - min) / (max - min)) , 5) * 30;
+    else
+      myWords[i].count = 1 * 20;
     //Do something
   }
+
+  console.log(myWords)
+
+
+  // var fontSizeScale = d3.scalePow().exponent(5).domain([0,1]).range([myWords[0].count, myWords[myWords.length-1].count]);
+
+  // console.log(fontSizeScale(50))
+
+  // var maxSize = d3.max(myWords, function (d) {return d.size;});
 
   // set the dimensions and margins of the graph
     // var color = {
@@ -79,6 +98,7 @@ function wordCloud(data) {
       return ~~(Math.random() * 2) * 90;
     })
     .fontSize(function (d) {
+      // return fontSizeScale(d.size/maxSize);
       return d.size+"";
     }) // font size of words
     .on("end", draw);
@@ -100,7 +120,7 @@ function wordCloud(data) {
       .enter()
       .append("text")
       .attr("font-size", function (d) {
-        return d.size;
+        return d.size+"";
       })
       .style("fill", function (d) {
         return color[d.pos];

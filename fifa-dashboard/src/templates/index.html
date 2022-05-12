@@ -12890,6 +12890,7 @@
         globalfilter = {
           'year': e.target.dataset.debtAmount
         }
+        document.getElementById('loader').style.display = 'block'
         loadData()
       }
     </script>
@@ -12928,7 +12929,7 @@
             <label for="6" data-debt-amount="2020"></label>
             <input type="radio" name="debt-amount" id="7" value="7" required>
             <label for="7" data-debt-amount="2021"></label>
-            <input type="radio" name="debt-amount" id="8" value="8" required>
+            <input type="radio" name="debt-amount" id="8" value="8" checked="checked" required>
             <label for="8" data-debt-amount="2022"></label>
             <div id="debt-amount-pos"></div>
           </div>
