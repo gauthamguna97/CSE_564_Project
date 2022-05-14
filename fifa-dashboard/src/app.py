@@ -45,10 +45,6 @@ dicti = {'2015': 'fifa15.csv', '2016': 'fifa16.csv','2017': 'fifa17.csv','2018':
 def hello():
     return render_template("index.html")
 
-@app.route("/radar")
-def radar_html():
-    return render_template("radar.html")
-
 # @app.route('/get_radar_data', methods = ['POST'])
 # def radar():
 #     val = request.get_json()
@@ -146,7 +142,7 @@ def alldata():
     if 'pcpval' in val:
         y = json.loads(val['pcpval'])
         df = df[df['sofifa_id'].isin(y)]
-        
+
     if 'wfilter' in val:
         y = json.loads(val['wfilter'])
         df = df[df["short_name"].isin(y)]
