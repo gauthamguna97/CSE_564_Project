@@ -9,7 +9,7 @@
   let height = geo_svg.node().getBoundingClientRect().height;
   var freq = {};
   var list = [];
-  var selectList = [];
+  var selectglist = [];
 
 // Map and projection
   var path = d3.geoPath();
@@ -157,7 +157,7 @@ function GeoMap(frequency, tdata) {
 // Geo()
 let mouseOver = function (d) {
   // d3.selectAll(".Country")
-  //   .filter((d) => !selectList.includes(d.name))
+  //   .filter((d) => !selectglist.includes(d.name))
   //   .transition()
   //   .duration(200)
   //   .style("opacity", 0.5);

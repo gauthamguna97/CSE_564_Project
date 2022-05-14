@@ -8,6 +8,8 @@ const loadData = (year) => {
     globalfilter = {
         'year': window.year || year || 2022
     }
+    selectList = []
+    selectglist = []
     var url = 'http://127.0.0.1:5005'
     fetch(url + '/fetchdata', {
         method: 'POST', // or 'PUT'
