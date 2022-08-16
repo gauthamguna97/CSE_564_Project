@@ -2,7 +2,9 @@
 FIFA DASHBOARD
 
 To Run -
+
 cd fifa-dashboard/src
+
 python3 app.py
 
 To view the plots -
